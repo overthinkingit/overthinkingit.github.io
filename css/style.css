@@ -1,0 +1,631 @@
+/* ============================================================
+   Design Tokens
+   ============================================================ */
+:root {
+  --bg:              #faf7f2;
+  --bg-secondary:    #f3ede3;
+  --text:            #2c2418;
+  --text-muted:      #7a6a58;
+  --text-faint:      #b0a090;
+  --accent:          #6b4f2a;
+  --accent-light:    #9b7440;
+  --pali-color:      #8a6a2e;
+  --pali-underline:  #c4973a;
+  --pali-active-bg:  rgba(196, 151, 58, 0.13);
+  --card-bg:         #f3ede3;
+  --card-border:     #ddd0bc;
+  --nav-border:      #e5ddd0;
+  --rule:            #e0d6c8;
+
+  --font-body:   'Lora', Georgia, 'Times New Roman', serif;
+  --font-ui:     'Inter', system-ui, -apple-system, sans-serif;
+
+  --content-width:   660px;
+  --margin-width:    290px;
+  --gap:             48px;
+  --max-page:        1160px;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--accent);
+}
+
+h1 { font-size: 2rem;    margin-bottom: 0.5em; }
+h2 { font-size: 1.45rem; margin-bottom: 0.5em; margin-top: 2em; }
+h3 { font-size: 1.15rem; margin-bottom: 0.4em; margin-top: 1.75em; }
+
+p {
+  margin-bottom: 1.4em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+blockquote {
+  border-left: 3px solid var(--pali-underline);
+  margin: 1.75em 0;
+  padding: 0.6em 0 0.6em 1.5em;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.5em;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-family: var(--font-ui);
+  color: var(--text-faint);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5em 0;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.site-nav {
+  border-bottom: 1px solid var(--nav-border);
+  background-color: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-nav__inner {
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.site-nav__brand {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.site-nav__brand:hover {
+  color: var(--accent-light);
+}
+
+.site-nav__links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.site-nav__links a {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.site-nav__links a:hover {
+  color: var(--accent);
+}
+
+.site-nav__links a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--pali-underline);
+}
+
+/* ============================================================
+   Page Grid (three-column layout)
+   ============================================================ */
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, var(--content-width)) var(--margin-width);
+  gap: 0 var(--gap);
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: 0 2rem;
+  align-items: start;
+}
+
+.page-spacer {
+  /* Left balancing column — intentionally empty */
+}
+
+.page-content {
+  padding: 3rem 0 6rem;
+  min-width: 0;
+}
+
+.margin-notes {
+  position: relative;
+  padding-top: 3rem;
+  /* tall enough to hold all notes */
+  min-height: 100%;
+}
+
+/* ============================================================
+   Page Header (within content area)
+   ============================================================ */
+.page-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-header__eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.6em;
+}
+
+.page-header__title {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+  color: var(--accent);
+}
+
+.page-header__subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Page Figure (featured image)
+   ============================================================ */
+.page-figure {
+  margin: 0 0 2.5rem;
+  padding: 0;
+}
+
+.page-figure__img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+}
+
+/* ============================================================
+   Pali Word Spans
+   ============================================================ */
+.pali {
+  color: var(--pali-color);
+  text-decoration: underline dotted var(--pali-underline);
+  text-underline-offset: 3px;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0 1px;
+  transition: background-color 0.15s, color 0.15s;
+  /* Distinguish from links: no solid underline, warm amber color, not blue */
+}
+
+.pali:hover {
+  background-color: var(--pali-active-bg);
+  text-decoration-style: solid;
+}
+
+.pali--active {
+  background-color: var(--pali-active-bg);
+  text-decoration-style: solid;
+  color: var(--accent);
+}
+
+/* ============================================================
+   Margin Note Cards
+   ============================================================ */
+.margin-note {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--pali-underline);
+  border-radius: 4px;
+  padding: 0.9rem 1rem 0.9rem 1.1rem;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  animation: noteIn 0.18s ease-out;
+  /* slight shadow for lift */
+  box-shadow: 0 1px 4px rgba(44, 36, 24, 0.07);
+}
+
+@keyframes noteIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.margin-note__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-faint);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 2px;
+  font-family: var(--font-ui);
+  transition: color 0.12s;
+}
+
+.margin-note__close:hover {
+  color: var(--text);
+}
+
+.margin-note__pali {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--pali-color);
+  margin-bottom: 0.15em;
+  padding-right: 1.2rem; /* clear the close button */
+}
+
+.margin-note__en {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.55em;
+}
+
+.margin-note__text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Inline Note (mobile fallback)
+   ============================================================ */
+.inline-note {
+  display: block;
+  background-color: var(--card-bg);
+  border-left: 3px solid var(--pali-underline);
+  border-radius: 0 4px 4px 0;
+  padding: 0.8rem 1rem;
+  margin: 0.75em 0 1em;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  animation: noteIn 0.18s ease-out;
+}
+
+.inline-note__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4em;
+}
+
+.inline-note__pali {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--pali-color);
+}
+
+.inline-note__en {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.inline-note__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-faint);
+  font-size: 1rem;
+  font-family: var(--font-ui);
+  padding: 0;
+  line-height: 1;
+}
+
+.inline-note__close:hover {
+  color: var(--text);
+}
+
+.inline-note__text {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   Feature Image (full-width image below page header)
+   ============================================================ */
+.feature-image {
+  margin: 0 0 2.5rem;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  /* Subtle warm shadow to lift it off the page */
+  box-shadow: 0 2px 12px rgba(44, 36, 24, 0.1);
+}
+
+.feature-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Preserve the original aspect ratio — no cropping */
+}
+
+/* ============================================================
+   Section Index / Card Grid (for section landing pages)
+   ============================================================ */
+.section-intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.entry-list {
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.entry-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  padding: 1.4rem 0;
+}
+
+.entry-list__thumb {
+  flex-shrink: 0;
+  width: 160px;
+  height: 120px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.entry-list__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.entry-list__thumb:hover img {
+  opacity: 0.85;
+}
+
+.entry-list__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.entry-list__item h3 {
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-size: 1.05rem;
+}
+
+.entry-list__item h3 a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.entry-list__item h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.entry-list__meta {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  margin-bottom: 0.4em;
+}
+
+.entry-list__excerpt {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ============================================================
+   Entry navigation (prev / next on concept/sutta pages)
+   ============================================================ */
+.entry-nav {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.entry-nav__next {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.entry-nav__next a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.entry-nav__next a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ============================================================
+   Page header breadcrumb link
+   ============================================================ */
+.page-header__eyebrow a {
+  color: var(--text-faint);
+  text-decoration: none;
+  font-family: var(--font-ui);
+}
+
+.page-header__eyebrow a:hover {
+  color: var(--accent);
+}
+
+.placeholder-notice {
+  background-color: var(--bg-secondary);
+  border: 1px dashed var(--card-border);
+  border-radius: 4px;
+  padding: 1.5rem 1.75rem;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--nav-border);
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.site-footer__inner {
+  max-width: var(--max-page);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+/* ============================================================
+   Listing page layout (category index pages — no margin notes)
+   ============================================================ */
+.page-grid--listing {
+  grid-template-columns: 1fr minmax(0, calc(var(--content-width) + var(--margin-width) + var(--gap)));
+}
+
+.page-grid--listing .margin-notes {
+  display: none;
+}
+
+/* ============================================================
+   Responsive — collapse to single column on narrow screens
+   ============================================================ */
+@media (max-width: 960px) {
+  .page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-spacer {
+    display: none;
+  }
+
+  .margin-notes {
+    display: none;
+  }
+
+  .page-content {
+    padding: 2rem 0 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  .site-nav__inner {
+    padding: 0 1.25rem;
+  }
+
+  .site-nav__links {
+    gap: 1.25rem;
+  }
+
+  .page-grid {
+    padding: 0 1.25rem;
+  }
+
+  .page-header__title {
+    font-size: 1.75rem;
+  }
+}
