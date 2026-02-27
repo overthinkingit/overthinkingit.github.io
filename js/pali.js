@@ -342,6 +342,12 @@ const PALI_DICT = {
     en: "unwholesome / unskillful",
     explanation:
       "Actions, intentions, and states rooted in greed (lobha), hatred (dosa), or delusion (moha). These are the three roots of unskilful action — not sins in a theological sense but causes that generate suffering for oneself and others. The Kālāma Sutta uses kusala and akusala as the practical criterion for evaluating teachings: does this lead to harm, to suffering, to reproach? Or to benefit and well-being?"
+  },
+
+  āsavā: {
+    en: "ferments / taints / outflows",
+    explanation:
+      "The word derives from a root meaning to flow or to seep — often rendered 'ferments,' 'taints,' or 'outflows,' evoking a liquid that has been working its way through the mind for a very long time. The texts typically list three or four: the ferment of sensuality (kāmāsava), the ferment of becoming (bhavāsava), the ferment of views (diṭṭhāsava), and the ferment of ignorance (avijjāsava). Unlike tanhā, which is the immediate surge of craving at the moment of contact, the āsavās are deeper — the background contamination that keeps the whole system running. The destruction of the āsavās (āsavakkhaya) is the Pali definition of arahantship: a mind fully liberated is one from which nothing seeps."
   }
 };
 
@@ -350,6 +356,7 @@ const PALI_DICT = {
    ============================================================ */
 
 const MOBILE_BREAKPOINT = 960;
+const NOTE_GAP = 8; // px between stacked margin note cards
 
 function isMobile() {
   return window.innerWidth <= MOBILE_BREAKPOINT;
@@ -411,7 +418,7 @@ function showMarginNote(span, word, def) {
   const marginTop  = getDocumentTop(marginEl);
   const topOffset  = Math.max(0, spanTop - marginTop);
 
-  note.style.top = topOffset + "px";
+  note.dataset.idealTop = topOffset;
 
   note.innerHTML = buildNoteHTML(word, def, span.dataset.en);
 
@@ -420,6 +427,7 @@ function showMarginNote(span, word, def) {
   });
 
   marginEl.appendChild(note);
+  relayoutMarginNotes(marginEl);
 
   span.dataset.noteId = noteId;
   span.classList.add("pali--active");
@@ -462,6 +470,46 @@ function showInlineNote(span, word, def) {
 }
 
 /* ============================================================
+   Margin Note Relayout — resolves overlaps after every open/close
+   ============================================================ */
+
+function relayoutMarginNotes(marginEl) {
+  if (!marginEl) return;
+  const notes = Array.from(marginEl.querySelectorAll(".margin-note"));
+  if (!notes.length) return;
+  notes.sort((a, b) => parseFloat(a.dataset.idealTop) - parseFloat(b.dataset.idealTop));
+
+  // Forward pass: push notes down to avoid overlap
+  let cursor = 0;
+  const tops = notes.map(note => {
+    const ideal = parseFloat(note.dataset.idealTop) || 0;
+    const top   = Math.max(ideal, cursor);
+    cursor = top + note.offsetHeight + NOTE_GAP;
+    return top;
+  });
+
+  // Backward pass: pull notes up if they overflow below the article
+  const pageContent = document.querySelector(".page-content");
+  const maxBottom   = pageContent ? pageContent.offsetHeight : Infinity;
+  for (let i = notes.length - 1; i >= 0; i--) {
+    const capped = maxBottom - notes[i].offsetHeight;
+    if (tops[i] > capped) {
+      tops[i] = Math.max(0, capped);
+    }
+    if (i > 0) {
+      const maxForPrev = tops[i] - notes[i - 1].offsetHeight - NOTE_GAP;
+      if (tops[i - 1] > maxForPrev) {
+        tops[i - 1] = Math.max(0, maxForPrev);
+      }
+    }
+  }
+
+  notes.forEach((note, i) => {
+    note.style.top = tops[i] + "px";
+  });
+}
+
+/* ============================================================
    Close Helpers
    ============================================================ */
 
@@ -477,7 +525,10 @@ function closeNoteById(noteId, span) {
     note.style.opacity   = "0";
     note.style.transform = "translateX(-4px)";
     note.style.transition = "opacity 0.12s, transform 0.12s";
-    setTimeout(() => note.remove(), 130);
+    setTimeout(() => {
+      note.remove();
+      relayoutMarginNotes(document.querySelector(".margin-notes"));
+    }, 130);
   }
   delete span.dataset.noteId;
   span.classList.remove("pali--active");
