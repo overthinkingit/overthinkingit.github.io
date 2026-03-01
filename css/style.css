@@ -453,17 +453,19 @@ hr {
 
 .entry-list__thumb {
   flex-shrink: 0;
-  width: 160px;
-  height: 120px;
+  width: 200px;
+  aspect-ratio: 4 / 3;
   border-radius: 4px;
   overflow: hidden;
   display: block;
+  transform: translateZ(0);
 }
 
 .entry-list__thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: opacity 0.2s;
 }
@@ -580,7 +582,7 @@ hr {
    Listing page layout (category index pages — no margin notes)
    ============================================================ */
 .page-grid--listing {
-  grid-template-columns: 1fr minmax(0, calc(var(--content-width) + var(--margin-width) + var(--gap)));
+  grid-template-columns: 1fr minmax(0, 760px) 1fr;
 }
 
 .page-grid--listing .margin-notes {

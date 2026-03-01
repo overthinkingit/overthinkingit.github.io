@@ -1,0 +1,39 @@
+---
+layout: layouts/listing.njk
+title: Suttas
+description: Selected suttas from the Pali canon — structure, content, and what they ask of the reader.
+---
+
+<header class="page-header">
+  <p class="page-header__eyebrow">Suttas</p>
+  <h1 class="page-header__title">Discourses</h1>
+  <p class="page-header__subtitle">
+    Specific texts from the Pali canon — what they contain, how they work,
+    what they ask of the reader.
+  </p>
+</header>
+
+<p class="section-intro">
+  A sutta is not a theorem to be proved or a story to be enjoyed — it is, in most cases,
+  a record of a teaching delivered to a particular person in a particular situation.
+  Reading them well means holding that context in mind.
+</p>
+
+<ul class="entry-list">
+
+  {% for item in collections.suttas %}
+  <li class="entry-list__item">
+    {% if item.data.thumb %}
+    <a class="entry-list__thumb" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+      <img src="/images/thumbs/{{ item.data.thumb }}" alt="">
+    </a>
+    {% endif %}
+    <div class="entry-list__body">
+      <p class="entry-list__meta">{{ item.data.meta }}</p>
+      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+      <p class="entry-list__excerpt">{{ item.data.excerpt }}</p>
+    </div>
+  </li>
+  {% endfor %}
+
+</ul>

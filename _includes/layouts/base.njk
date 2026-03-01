@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — overthinking it{% else %}overthinking it{% endif %}</title>
+  <meta name="description" content="{{ description | default('Notes on the Buddhist tradition — core concepts, suttas, and reflections.') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2150553');
+</script>
+<!-- End MailerLite Universal -->
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__brand">overthinking it</a>
+      <ul class="site-nav__links">
+        <li><a href="/"{% if navSection == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="/concepts/"{% if navSection == 'concepts' %} aria-current="page"{% endif %}>Concepts</a></li>
+        <li><a href="/suttas/"{% if navSection == 'suttas' %} aria-current="page"{% endif %}>Suttas</a></li>
+        <li><a href="/thoughts/"{% if navSection == 'thoughts' %} aria-current="page"{% endif %}>Thoughts</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  {{ content | safe }}
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>overthinking it</span>
+      <a class="ml-onclick-form" href="javascript:void(0)" onclick="ml('show', 'Oz50p0', true)">Notify me of updates</a>
+    </div>
+  </footer>
+
+  <script src="/js/pali.js"></script>
+</body>
+</html>

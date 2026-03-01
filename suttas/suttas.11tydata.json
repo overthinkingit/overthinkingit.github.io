@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/article.njk",
+  "section": "suttas",
+  "navSection": "suttas"
+}

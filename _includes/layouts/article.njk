@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="page-grid">
+  <div class="page-spacer" aria-hidden="true"></div>
+
+  <main class="page-content">
+
+    <header class="page-header">
+      <p class="page-header__eyebrow">
+        <a href="/{{ section }}/">{{ section | capitalize }}</a>{% if reference %} · {{ reference }}{% endif %}
+      </p>
+      <h1 class="page-header__title">{{ title }}</h1>
+      <p class="page-header__subtitle">{{ subtitle }}</p>
+    </header>
+
+    {% if image %}
+    <figure class="page-figure">
+      <img src="/images/{{ image }}" alt="{{ imageAlt }}" class="page-figure__img">
+    </figure>
+    {% endif %}
+
+    {{ content | safe }}
+
+    <nav class="entry-nav" aria-label="Article navigation">
+      {% if next %}
+      <p class="entry-nav__next">
+        Next: <a href="{{ next.url }}">{{ next.title }} →</a>
+      </p>
+      {% else %}
+      <p class="entry-nav__next">
+        <a href="/{{ section }}/">← Back to all {{ section }}</a>
+      </p>
+      {% endif %}
+    </nav>
+
+  </main>
+
+  <aside class="margin-notes" aria-label="Pali annotations"></aside>
+</div>

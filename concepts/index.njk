@@ -1,0 +1,36 @@
+---
+layout: layouts/listing.njk
+title: Concepts
+description: Core concepts from the Pali Buddhist tradition, examined one at a time.
+---
+
+<header class="page-header">
+  <p class="page-header__eyebrow">Concepts</p>
+  <h1 class="page-header__title">Core Ideas</h1>
+  <p class="page-header__subtitle">The building blocks of the teaching, taken one at a time.</p>
+</header>
+
+<p class="section-intro">
+  Each entry here examines a single concept — its Pali term, its range of meanings,
+  how it functions in practice, and where the standard English translations tend to
+  mislead. The goal is not exhaustive scholarship but working clarity.
+</p>
+
+<ul class="entry-list">
+
+  {% for item in collections.concepts %}
+  <li class="entry-list__item">
+    {% if item.data.thumb %}
+    <a class="entry-list__thumb" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+      <img src="/images/thumbs/{{ item.data.thumb }}" alt="">
+    </a>
+    {% endif %}
+    <div class="entry-list__body">
+      <p class="entry-list__meta">{{ item.data.meta }}</p>
+      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+      <p class="entry-list__excerpt">{{ item.data.excerpt }}</p>
+    </div>
+  </li>
+  {% endfor %}
+
+</ul>
