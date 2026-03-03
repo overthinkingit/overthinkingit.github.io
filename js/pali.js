@@ -35,7 +35,7 @@ const PALI_DICT = {
   nibbāna: {
     en: "liberation / extinguishing",
     explanation:
-      "The word derives from a root meaning to extinguish or cool. Nibbāna is the cessation of craving, aversion, and delusion — not the annihilation of a person, but the ending of the fire that drives suffering. In this life it is experienced as a profound peace; beyond this life the texts are deliberately reticent, since the question assumes the very self the path has uprooted."
+      "The word is read in two ways. The more common rendering traces it to a root meaning to extinguish or cool — the blowing out of the fires of craving, aversion, and delusion. An alternative reading, well-attested in Pali grammar, takes it as nir + vāna (bond or cord): unbinding. Both illuminate something real: nibbāna is the ending of the fire, and the falling away of what bound the mind to that fire. In this life it is experienced as a profound peace; beyond this life the texts are deliberately reticent, since the question assumes the very self the path has uprooted."
   },
 
   dhamma: {
@@ -173,7 +173,7 @@ const PALI_DICT = {
   jhāna: {
     en: "meditative absorption",
     explanation:
-      "A state of deep, unified mental concentration characterised by specific qualities that arise in a defined sequence. The word is related to a root meaning 'to burn' or 'to contemplate.' The four rūpa-jhānas represent an increasing refinement of mental unification; the formless absorptions go further still. In the Pali canon, jhāna is the samādhi component of the path — not a mystical escape but the stillness in which wisdom does its work."
+      "A state of deep, unified mental concentration characterised by specific qualities that arise in a defined sequence. The word derives from Sanskrit dhyāna, from a root meaning to contemplate or meditate. The four rūpa-jhānas represent an increasing refinement of mental unification; the formless absorptions go further still. In the Pali canon, jhāna is the samādhi component of the path — not a mystical escape but the stillness in which wisdom does its work."
   },
 
   vitakka: {
@@ -348,8 +348,100 @@ const PALI_DICT = {
     en: "ferments / taints / outflows",
     explanation:
       "Also written āsava (stem form) or āsavas/āsavās (plural). The word derives from a root meaning to flow or to seep — often rendered 'ferments,' 'taints,' or 'outflows,' evoking a liquid that has been working its way through the mind for a very long time. The texts typically list three or four: the ferment of sensuality (kāmāsava), the ferment of becoming (bhavāsava), the ferment of views (diṭṭhāsava), and the ferment of ignorance (avijjāsava). Unlike tanhā, which is the immediate surge of craving at the moment of contact, the āsavās are deeper — the background contamination that keeps the whole system running. The destruction of the āsavās (āsavakkhaya) is the Pali definition of arahantship: a mind fully liberated is one from which nothing seeps."
+  },
+
+  /* ---- Self and its absence ---- */
+
+  attā: {
+    en: "self",
+    explanation:
+      "The Pali equivalent of the Sanskrit ātman. In the Indian philosophical context, a genuine attā would need to be permanent, fully under one's control, and the ultimate subject of experience. The Buddha's strategy in the Anattalakkhaṇa Sutta is not to argue philosophically against such a self but to apply three questions to each of the five aggregates in turn: is this permanent or impermanent? If impermanent, is it satisfying or dukkha? If it is dukkha and subject to change, can it rightly be called 'mine, what I am, my self'? The answer, in each case, is no. Attā matters precisely because anattā is not the claim that there is nothing — it is the claim that what we find on careful examination does not meet the criteria for being a self."
+  },
+
+  /* ---- The three unwholesome roots ---- */
+
+  lobha: {
+    en: "greed / lust",
+    explanation:
+      "The first of the three unwholesome roots (akusala-mūla). Lobha is the quality of reaching toward, wanting more, clinging to what is pleasant. It ranges from obvious greed to the subtler forms of preference and possessiveness that colour everyday experience. In the analysis of kamma, actions rooted in lobha tend to generate suffering for oneself and others. Lobha is the root that craving (tanhā) and clinging (upadāna) express in their various forms."
+  },
+
+  dosa: {
+    en: "hatred / aversion",
+    explanation:
+      "The second unwholesome root. Dosa is the quality of pushing away — from obvious hatred and anger to milder forms of irritation, resistance, and ill-will. It arises in response to what is unpleasant, what threatens, or what simply doesn't go the way we want. Alongside lobha (greed) and moha (delusion), dosa is one of the three fires whose extinguishing is, in the fire simile, what nibbāna means. Mettā — the cultivation of goodwill — is the direct antidote to dosa."
+  },
+
+  moha: {
+    en: "delusion / confusion",
+    explanation:
+      "The third unwholesome root, and in some sense the most fundamental. Moha is not mere ignorance in the sense of lacking information — it is the active misapprehension of how things are: taking the impermanent as permanent, the unsatisfactory as capable of delivering lasting satisfaction, and the selfless as a self. Avijjā (the first link of dependent origination) is moha operating at the most basic level. The other two roots — lobha and dosa — arise on the basis of moha: one reaches for what delusion has misread as satisfying, and one pushes away what delusion has misread as threatening."
+  },
+
+  /* ---- Papañca and its roots ---- */
+
+  papañca: {
+    en: "proliferation / elaboration",
+    explanation:
+      "Papañca is what the mind does after contact: it takes the bare data of experience and builds, elaborates, and proliferates — turning a moment of perception into a story, a history, a self who experienced it, a world in which that self lives. The Madhupiṇḍika Sutta (MN 18) traces the chain precisely: contact → feeling → perception → thought → and then the flood of papañca-saññā-saṅkhā, the perceptions and categories born from proliferation. Papañca is not thinking per se; it is the compulsive spinning that takes thinking beyond the object and populates the mind with what is not actually present. The three roots of papañca are tanhā (craving), māna (conceit), and diṭṭhi (views)."
+  },
+
+  māna: {
+    en: "conceit / the comparing mind",
+    explanation:
+      "Māna is the habit of measuring oneself against others — 'I am better than,' 'I am worse than,' 'I am equal to.' It is subtler than ordinary pride; it operates even in self-deprecation. The Pali tradition identifies nine forms of māna based on combinations of three perceived standings (superior, equal, inferior) and three actual standings. What they share is the reference point: a self being compared. Māna is one of the three roots of papañca and one of the ten fetters (saṃyojana) that bind the mind to continued becoming. It is notably the last fetter to be fully abandoned — present even in the non-returner, released only at arahantship."
+  },
+
+  diṭṭhi: {
+    en: "views / opinions",
+    explanation:
+      "A diṭṭhi is a view — a fixed position, a taken-for-granted frame through which experience is interpreted. The word covers both wrong views (micchā-diṭṭhi) and right view (sammā-diṭṭhi), though in unqualified usage it more often points to problematic views: the view of self (sakkāya-diṭṭhi), eternalist views (sassata-diṭṭhi), annihilationist views (uccheda-diṭṭhi). Diṭṭhi is the third root of papañca: once craving and conceit have taken hold, views consolidate and defend the territory they have staked out. The danger of views is not that they are wrong opinions to be replaced with correct ones — it is that clinging to any view tends to contract and rigidify the mind. Even right view, the path teaches, is ultimately to be let go."
+  },
+
+  /* ---- Key contemplative terms ---- */
+
+  tathāgata: {
+    en: "the Thus-Gone / the Thus-Come",
+    explanation:
+      "The term the Buddha most consistently used to refer to himself, and one of the most deliberately ambiguous in the canon. It can be parsed as tathā-gata (thus-gone) or tathā-āgata (thus-come). Both readings point away from a fixed personal identity: the Tathāgata is one who has gone in accordance with truth, or come in accordance with truth — not a substantial self with a traceable origin and destination. When asked what happens to the Tathāgata after death, the Buddha consistently declined to answer, on the grounds that the question assumes a self that the teaching has shown to be unfindable."
+  },
+
+  vipassanā: {
+    en: "insight / clear seeing",
+    explanation:
+      "Vipassanā literally means seeing clearly or seeing into — vi (in a special way, through) + passati (to see). In practice it refers to the quality of direct seeing that penetrates the three characteristics: impermanence, unsatisfactoriness, and non-self. It is distinguished from samatha (calm/tranquility), which stills the mind, though the two work together — samatha provides the stillness in which vipassanā can operate without distortion. In the Pali tradition, vipassanā is not a particular technique but a quality that can be cultivated through any of several approaches, including satipaṭṭhāna. The insight that arises is not intellectual; it is the direct seeing of what is actually present, which changes what the mind reaches for and what it recoils from."
+  },
+
+  citta: {
+    en: "mind / heart",
+    explanation:
+      "Citta is one of several Pali words for mind, distinguished from viññāṇa (consciousness) and mano (the mental sense base). It carries the sense of mind as the whole quality of awareness in a given moment — its tone, its orientation, its degree of clarity or contraction. The Satipaṭṭhāna Sutta's third foundation is contemplation of citta: noticing whether the mind is with or without lust, with or without hatred, contracted or scattered, exalted or not, liberated or not. Citta is also the object of the third tetrad of āṇāpānasati, where the practitioner trains to gladden, unify, and release the mind through the breath."
+  },
+
+  phassa: {
+    en: "contact / sense-contact",
+    explanation:
+      "The sixth link of dependent origination, arising from the six sense bases and their objects. Phassa is the meeting point of sense organ, sense object, and consciousness — the moment of contact that initiates experience. It is crucial in the Madhupiṇḍika Sutta's account of how papañca arises: it is at phassa that the chain begins which, if mindfulness is absent, leads from contact through feeling, perception, and thought all the way to the flood of proliferation. Phassa is not itself problematic — contact is simply how experience works. What matters is what happens next: whether vedanā leads to craving, or is met with clear seeing."
+  },
+
+  virāga: {
+    en: "dispassion / fading away",
+    explanation:
+      "Virāga combines two senses that reinforce each other. As 'fading away,' it describes what happens to phenomena seen clearly — the charge they carry, the compulsive quality of wanting or aversion, fades as the mind sees them for what they are. As 'dispassion,' it names the quality that arises in a mind that has seen clearly: not indifference, but the natural cooling of compulsive reaching when what was sought has been recognised as unable to deliver what was sought from it. In the fourth tetrad of āṇāpānasati and across the Satipaṭṭhāna contemplations, virāga is one of the key qualities the practitioner contemplates alongside cessation and relinquishment."
+  },
+
+  nirodha: {
+    en: "cessation / ending",
+    explanation:
+      "Nirodha is the third noble truth: the cessation of craving is the cessation of suffering. The word means stopping, or the bringing to an end of a process. In the twelve-link chain of dependent origination, nirodha runs in the reverse direction — each link ceases when the preceding one ceases, all the way back to the cessation of avijjā. In the fourth tetrad of āṇāpānasati, the practitioner contemplates cessation directly — not as a concept but as an observable quality in the arising and passing of phenomena. Nirodha is not annihilation; it is the ending of a process that was being sustained by ignorance and craving."
   }
+
 };
+
+// Aliases: alternate forms used in markup that map to canonical entries
+PALI_DICT["saṅkhārā"]    = PALI_DICT["saṅkhāra"];      // plural form in ti-lakkhana
+PALI_DICT["bojjhaṅga"]   = PALI_DICT["bojjhaṅgā"];     // stem form in anapanasati
+PALI_DICT["sammādiṭṭhi"] = PALI_DICT["sammā-diṭṭhi"];  // unhyphenated form in sammaditthi
 
 /* ============================================================
    Core Logic
