@@ -410,6 +410,35 @@ hr {
 }
 
 /* ============================================================
+   Quote Display (featured blockquote on quote entry pages)
+   ============================================================ */
+.quote-display {
+  border-left: 4px solid var(--pali-underline);
+  background-color: var(--bg-secondary);
+  border-radius: 0 6px 6px 0;
+  margin: 0 0 2.5rem;
+  padding: 1.5rem 1.75rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+.quote-display p {
+  margin-bottom: 0;
+}
+
+.quote-display cite {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  font-size: 0.82rem;
+  font-family: var(--font-ui);
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
    Feature Image (full-width image below page header)
    ============================================================ */
 .feature-image {

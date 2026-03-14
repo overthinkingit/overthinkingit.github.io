@@ -1,0 +1,33 @@
+---
+layout: layouts/listing.njk
+title: Quotes
+description: Passages worth sitting with — from teachers, texts, and unexpected places.
+navSection: quotes
+---
+
+<header class="page-header">
+  <p class="page-header__eyebrow">Quotes</p>
+  <h1 class="page-header__title">Passages worth sitting with</h1>
+  <p class="page-header__subtitle">
+    Lines that stopped me, or that keep returning.
+  </p>
+</header>
+
+<p class="section-intro">
+  Not annotations or arguments — just passages I find worth returning to,
+  with a note on why they landed.
+</p>
+
+<ul class="entry-list">
+
+  {% for item in collections.quotes %}
+  <li class="entry-list__item">
+    <div class="entry-list__body">
+      <p class="entry-list__meta">{{ item.data.meta }}</p>
+      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+      <p class="entry-list__excerpt">{{ item.data.excerpt }}</p>
+    </div>
+  </li>
+  {% endfor %}
+
+</ul>

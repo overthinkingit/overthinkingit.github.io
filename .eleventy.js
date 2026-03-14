@@ -15,6 +15,12 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
   });
 
+  eleventyConfig.addCollection("quotes", function(api) {
+    return api.getFilteredByGlob("quotes/*.njk")
+      .filter(item => item.fileSlug !== "index")
+      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+  });
+
   return {
     dir: {
       input: ".",
