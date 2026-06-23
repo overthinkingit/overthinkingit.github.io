@@ -326,6 +326,78 @@ const PALI_DICT = {
       "The five hindrances are mental qualities that obstruct both meditation and wisdom: sensual desire (kāmacchanda), ill-will (byāpāda), sloth-and-torpor (thīna-middha), restlessness-and-worry (uddhacca-kukkucca), and doubt (vicikicchā). They are called hindrances because they obstruct the arising of the jhānas and the clarity of insight. The Satipaṭṭhāna Sutta addresses them as one of the five categories in the fourth foundation (dhammā)."
   },
 
+  kāmacchanda: {
+    en: "sensual desire",
+    explanation:
+      "The first of the five hindrances: desire for sense pleasures — the pull toward pleasant sights, sounds, tastes, touches, and the mental pleasures associated with them. Kāmacchanda is not ordinary preference but the compulsive quality that hijacks attention and tints the mind, making clear seeing difficult. The canonical simile compares it to dye stirred into water."
+  },
+
+  byāpāda: {
+    en: "ill-will",
+    explanation:
+      "The second of the five hindrances: aversion, irritation, resentment, or anger — the mind pushing away from what is unpleasant. Byāpāda does not require dramatic rage; a quiet 'I don't want this' is enough to obstruct clarity. The simile is water brought to a boil. The traditional antidote is the cultivation of mettā (loving-kindness)."
+  },
+
+  "thīna-middha": {
+    en: "sloth and torpor",
+    explanation:
+      "The third of the five hindrances, pairing thīna (sloth of mind — heaviness, reluctance to engage) with middha (torpor of body — drowsiness, foggy semi-consciousness). Together they produce the experience of fading out during practice. The simile is water covered with algae: still on the surface but nothing can be seen through it. Thīna-middha is often mistaken for calm but is the absence of alertness, not unified stillness."
+  },
+
+  thīna: {
+    en: "sloth",
+    explanation:
+      "Sloth of mind — one half of the thīna-middha hindrance. Thīna is a heaviness and reluctance to apply effort, a sense that engagement is too much. It is distinguished from physical tiredness: a rested body can still carry a sluggish, disinclined mind."
+  },
+
+  middha: {
+    en: "torpor",
+    explanation:
+      "Torpor of body — one half of the thīna-middha hindrance. Middha is drowsiness, a foggy semi-conscious state in which the mind drifts without clear awareness. Together with thīna (sloth of mind), it constitutes the third nīvaraṇa."
+  },
+
+  "uddhacca-kukkucca": {
+    en: "restlessness and worry",
+    explanation:
+      "The fourth of the five hindrances, pairing uddhacca (restlessness of mind — inability to settle, scanning and jumping) with kukkucca (worry or remorse — circling over what was done or left undone). The simile is water stirred by wind. This is perhaps the most familiar hindrance for contemporary practitioners — the busy mind that will not stop even when the body is still."
+  },
+
+  uddhacca: {
+    en: "restlessness",
+    explanation:
+      "Restlessness of mind — one half of the uddhacca-kukkucca hindrance. Uddhacca is the inability to settle, the mind jumping from object to object, scanning and planning, unable to rest on anything for more than a moment."
+  },
+
+  kukkucca: {
+    en: "worry / remorse",
+    explanation:
+      "Worry or remorse — one half of the uddhacca-kukkucca hindrance. Kukkucca is the mind circling over what was done or left undone, anxious about the future or caught in self-reproach. It differs from useful reflection in that it does not resolve anything — it simply agitates."
+  },
+
+  vicikicchā: {
+    en: "doubt",
+    explanation:
+      "The fifth of the five hindrances: paralysing uncertainty that undermines practice itself — doubt about the teaching, the method, or one's own capacity. Vicikicchā is distinguished from healthy inquiry: inquiry investigates; doubt stalls. The simile is muddy water in which nothing can be seen clearly."
+  },
+
+  asubha: {
+    en: "unattractiveness",
+    explanation:
+      "Contemplation of the unattractive or unlovely aspects of the body and sense objects — a traditional antidote to kāmacchanda (sensual desire). Asubha is not morbid fixation but a counterweight to the mind's habit of idealising sense pleasures, helping to restore balance when desire has tinted perception."
+  },
+
+  viriya: {
+    en: "energy / effort",
+    explanation:
+      "One of the seven factors of awakening (bojjhaṅgā) and a traditional antidote to thīna-middha (sloth and torpor). Viriya is not forced striving but a wakeful, engaged quality — the energy to apply oneself to what matters. It arises in the sequence of awakening factors from investigation (dhamma-vicaya) and supports the development of rapture (pīti)."
+  },
+
+  passaddhi: {
+    en: "tranquility",
+    explanation:
+      "Tranquility or calm — one of the seven factors of awakening (bojjhaṅgā) and a traditional antidote to uddhacca-kukkucca (restlessness and worry). Passaddhi is the settling of body and mind, a quality of ease that allows the mind to rest on its object without agitation. It follows from rapture (pīti) in the awakening sequence."
+  },
+
   lakkhaṇa: {
     en: "characteristic / mark",
     explanation:
