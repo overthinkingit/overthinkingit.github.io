@@ -31,7 +31,7 @@ permalink: /guide/
       <span class="guide-item__annotation">{{ item.annotation | safe }}</span>
     </li>
     {% else %}
-    <li class="guide-item" data-guide-url="{{ item.url }}">
+    <li class="guide-item{% if item.optional %} guide-item--optional{% endif %}" data-guide-url="{{ item.url }}">
       <button
         type="button"
         class="guide-item__check"
@@ -39,6 +39,7 @@ permalink: /guide/
         aria-pressed="false"
       ></button>
       <a class="guide-item__link" href="{{ item.url }}">
+        {% if item.optional %}<span class="guide-item__badge">Optional</span>{% endif %}
         {% if item.meta %}<span class="guide-item__meta">{{ item.meta }}</span>{% endif %}
         <span class="guide-item__title">{{ item.title }}</span>
         <span class="guide-item__annotation">{{ item.annotation | safe }}</span>

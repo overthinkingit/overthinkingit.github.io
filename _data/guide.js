@@ -6,7 +6,7 @@ module.exports = {
     "A suggested trajectory through these pages — where to begin, what to prioritize, and which ideas are worth waiting for.",
   intro: [
     "The teachings are interconnected — almost everything points at everything else — which makes it hard to know where to start and what to work on first. This page is a suggested trajectory through the material on this site. It is not only for beginners. Later stages hold pointers for concepts that tend to confuse until there is some practice underneath them.",
-    'Items marked <span class="guide-item__badge">Planned</span> are not written yet. They sit in the sequence so the intended arc is visible — a roadmap as much as a reading list.',
+    'Items marked <span class="guide-item__badge">Optional</span> are worth reading only if they match what you intend to do. Items marked <span class="guide-item__badge">Planned</span> are not written yet. They sit in the sequence so the intended arc is visible — a roadmap as much as a reading list.',
   ],
   closing:
     'The <a href="/thoughts/">Thoughts</a> and <a href="/quotes/">Quotes</a> sections are companions to any stage — longer reflections and passages worth sitting with. Nothing here needs to be finished before the next thing begins. The path spirals.',
@@ -44,9 +44,11 @@ module.exports = {
         },
         {
           title: "How to read a sutta",
-          planned: true,
+          url: "/concepts/how-to-read-a-sutta/",
+          meta: "Reading practice",
+          optional: true,
           annotation:
-            "Formulaic repetition, canonical structure, and what to skim without missing the point.",
+            "Only if you intend to read the texts directly — formulaic repetition, canonical structure, and what to skim without missing the point.",
         },
       ],
     },
@@ -79,7 +81,8 @@ module.exports = {
         },
         {
           title: "The three trainings — sīla, samādhi, paññā",
-          planned: true,
+          url: "/concepts/three-trainings/",
+          meta: "The three trainings",
           annotation:
             "How ethics, unification, and wisdom deepen one another as an integrated whole.",
         },
@@ -140,7 +143,8 @@ module.exports = {
         },
         {
           title: "When a hindrance dissolves",
-          planned: true,
+          url: "/concepts/when-a-hindrance-dissolves/",
+          meta: "Working with hindrances",
           annotation:
             "What shifts when desire, ill-will, dullness, restlessness, or doubt loosens — and what not to do next.",
         },

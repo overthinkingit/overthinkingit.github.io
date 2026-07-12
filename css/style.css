@@ -1228,6 +1228,14 @@ a:hover .pali {
   width: fit-content;
 }
 
+.guide-item--optional .guide-item__badge {
+  margin-bottom: 0.35em;
+}
+
+.guide-item--optional .guide-item__meta {
+  margin-top: 0.1em;
+}
+
 .guide-item--done .guide-item__title {
   color: var(--text-muted);
 }

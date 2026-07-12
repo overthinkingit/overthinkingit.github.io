@@ -39,7 +39,7 @@ Append new concept pages at `order: 10+` in guide-stage sequence. Discovery is p
 ### Assets (applies to every planned page)
 Every existing thumb under `images/thumbs/` is already claimed by a live page. **Each new page needs a new hero image + matching thumb** (or a deliberate reuse decision) **before handoff** — do not ship with `image: TBD.jpg` / `thumb: TBD.jpg`.
 
-Claimed thumbs today: `angles`, `breath`, `flame`, `foundation`, `heart`, `how-to-sit`, `impermanence`, `jhanas`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `second-arrow`, `shore`, `solace`, `suffering`, `view`.
+Claimed thumbs today: `angles`, `breath`, `flame`, `foundation`, `heart`, `how-to-read-a-sutta`, `how-to-sit`, `impermanence`, `jhanas`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `second-arrow`, `shore`, `solace`, `suffering`, `three-trainings`, `view`, `when-a-hindrance-dissolves`.
 
 **Visual style** — match the house look documented in [`.cursor/skills/content-voice/SKILL.md`](.cursor/skills/content-voice/SKILL.md) (Hero imagery):
 
@@ -56,6 +56,7 @@ Claimed thumbs today: `angles`, `breath`, `flame`, `foundation`, `heart`, `how-t
 4. Add any new Pali terms to `js/pali.js` if introduced.
 5. Draft and audit against the content-voice skill.
 6. Run `npm run build` and confirm `/guide/` shows the item as a live link (no Planned badge). Source edits to `_data/guide.js` do not appear in `_site` until build. If a long-lived `eleventy --serve` still shows Planned after `guide.js` is correct, restart the serve process (`.eleventy.js` clears `_data` require cache on each build to reduce this).
+7. Confirm the new page URL appears in `/sitemap.xml` (built from `collections.all` via [`sitemap.njk`](sitemap.njk) — no hand-edit unless the page sets `noindex` or is excluded from collections).
 
 ### Suggested writing order
 Default: guide stages 1 → 5 (the intended reading arc).
@@ -65,7 +66,7 @@ Default: guide stages 1 → 5 (the intended reading arc).
 2. How to read a sutta
 3. The three trainings — sīla, samādhi, paññā
 
-Already shipped from this list: second arrow; how to sit.
+Already shipped from this list: second arrow; how to sit; when a hindrance dissolves.
 ---
 
 ## Section placement — decided
@@ -649,6 +650,7 @@ excerpt: What ritual and devotion can do that analysis cannot — and how to mee
 - [ ] Claimed thumbs list in this file updated
 - [ ] `_data/guide.js` — add `url`, remove `planned: true`
 - [ ] `npm run build` — confirm `/guide/` shows a live link, not Planned (restart `eleventy --serve` if the badge is still stale)
+- [ ] `/sitemap.xml` includes the new page URL (auto from `sitemap.njk` / `collections.all`)
 - [ ] `related:` / backlinks from this plan
 - [ ] New Pali terms in `js/pali.js` if needed
 - [ ] Voice skill audit mode on the draft
