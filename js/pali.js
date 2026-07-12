@@ -50,6 +50,54 @@ const PALI_DICT = {
       "The first of the three trainings (sīla, samādhi, paññā). Sīla is the foundation of the path — not a moralistic burden but the recognition that harm causes suffering, and restraint creates the internal quietude in which meditation and wisdom become possible. For laypeople it is typically expressed as the five precepts; for monastics, the Vinaya."
   },
 
+  "pañca-sīla": {
+    en: "five precepts",
+    explanation:
+      "The five training rules that form the basic ethical practice for lay followers: abstaining from killing, from taking what is not given, from sexual misconduct, from false speech, and from intoxicants that cause heedlessness. They are sikkhāpada — steps of training — not commandments. Their practical function is to reduce the fuel of remorse and agitation so that stillness and clear seeing have room to develop."
+  },
+
+  sikkhāpada: {
+    en: "training rule",
+    explanation:
+      "A step or rule of training — the traditional term for a precept. The language matters: a sikkhāpada is undertaken as aspiration and practice, not as a divine decree. When one is broken, the work is honesty and repair, not purity theater or self-punishment."
+  },
+
+  pāṇātipāta: {
+    en: "killing living beings",
+    explanation:
+      "The first of the five precepts: abstaining from the destruction of life. The dramatic case is rare for most practitioners; the lived edge includes subtler forms of harm and the intention that leans toward cruelty or indifference. The training asks whether one is moving toward harm or away from it."
+  },
+
+  adinnādāna: {
+    en: "taking what is not given",
+    explanation:
+      "The second precept: abstaining from theft. Beyond obvious stealing, the edge includes exploiting loopholes, claiming what was not offered, and treating others' time, credit, or attention as available because one wants it. The training is honesty about what has and has not been given."
+  },
+
+  "kāmesu micchācāra": {
+    en: "sexual misconduct",
+    explanation:
+      "The third precept: restraint around harm in the intimate field — betrayal, coercion, and using another person without regard for the cost. It is not a blanket condemnation of desire. The canonical concern is harm and heedlessness; communities draw practical lines differently, which is worth holding lightly."
+  },
+
+  musāvāda: {
+    en: "false speech",
+    explanation:
+      "The fourth precept: abstaining from lying. Subtler edges include half-truths that protect an image, exaggeration that wins an argument, and silence that lets a falsehood stand. Speech is where many people meet the precepts daily — a mind keeping track of what it claimed rarely settles easily."
+  },
+
+  surāmeraya: {
+    en: "intoxicants",
+    explanation:
+      "Shorthand for the fifth precept's territory: drinks and substances that lead to pamāda (heedlessness). The point is not a purity contest about never tasting wine, but whether one regularly chooses states that blunt discernment and make the other precepts — and meditation — harder to keep."
+  },
+
+  pamāda: {
+    en: "heedlessness",
+    explanation:
+      "Carelessness; the dimming of discernment and vigilance. Pamāda is the opposite of appamāda (heedfulness), which the canon praises as the ground of all wholesome qualities. Intoxicants are named in the fifth precept because they reliably produce pamāda — states in which restraint and clear seeing thin out."
+  },
+
   samādhi: {
     en: "unification / stillness",
     explanation:

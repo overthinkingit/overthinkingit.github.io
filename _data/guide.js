@@ -88,7 +88,8 @@ module.exports = {
         },
         {
           title: "The five precepts as a starting ethical practice",
-          planned: true,
+          url: "/concepts/five-precepts/",
+          meta: "Ethical practice",
           annotation:
             "Concrete commitments that create the conditions for stillness and clear seeing.",
         },
