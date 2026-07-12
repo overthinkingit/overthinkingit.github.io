@@ -2,8 +2,72 @@
 layout: layouts/base.njk
 ---
 
+{% set sectionItems = collections[section] %}
+{% set prevItem = sectionItems | collectionPrev(page.url) %}
+{% set computedNext = sectionItems | collectionNext(page.url) %}
+{% set nextItem = next if next else (computedNext and { title: computedNext.data.title, url: computedNext.url }) %}
+{% set relatedLinks = related | excludeUrls([prevItem.url if prevItem else null, nextItem.url if nextItem else null]) %}
+{%- set articleDescription = description or excerpt or subtitle or site.description -%}
+{%- set articleDate = page.date | dateToRfc3339 -%}
+{%- if image -%}
+  {%- set articleImage = ("/images/" + image) | absoluteUrl(site.url) -%}
+{%- endif -%}
+{%- set sectionLabel = section | capitalize -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | dump | safe }},
+  "description": {{ articleDescription | dump | safe }},
+  "url": {{ page.url | absoluteUrl(site.url) | dump | safe }},
+  "datePublished": {{ articleDate | dump | safe }},
+  "dateModified": {{ articleDate | dump | safe }},
+  "author": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }}
+  },
+  "isPartOf": {
+    "@type": "WebPage",
+    "name": {{ sectionLabel | dump | safe }},
+    "url": {{ ("/" + section + "/") | absoluteUrl(site.url) | dump | safe }}
+  }{% if articleImage %},
+  "image": {{ articleImage | dump | safe }}{% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ (site.url + "/") | dump | safe }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ sectionLabel | dump | safe }},
+      "item": {{ ("/" + section + "/") | absoluteUrl(site.url) | dump | safe }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ title | dump | safe }},
+      "item": {{ page.url | absoluteUrl(site.url) | dump | safe }}
+    }
+  ]
+}
+</script>
+
 <div class="page-grid">
-  <div class="page-spacer" aria-hidden="true"></div>
+  <div class="page-spacer"></div>
 
   <main class="page-content">
 
@@ -23,19 +87,45 @@ layout: layouts/base.njk
 
     {{ content | safe }}
 
-    <nav class="entry-nav" aria-label="Article navigation">
-      {% if next %}
-      <p class="entry-nav__next">
-        Next: <a href="{{ next.url }}">{{ next.title }} →</a>
-      </p>
-      {% else %}
-      <p class="entry-nav__next">
-        <a href="/{{ section }}/">← Back to all {{ section }}</a>
-      </p>
+    <footer class="article-footer">
+      {% if relatedLinks and relatedLinks.length %}
+      <aside class="related-reading" aria-label="Related reading">
+        <p class="article-footer__label">Related reading</p>
+        <ul class="related-reading__list">
+          {% for link in relatedLinks %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </aside>
       {% endif %}
-    </nav>
+
+      <nav class="entry-nav" aria-label="Article navigation">
+        {% if prevItem %}
+        <a class="entry-nav__link entry-nav__link--prev" href="{{ prevItem.url }}">
+          <span class="article-footer__label">Previous</span>
+          <span class="entry-nav__title">{{ prevItem.data.title }}</span>
+        </a>
+        {% else %}
+        <span class="entry-nav__link entry-nav__link--empty" aria-hidden="true"></span>
+        {% endif %}
+
+        {% if nextItem %}
+        <a class="entry-nav__link entry-nav__link--next" href="{{ nextItem.url }}">
+          <span class="article-footer__label">Next</span>
+          <span class="entry-nav__title">{{ nextItem.title }}</span>
+        </a>
+        {% else %}
+        <a class="entry-nav__link entry-nav__link--next" href="/{{ section }}/">
+          <span class="article-footer__label">Browse</span>
+          <span class="entry-nav__title">All {{ section }}</span>
+        </a>
+        {% endif %}
+      </nav>
+    </footer>
 
   </main>
 
   <aside class="margin-notes" aria-label="Pali annotations"></aside>
 </div>
+
+<script src="/js/toc.js"></script>

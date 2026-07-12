@@ -1,0 +1,32 @@
+---
+layout: layouts/listing.njk
+title: Glossary
+navSection: glossary
+description: Pali terms used across these pages, with brief explanations and closest English renderings.
+permalink: /glossary/
+---
+
+<header class="page-header">
+  <p class="page-header__eyebrow">Reference</p>
+  <h1 class="page-header__title">Pali glossary</h1>
+  <p class="page-header__subtitle">
+    Terms that appear throughout these pages — the closest English renderings, and a short note on what each word is doing.
+  </p>
+</header>
+
+<p class="section-intro">
+  Clicking a highlighted Pali word in any article opens the same note in the margin.
+  This page gathers those notes in one place. Nothing here is a substitute for meeting the words in context.
+</p>
+
+<dl class="glossary-list">
+  {% for entry in pali %}
+  <div class="glossary-list__item" id="{{ entry.term | slugify }}">
+    <dt class="glossary-list__term">{{ entry.term }}</dt>
+    <dd class="glossary-list__en">{{ entry.en }}</dd>
+    <dd class="glossary-list__text">{{ entry.explanation }}</dd>
+  </div>
+  {% else %}
+  <p class="section-intro">Glossary entries could not be loaded.</p>
+  {% endfor %}
+</dl>

@@ -21,12 +21,18 @@ navSection: quotes
 <ul class="entry-list">
 
   {% for item in collections.quotes %}
-  <li class="entry-list__item">
-    <div class="entry-list__body">
-      <p class="entry-list__meta">{{ item.data.meta }}</p>
-      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
-      <p class="entry-list__excerpt">{{ item.data.excerpt }}</p>
-    </div>
+  <li class="entry-list__item entry-list__item--quote">
+    <a class="entry-list__link" href="{{ item.url }}">
+      <span class="entry-list__body">
+        <span class="entry-list__meta">{{ item.data.meta }}</span>
+        <span class="entry-list__title">{{ item.data.title }}</span>
+        {% if item.data.pullQuote %}
+        <span class="entry-list__pull">“{{ item.data.pullQuote }}”</span>
+        {% else %}
+        <span class="entry-list__excerpt">{{ item.data.excerpt }}</span>
+        {% endif %}
+      </span>
+    </a>
   </li>
   {% endfor %}
 

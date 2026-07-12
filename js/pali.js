@@ -519,7 +519,7 @@ PALI_DICT["sammādiṭṭhi"] = PALI_DICT["sammā-diṭṭhi"];  // unhyphenated
    Core Logic
    ============================================================ */
 
-const MOBILE_BREAKPOINT = 960;
+const MOBILE_BREAKPOINT = 1100;
 const NOTE_GAP = 8; // px between stacked margin note cards
 
 function isMobile() {
@@ -546,6 +546,8 @@ function initPali() {
 }
 
 function handlePaliClick(e) {
+  e.stopPropagation();
+  e.preventDefault();
   const span = e.currentTarget;
   const word = span.dataset.pali;
   const def  = PALI_DICT[word] || null;
@@ -631,6 +633,10 @@ function showInlineNote(span, word, def) {
   span.dataset.noteId = noteId;
   span.classList.add("pali--active");
   span.setAttribute("aria-expanded", "true");
+
+  if (typeof note.scrollIntoView === "function") {
+    note.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
 }
 
 /* ============================================================

@@ -1,14 +1,48 @@
+{%- set pageTitle = title if title else site.name -%}
+{%- set pageDescription = description if description else site.description -%}
+{%- set canonicalUrl = page.url | absoluteUrl(site.url) -%}
+{%- if image -%}
+  {%- set ogImage = ("/images/" + image) | absoluteUrl(site.url) -%}
+{%- else -%}
+  {%- set ogImage = site.defaultOgImage | absoluteUrl(site.url) -%}
+{%- endif -%}
+{%- set ogType = "article" if section else "website" -%}
+{%- set displayTitle = (title + " — " + site.name) if title and title != site.name else site.name -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title %}{{ title }} — overthinking it{% else %}overthinking it{% endif %}</title>
-  <meta name="description" content="{{ description | default('Notes on the Buddhist tradition — core concepts, suttas, and reflections.') }}">
+  <title>{{ displayTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  <meta property="og:title" content="{{ displayTitle }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:type" content="{{ ogType }}">
+  <meta property="og:image" content="{{ ogImage }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ displayTitle }}">
+  <meta name="twitter:description" content="{{ pageDescription }}">
+  <meta name="twitter:image" content="{{ ogImage }}">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/images/favicon-32.png" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="/feed.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ site.name | dump | safe }},
+    "url": {{ site.url | dump | safe }},
+    "description": {{ site.description | dump | safe }}
+  }
+  </script>
 <!-- MailerLite Universal -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -23,14 +57,34 @@
 
   <nav class="site-nav" aria-label="Main navigation">
     <div class="site-nav__inner">
-      <a href="/" class="site-nav__brand">overthinking it</a>
-      <ul class="site-nav__links">
-        <li><a href="/"{% if navSection == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+      <a href="/" class="site-nav__brand"{% if navSection == 'home' %} aria-current="page"{% endif %}>overthinking it</a>
+      <button type="button" class="site-nav__toggle" id="site-nav-toggle"
+              aria-expanded="false" aria-controls="site-nav-links" aria-label="Open menu">
+        <span class="site-nav__toggle-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+      <ul class="site-nav__links" id="site-nav-links">
+        <li>
+          <a href="/guide/" class="site-nav__start"{% if navSection == 'guide' %} aria-current="page"{% endif %}>
+            Guide
+            <span class="site-nav__start-hint">Start here</span>
+          </a>
+        </li>
         <li><a href="/concepts/"{% if navSection == 'concepts' %} aria-current="page"{% endif %}>Concepts</a></li>
         <li><a href="/suttas/"{% if navSection == 'suttas' %} aria-current="page"{% endif %}>Suttas</a></li>
         <li><a href="/thoughts/"{% if navSection == 'thoughts' %} aria-current="page"{% endif %}>Thoughts</a></li>
         <li><a href="/quotes/"{% if navSection == 'quotes' %} aria-current="page"{% endif %}>Quotes</a></li>
       </ul>
+      <button type="button" class="site-search-trigger" id="site-search-open"
+              aria-label="Open search" aria-haspopup="dialog" aria-controls="site-search-dialog">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
@@ -39,10 +93,32 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <span>overthinking it</span>
-      <a class="ml-onclick-form" href="javascript:void(0)" onclick="ml('show', 'Oz50p0', true)">Notify me of updates</a>
+      <div class="site-footer__links">
+        <a href="/glossary/">Glossary</a>
+        <a href="/feed.xml">RSS</a>
+        <a class="ml-onclick-form" href="javascript:void(0)" onclick="ml('show', 'Oz50p0', true)">Notify me of updates</a>
+      </div>
     </div>
   </footer>
 
+  <dialog id="site-search-dialog" class="site-search-dialog" aria-label="Search">
+    <div class="site-search-dialog__inner" role="search">
+      <div class="site-search-dialog__header">
+        <label for="site-search-input" class="visually-hidden">Search</label>
+        <input id="site-search-input" type="text" placeholder="Search articles, suttas, concepts…"
+               autocomplete="off" role="combobox" aria-expanded="false"
+               aria-controls="site-search-results" aria-autocomplete="list" inputmode="search" />
+        <button type="button" class="site-search-dialog__close" id="site-search-close">Close</button>
+      </div>
+      <ul id="site-search-results" class="site-search__results" role="listbox" hidden></ul>
+      <p id="site-search-hint" class="site-search__hint">Type to search across all articles. Press <kbd class="js-mod-key">Ctrl</kbd><kbd>K</kbd> anytime.</p>
+    </div>
+  </dialog>
+
+  <script type="application/json" id="guide-data">{{ guide.stages | guidePayload | dump | safe }}</script>
+  <script src="/js/nav.js"></script>
   <script src="/js/pali.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/guide.js"></script>
 </body>
 </html>

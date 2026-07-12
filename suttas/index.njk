@@ -23,16 +23,18 @@ description: Selected suttas from the Pali canon — structure, content, and wha
 
   {% for item in collections.suttas %}
   <li class="entry-list__item">
-    {% if item.data.thumb %}
-    <a class="entry-list__thumb" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
-      <img src="/images/thumbs/{{ item.data.thumb }}" alt="">
+    <a class="entry-list__link" href="{{ item.url }}">
+      {% if item.data.thumb %}
+      <span class="entry-list__thumb" aria-hidden="true">
+        <img src="/images/thumbs/{{ item.data.thumb }}" alt="">
+      </span>
+      {% endif %}
+      <span class="entry-list__body">
+        <span class="entry-list__meta">{{ item.data.meta }}</span>
+        <span class="entry-list__title">{{ item.data.title }}</span>
+        <span class="entry-list__excerpt">{{ item.data.excerpt }}</span>
+      </span>
     </a>
-    {% endif %}
-    <div class="entry-list__body">
-      <p class="entry-list__meta">{{ item.data.meta }}</p>
-      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
-      <p class="entry-list__excerpt">{{ item.data.excerpt }}</p>
-    </div>
   </li>
   {% endfor %}
 
