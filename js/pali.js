@@ -472,6 +472,18 @@ const PALI_DICT = {
 
   /* ---- Key contemplative terms ---- */
 
+  kāya: {
+    en: "body",
+    explanation:
+      "Kāya is the body as a field of experience — not only the anatomical object, but the living sense of form, posture, breath, and contact. It is the first of the four foundations of mindfulness (satipaṭṭhāna): contemplation of the body. In practice this can mean attending to the breath, the postures (sitting, walking, lying down), the parts of the body, or the elements that compose it. The point is not to invent a special body-awareness; it is to know the body clearly enough that it is neither ignored nor clung to as 'me' in a fixed way."
+  },
+
+  āṇāpānasati: {
+    en: "mindfulness of breathing",
+    explanation:
+      "Āṇāpānasati is mindfulness (sati) of in-and-out breathing (āṇāpāna). The Āṇāpānasati Sutta (MN 118) sets out sixteen steps in four groups of four — body, feeling-tone, mind, and dhammas — showing how attention to the breath can develop from simple settling all the way into the factors of awakening. It is one of the most practical and complete meditation instructions in the Pali canon: ordinary enough to begin with, structured enough to carry the full path."
+  },
+
   tathāgata: {
     en: "the Thus-Gone / the Thus-Come",
     explanation:

@@ -1,4 +1,15 @@
 module.exports = function(eleventyConfig) {
+  // Bust Node's require cache for _data/*.js on each build. Without this,
+  // `eleventy --serve` can keep serving a stale guide.js (and other JS data)
+  // across rebuilds triggered by unrelated file changes.
+  eleventyConfig.on("eleventy.before", function () {
+    for (const key of Object.keys(require.cache)) {
+      if (key.replace(/\\/g, "/").includes("/_data/")) {
+        delete require.cache[key];
+      }
+    }
+  });
+
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");

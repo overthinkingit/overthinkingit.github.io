@@ -37,7 +37,8 @@ module.exports = {
         },
         {
           title: "How to sit — a starting sitting practice",
-          planned: true,
+          url: "/concepts/how-to-sit/",
+          meta: "Starting practice",
           annotation:
             "Posture, duration, what to do with the mind, and what “success” actually means at the beginning.",
         },
@@ -132,7 +133,8 @@ module.exports = {
         },
         {
           title: "The second arrow — pain vs. suffering",
-          planned: true,
+          url: "/concepts/second-arrow/",
+          meta: "Pain and suffering",
           annotation:
             "The difference between what happens and what the mind adds on top of it.",
         },

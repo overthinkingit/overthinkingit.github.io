@@ -54,11 +54,21 @@
     }
   }
 
+  function hasStartedGuide() {
+    return state.active || state.visited.length > 0;
+  }
+
+  function updateStartHints() {
+    document.body.classList.toggle("guide-started", hasStartedGuide());
+  }
+
   function isMinimized() {
     try {
-      return sessionStorage.getItem(MINIMIZE_KEY) === "1";
+      var val = sessionStorage.getItem(MINIMIZE_KEY);
+      if (val === null) return true;
+      return val === "1";
     } catch (err) {
-      return false;
+      return true;
     }
   }
 
@@ -71,6 +81,7 @@
   }
 
   var state = loadState();
+  updateStartHints();
   var currentPath = normalizePath(window.location.pathname);
   var currentIndex = -1;
   for (var i = 0; i < steps.length; i++) {
@@ -87,6 +98,7 @@
     if (state.visited.indexOf(path) === -1) {
       state.visited.push(path);
       saveState(state);
+      updateStartHints();
     }
   }
 
@@ -96,6 +108,7 @@
     if (idx !== -1) {
       state.visited.splice(idx, 1);
       saveState(state);
+      updateStartHints();
     }
   }
 
@@ -121,6 +134,7 @@
   function activateSession() {
     state.active = true;
     saveState(state);
+    updateStartHints();
   }
 
   function pauseSession() {
@@ -150,6 +164,7 @@
           markVisited(url);
           setItemDone(item, true);
         }
+        updateStartHints();
         return;
       }
 
