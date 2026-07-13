@@ -131,7 +131,8 @@ module.exports = {
         },
         {
           title: "Practicing off the cushion — sīla in daily life",
-          planned: true,
+          url: "/concepts/practicing-off-the-cushion/",
+          meta: "Daily practice",
           annotation:
             "How ethical training shows up between sits, not only on them.",
         },

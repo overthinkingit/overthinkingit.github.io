@@ -39,7 +39,7 @@ Append new concept pages at `order: 10+` in guide-stage sequence. Discovery is p
 ### Assets (applies to every planned page)
 Every existing thumb under `images/thumbs/` is already claimed by a live page. **Each new page needs a new hero image + matching thumb** (or a deliberate reuse decision) **before handoff** — do not ship with `image: TBD.jpg` / `thumb: TBD.jpg`.
 
-Claimed thumbs today: `angles`, `breath`, `flame`, `foundation`, `heart`, `how-to-read-a-sutta`, `how-to-sit`, `impermanence`, `jhanas`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `second-arrow`, `shore`, `solace`, `suffering`, `three-trainings`, `view`, `when-a-hindrance-dissolves`, `five-precepts`.
+Claimed thumbs today: `angles`, `breath`, `flame`, `foundation`, `heart`, `how-to-read-a-sutta`, `how-to-sit`, `impermanence`, `jhanas`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `practicing-off-the-cushion`, `second-arrow`, `shore`, `solace`, `suffering`, `three-trainings`, `view`, `when-a-hindrance-dissolves`, `five-precepts`.
 
 **Visual style** — match the house look documented in [`.cursor/skills/content-voice/SKILL.md`](.cursor/skills/content-voice/SKILL.md) (Hero imagery):
 
