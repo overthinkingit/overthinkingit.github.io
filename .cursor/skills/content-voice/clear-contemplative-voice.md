@@ -1,8 +1,8 @@
 # Clear contemplative voice — prose reference
 
-Companion to [SKILL.md](./SKILL.md). Use for **tone, cadence, diction, and perspective** when drafting or auditing body copy. Site-specific rules (Pali spans, epistemic humility, canonical similes, hero imagery) in SKILL.md always win when they conflict with a generic tip here.
+Companion to [SKILL.md](./SKILL.md). Use for **tone, cadence, diction, and perspective** when drafting or auditing body copy. Site-specific rules (Pali spans, epistemic humility, pragmatic metaphysics, canonical similes, hero imagery) in SKILL.md always win when they conflict with a generic tip here.
 
-**One-line brief:** Write like a clear-eyed essayist on how the mind produces unnecessary suffering and how attention can interrupt that — second person and “we,” concrete scenes, negation-then-correction, short seals after long thoughts, secular and precise, dryly witty, never first-person memoir.
+**One-line brief:** Write like a clear-eyed essayist on how the mind produces unnecessary suffering and how attention can interrupt that — second person and “we,” concrete scenes, negation-then-correction, short seals after long thoughts, secular and precise, dryly witty, never first-person memoir. On hard cosmology, leave ultimate truth open and still write the this-life payoff of living *as if* the claims hold.
 
 ---
 
@@ -36,6 +36,24 @@ Memoir-style authority often comes from “I tried X / I met Y.” Relocate that
 
 ---
 
+## Metaphysics stance (pragmatic “as if”)
+
+Site editorial policy (full pillar in [SKILL.md](./SKILL.md)):
+
+> Regardless if the Buddhist metaphysical claims are ultimately true or false, in my experience there is still tremendous benefit to living as if they are true. If you act as if there will be karmic punishment or benefit in the next life you will act accordingly. This still serves to improve your current life regardless of the eventual reality.
+
+**On the page:** keep the substance; strip memoir authority. The move is neither conversion to cosmology nor secular deletion — it is *conduct under provisional cosmology*.
+
+| Drift | Correct toward |
+|---|---|
+| “You must believe rebirth or you are not practicing” | Canon claims X; living *as if* X still changes speech, taking, harm — payoff arrives in this life either way |
+| “Skip kamma/rebirth; keep the mindfulness tips” | Name the claim when the subject requires it; then the “as if” bridge for skeptical readers |
+| “In my experience, acting as if karma is real…” | “Act as if intentional action bears fruit beyond this life, and conduct tightens now — whatever the eventual reality.” |
+
+Pair with epistemic humility: ultimate truth may stay open; attentional and ethical consequences need not wait on proof.
+
+---
+
 ## Tone
 
 ### Intellectual seriousness without academic fog
@@ -51,7 +69,7 @@ Humor is understatement and deadpan — never emoji energy or stand-up rhythm.
 - Out of register: “Meditation is basically a spa day for your brain!!”
 
 ### Moral clarity without sermonizing
-Strong judgments are allowed when specific and argued. Cut claims, not people. Avoid relativist mush and fire-and-brimstone. Prefer epistemic humility on interpretation.
+Strong judgments are allowed when specific and argued. Cut claims, not people. Avoid relativist mush and fire-and-brimstone. Prefer epistemic humility on interpretation. On kamma and rebirth, prefer the pragmatic “as if” stance above over threat theater or polite erasure.
 
 ### Earnestness about the present
 Quiet urgency: life is short, attention shapes experience, confusion is costly — never sticky “inspirational poster” tone.
@@ -81,7 +99,7 @@ Quiet urgency: life is short, attention shapes experience, confusion is costly �
 ### Punch sentences (sparingly)
 Site examples still preferred: “The path spirals.” / “The water, in the Buddha's similes, can become clear.”
 
-Also in-register: “It is always now.” / “There is nothing passive about mindfulness.” / “We seem to do little more than lurch between wanting and not wanting.”
+Also in-register: “Experience only ever arrives as this moment.” / “There is nothing passive about mindfulness.” / “Wanting and not-wanting trade places all afternoon.”
 
 ---
 
@@ -93,7 +111,8 @@ Also in-register: “It is always now.” / “There is nothing passive about mi
 4. **Distinction-making** — spend ink on *X vs Y* where confusion lives.
 5. **Contemplative ↔ empirical bridge** — light nods to observation or science only when they clarify; never a lit review.
 6. **Concession, then recommit** — “Of course… But…” / “No doubt… Still…” (pair with humility on contested interpretation).
-7. **Pressure questions** — tools, not decoration.
+7. **Pragmatic “as if”** — when metaphysics exceeds cushion-verifiability: leave ultimate truth open; show the this-life payoff of living as if the claim holds (see Metaphysics stance).
+8. **Pressure questions** — tools, not decoration.
 
 ---
 
@@ -114,9 +133,9 @@ Also in-register: “It is always now.” / “There is nothing passive about mi
 - Cruelty as a substitute for clarity
 
 ### Connectors
-- Openings: “There is nothing…”, “It is always…”, “Most of us…”
+- Openings: “There is nothing…”, “Most of a day…”, “Most of us…”
 - Turns: “But”, “However”, “And yet”, “Of course”
-- Em dash precision: “accepting — and (ultimately) nonconceptual”
+- Em dash precision: “accepting — without covert bargaining that the unpleasant will vanish”
 
 ---
 
@@ -136,17 +155,22 @@ Within that, aim for this movement:
 
 ## Mini exemplars (adapt; keep Pali + humility on live pages)
 
+These are **site-voice sketches** for cadence — not lines to paste from an external author. When a user-supplied exemplar was used for a draft, still run the **Imitation ≠ theft** pass in SKILL.md.
+
 ### Cold open
-> Our minds are all we have. They are all we have ever had. And they are all we can offer others. This might not be obvious when life seems unfinished — careers, repairs, relationships still pending. But every experience is shaped by the mind that meets it. If attention is elsewhere, or if anger and confusion are the weather of the day, no outward success will feel like success.
+> Every experience is shaped by the mind that meets it. Careers unfinished, relationships pending, repairs still waiting — none of that cancels the quieter fact: if attention is elsewhere, or if confusion is the weather of the hour, no outward success will feel like success.
 
 ### Everyday cascade
-> Pleasures fade as soon as they arise. A favorite meal becomes too much; dessert lasts seconds; sun on the skin becomes heat; shade becomes chill; the sweater in the car raises a new worry about how one looks. Wanting and not-wanting trade places all afternoon. Spiritual life begins with the suspicion that this oscillation is not the whole of what a human mind can do.
+> Pleasures fade as soon as they arise. A favorite meal becomes too much; dessert lasts seconds; sun on the skin becomes heat; shade becomes chill. Wanting and not-wanting trade places all afternoon. The path begins with the suspicion that this oscillation is not the whole of what a human mind can do.
 
 ### Negation → correction
-> Mindfulness is not a matter of thinking more clearly about experience. It is the act of experiencing more clearly — including the arising of thoughts themselves. There is nothing passive about it. It is a passion for what is subjectively real in each moment: undistracted, accepting, and, at the limit, nonconceptual.
+> Mindfulness is not thinking more clearly *about* experience. It is experiencing more clearly — including the arising of thoughts themselves. There is nothing passive about it: a steady interest in what is subjectively present, without needing to decorate or flee it.
 
 ### Paradox close
-> Lasting change asks for a double gesture: refuse to remain who habit has made one — and, in the same breath, accept what is given in the present without covert bargaining that the unpleasant will vanish on cue. Only the second gesture is acceptance; the first without it is just another form of struggle.
+> Lasting change asks for a double gesture: refuse to remain who habit has made one — and, in the same breath, know what is given in the present without covert bargaining that the unpleasant will vanish on cue. Only the second gesture is acceptance; the first without it is just another form of struggle.
+
+### Pragmatic metaphysics
+> Whether the next-life fruit of action is ultimately real or not, living as if it were still changes what one is willing to say, take, or harm. That change improves this life either way. The cosmology can remain an open question; the conduct need not wait.
 
 ---
 
@@ -155,6 +179,7 @@ Within that, aim for this movement:
 Use with Workflow B in SKILL.md:
 
 - [ ] No first-person memoir or “in my experience” authority
+- [ ] Metaphysics (if present): “as if” payoff in this life — not dogma, not erasure
 - [ ] Opens with a clear claim, not a soft lead-in
 - [ ] Concrete everyday scene and/or thought experiment where it helps (canonical simile preferred when one fits)
 - [ ] Misreading named and corrected
@@ -163,3 +188,4 @@ Use with Workflow B in SKILL.md:
 - [ ] Diction plain-smart; no wellness, influencer, or mystical-fog register
 - [ ] Ends on implication for attention or understanding — not a hype CTA
 - [ ] Humor, if any, dry and brief
+- [ ] If an exemplar was used: no near-verbatim seals or sentence skeletons from that source (Imitation ≠ theft)

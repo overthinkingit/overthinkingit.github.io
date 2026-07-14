@@ -38,6 +38,36 @@ const PALI_DICT = {
       "The word is read in two ways. The more common rendering traces it to a root meaning to extinguish or cool — the blowing out of the fires of craving, aversion, and delusion. An alternative reading, well-attested in Pali grammar, takes it as nir + vāna (bond or cord): unbinding. Both illuminate something real: nibbāna is the ending of the fire, and the falling away of what bound the mind to that fire. In this life it is experienced as a profound peace; beyond this life the texts are deliberately reticent, since the question assumes the very self the path has uprooted."
   },
 
+  asaṅkhata: {
+    en: "unconditioned",
+    explanation:
+      "That which is not fabricated, not compounded, not dependent on conditions in the way ordinary phenomena are. The canon applies the term to nibbāna. Conditioned things (saṅkhata) can be described as arising, persisting, and ceasing; asaṅkhata names what the texts place outside that grammar — which is why metaphysical questions about it so often misfire."
+  },
+
+  "sa-upādisesa-nibbāna": {
+    en: "nibbāna with remainder",
+    explanation:
+      "Nibbāna experienced while the arahant is still alive: the āsavas are abandoned, greed, hatred, and delusion no longer drive the mind, but the body and the remaining aggregates — the 'remainder' — continue until death. Pleasant and unpleasant sensations may still occur; what has ceased is the craving and self-assumption that turn them into ongoing suffering."
+  },
+
+  "anupādisesa-nibbāna": {
+    en: "nibbāna without remainder",
+    explanation:
+      "The formulation associated with an arahant’s death: the aggregates are not taken up again. The canon refuses to translate this into ‘exists’ or ‘does not exist.’ It is the unanswered question set aside as not conducive to the path — not a detailed afterlife doctrine."
+  },
+
+  "uccheda-diṭṭhi": {
+    en: "annihilationist view",
+    explanation:
+      "The view that a self exists and is simply destroyed at death. The teaching rejects it along with eternalism: if careful examination finds no permanent self to begin with, annihilation of that self is a confusion. Nibbāna is not the snuffing-out of a lasting owner."
+  },
+
+  "sassata-diṭṭhi": {
+    en: "eternalist view",
+    explanation:
+      "The view that a permanent self persists forever. Rejected as a distortion: what is taken as ‘person’ in ordinary experience is conditioned, and conditioned existence is not the kind of thing that could be eternal. Nibbāna is not everlasting personal survival."
+  },
+
   dhamma: {
     en: "teaching / truth / nature",
     explanation:
@@ -263,7 +293,19 @@ const PALI_DICT = {
   sukha: {
     en: "pleasure / ease",
     explanation:
-      "Present in the first three jhānas, sukha is the quality of ease, comfort, and well-being that accompanies deepening stillness. Unlike pīti, which is energetic and sometimes physical, sukha is quieter — a settled sense of contentment without agitation. In the fourth jhāna, sukha drops away along with its opposite (dukkha), leaving the pure equanimity and one-pointedness that characterise that state. The Pali texts describe the body as 'pervaded' by sukha in the jhānas."
+      "Present in the first three jhānas, sukha is the quality of ease, comfort, and well-being that accompanies deepening stillness. Unlike pīti, which is energetic and sometimes physical, sukha is quieter — a settled sense of contentment without agitation. In the fourth jhāna, sukha drops away along with its opposite (dukkha), leaving the pure equanimity and one-pointedness that characterise that state. The Pali texts describe the body as 'pervaded' by sukha in the jhānas. Nibbāna is also called the highest sukha — not as a peak thrill, but as well-being that does not depend on the next condition cooperating."
+  },
+
+  santi: {
+    en: "peace",
+    explanation:
+      "Peace or stillness — one of the positive names the canon gives nibbāna. Not the temporary quiet of a calm afternoon, but the peace that remains when the fires of greed, hatred, and delusion are no longer being fed."
+  },
+
+  khema: {
+    en: "security / safety",
+    explanation:
+      "Safety, security, refuge — another positive epithet for nibbāna. The image is of ground that does not collapse under craving and fear: a shelter that does not require the next circumstance to hold."
   },
 
   ekaggatā: {

@@ -7,27 +7,73 @@ description: >-
   images, or when the user asks to check tone, voice, humility, Pali conventions,
   visual style, clear contemplative cadence, or editorial consistency on this site.
   For a from-scratch rewrite of a live URL (not paraphrase), prefer
-  full-rewrite-article.
+  full-rewrite-article (requires URL + exemplar). Includes exemplar handling
+  and an imitation≠theft plagiarism pass when an external or named voice
+  source was used.
 ---
 
 # Content voice — overthinking it
 
-Project editorial voice for Pali-Buddhist notes: confident about the texts, provisional about interpretation, practical without wellness jargon. Prose aims for a **clear contemplative register** — adult, empirically minded, returning from abstraction to what can be noticed in experience — without first-person memoir. Hero images follow the same register — symbolic and contemplative, not cinematic illustration of the teaching.
+Project editorial voice for Pali-Buddhist notes: confident about the texts, provisional about interpretation, practical without wellness jargon. On hard metaphysics (kamma across lives, rebirth, etc.), prefer living *as if* the claims hold — payoff in this life either way — over dogma or secular erasure (Voice pillar 3). Prose aims for a **clear contemplative register** — adult, empirically minded, returning from abstraction to what can be noticed in experience — without first-person memoir. Hero images follow the same register — symbolic and contemplative, not cinematic illustration of the teaching.
 
-**Prose depth (cadence, diction, perspective, exemplars):** [clear-contemplative-voice.md](./clear-contemplative-voice.md) — read when drafting hooks, auditing rhythm, or when copy drifts toward memoir, wellness, or influencer tone.
+**Prose depth (cadence, diction, perspective):** [clear-contemplative-voice.md](./clear-contemplative-voice.md) — read when drafting hooks, auditing rhythm, or when copy drifts toward memoir, wellness, or influencer tone.
 
-Canonical exemplars (read before drafting or auditing):
+**Voice exemplars are per-invocation.** Workflow skills ([full-rewrite-article](../full-rewrite-article/SKILL.md), [write-planned-article](../write-planned-article/SKILL.md)) require the user to pass an **exemplar source**. Do not treat a fixed on-site trio as mandatory defaults when an exemplar was supplied. For audits or light edits with no exemplar named, on-site peers are fine for calibration:
+
 - [index.njk](../../../index.njk) — framing, humility, path-spirals close
-- [concepts/five-hindrances.njk](../../../concepts/five-hindrances.njk) — practical hook, similes, antidotes
+- [concepts/five-hindrances.njk](../../../concepts/five-hindrances.njk) — practical hook, similes, recognition-before-remedy
 - [concepts/nibbana.njk](../../../concepts/nibbana.njk) — negation-then-correction, careful metaphysics
+- Also strong: [concepts/second-arrow.njk](../../../concepts/second-arrow.njk), [concepts/anatta-in-practice.njk](../../../concepts/anatta-in-practice.njk)
 
 Image exemplars (prefer these over photoreal outliers): `images/angles.jpg`, `images/jhanas.jpg` / thumbs, `images/flame.png`, `images/proliferate.jpg`, `images/thumbs/suffering.jpg`, `images/thumbs/heart.jpg`.
 
 Writing briefs for planned pages: [CONTENT_PLAN.md](../../../CONTENT_PLAN.md).
 
-To create a page that is still marked Planned in the guide, use the companion workflow skill first: [write-planned-article](../write-planned-article/SKILL.md) (discover gap → draft → audit → wire guide.js).
+To create a page that is still marked Planned in the guide, use the companion workflow skill first: [write-planned-article](../write-planned-article/SKILL.md) (discover gap → draft → audit → plagiarism pass → wire guide.js).
 
-To **fully rewrite** a live page from a site URL (new argument/structure — not a paraphrase), use: [full-rewrite-article](../full-rewrite-article/SKILL.md).
+To **fully rewrite** a live page from a site URL (new argument/structure — not a paraphrase), use: [full-rewrite-article](../full-rewrite-article/SKILL.md) — requires **URL + exemplar**.
+
+---
+
+## Exemplar source
+
+When a workflow skill (or the user) names an exemplar:
+
+1. **Read / sample it** for cadence, register, rhetorical moves (cold open, negation→correction, seals, distinction-making) — not as a paragraph bank.
+2. **Site rules win on conflict** — Pali spans, epistemic humility, no memoir-as-Dhamma-authority, canonical similes, Article shape, Hero imagery.
+3. Honor explicit user constraints on the exemplar (e.g. “no first person,” “cadence only”).
+4. After drafting, always run **Imitation ≠ theft** below.
+
+Acceptable exemplar forms: on-site `.njk`, local file/PDF, URL, or other readable corpus path the user points at.
+
+---
+
+## Imitation ≠ theft
+
+**Goal:** learn the exemplar’s *style* (rhythm, pressure, clarity); write *original* sentences in site voice.
+
+**Theft (must fix)**
+- Near-verbatim transplant of distinctive openers, seals, or sentence skeletons
+- Light synonym swaps that a careful reader of the exemplar would still recognize as the same line
+- Importing the exemplar’s trademark catchphrases as this site’s hooks
+
+**Imitation (allowed)**
+- Similar cadence (short claim → expand → turn → seal)
+- Shared *ideas* restated in new wording (especially when the idea is also Pali-canonical or common contemplative ground)
+- Empirical / plain-register energy without copying proprietary phrasing
+
+**Plagiarism pass (required after every exemplar-guided draft)**
+
+```
+Imitation ≠ theft:
+- [ ] Skim draft against distinctive lines sampled from the exemplar
+- [ ] Flag fingerprint openers, seals, and near-identical sentence skeletons
+- [ ] Rewrite each flagged line (keep energy; change wording)
+- [ ] Confirm teaching claims still cite canon / site framing, not the exemplar’s proprietary metaphysics (unless the user asked for that job)
+- [ ] Handback: “plagiarism pass done” + lines rewritten, or “no fingerprint overlaps”
+```
+
+Severity: unattributed near-copies are **Must fix** — do not ship until rewritten.
 
 ---
 
@@ -48,34 +94,52 @@ Markers that belong here: "notes, not conclusions"; "worth holding lightly"; "ma
 - Good: confident paraphrase of a sutta + soft edges on interpretation
 - Bad: "The true meaning is X" / "Anyone who understands will see…"
 
-### 3. Punch-sentence closers
+### 3. Pragmatic metaphysics ("as if")
+Editorial stance on cosmology and other hard metaphysical claims (kamma across lives, rebirth, unconditioned nibbāna as ontology, etc.):
+
+> Regardless if the Buddhist metaphysical claims are ultimately true or false, in my experience there is still tremendous benefit to living as if they are true. If you act as if there will be karmic punishment or benefit in the next life you will act accordingly. This still serves to improve your current life regardless of the eventual reality.
+
+**In article copy** (no memoir authority — see pillar 7): keep that substance, drop “in my experience.” Prefer shared *you* / *we* and provisional hedges.
+
+| Do | Do not |
+|---|---|
+| State what the canon claims, then note the practical payoff of living *as if* it holds | Demand the reader accept rebirth/kamma cosmology as proven fact |
+| Show that ethical and attentional consequences land *in this life* either way | Sneer at, bracket-out, or quietly delete the metaphysics as embarrassing |
+| Pair with humility: ultimate truth may stay open; conduct and attention still change | Treat “as if” as a sneaky proof that the metaphysics is true |
+
+Use when pages touch kamma, rebirth, fruit of action, or other claims that exceed what a reader can verify from the cushion alone. Not every page needs an “as if” paragraph — deploy where dogmatic insistence or secular erasure would otherwise warp the piece.
+
+### 4. Punch-sentence closers
 After a longer explanatory stretch, land a short sentence.
 
 Examples from the site: "The path spirals." / "The water, in the Buddha's similes, can become clear." / "That, more than any metaphysical description, is what the teaching is pointing toward."
 
 Do not end every section this way — use sparingly where the thought needs a seal.
 
-### 4. Canonical similes over invented metaphors
+### 5. Canonical similes over invented metaphors
 Prefer water/dye/mud/wind, raft, flame-fuel, second arrow, and other traditional images. Invented poetic metaphors and everyday micro-scenes are allowed only when they clarify; never decorate. If a canonical simile already carries the point, use it.
 
-### 5. Direct address and shared scenes — not coaching essays
+### 6. Direct address and shared scenes — not coaching essays
 Especially for practice-facing pages: "If you have ever sat down to meditate and found the mind pulled toward…" Inclusive *we* / *most of us* and brief thought experiments ("Imagine…", "Consider…") are welcome.
 
 Do not sustain second-person coaching for the whole article. Return to third-person exposition of the teaching. Prefer universal scenes over autobiographical ones.
 
-### 6. Almost no first person
+### 7. Almost no first person
 Default: no *I* / *my* / *me*. Do not use memoir or “in my experience” as authority for the Dhamma. Prefer "the canon", "the tradition", "the Buddha", shared scenes, and provisional hedges.
 
 Rare exception: authorial humility framing only ("I have not got there yet", "I am trying to work something out") — never as proof of a teaching claim. See [clear-contemplative-voice.md](./clear-contemplative-voice.md) for rewrite patterns.
 
-### 7. Clear contemplative cadence
+The pragmatic-metaphysics stance (pillar 3) is editorial policy for the skills — when it appears in a page, render it without “in my experience.”
+
+### 8. Clear contemplative cadence
 Aim for readable, varied rhythm (~18–22 word average): hard open claim → expand with distinction or example → turn with *But* / *However* / *Of course* / *And yet* → short landing sentence or pressure question. Em dashes for precision. Dry wit over jokiness; quiet earnestness about attention and the present — never inspirational-poster tone. Full texture: [clear-contemplative-voice.md](./clear-contemplative-voice.md).
 
-### 8. Register to avoid
+### 9. Register to avoid
 - Therapy-speak and wellness jargon ("hold space", "self-care", "manifest", domesticated "mindfulness" without Pali context)
 - Soft influencer cadence ("Here's the thing", "Let's dive in", "I want to share")
 - Mystical fog, hype/optimize theater, academic throat-clearing
-- Dogmatic absolutes and attainment-flexing
+- Dogmatic absolutes and attainment-flexing (including insisting cosmology must be believed as settled fact)
+- Secular erasure of kamma/rebirth when the page’s subject requires them — prefer pillar 3’s “as if” over deletion or sneering
 - Sensational mysticism or stage-chasing progress charts
 - Sectarian score-settling; this site is Pali-primary and can bridge carefully (see Stage 5 briefs)
 - First-person memoir set pieces; cruelty as a substitute for clarity
@@ -206,7 +270,10 @@ Draft progress:
 - [ ] Pali spans on every term; new terms listed for pali.js
 - [ ] At least one canonical simile or text citation where it fits
 - [ ] Humility markers present; no attainment-flex or stage-chase
+- [ ] Metaphysics (if present): pragmatic “as if” — neither dogma nor secular erasure (pillar 3)
 - [ ] No first-person teaching claims or “in my experience” authority
+- [ ] Exemplar sampled for cadence only (user-supplied when using workflow skills)
+- [ ] Imitation ≠ theft pass done if an exemplar was used
 - [ ] Hero image created in house style; thumb derived by scale/copy (not a second generation)
 - [ ] related: wired; backlinks from plan listed as follow-ups
 - [ ] Run Audit mode on the draft before considering done
@@ -214,12 +281,12 @@ Draft progress:
 
 **Draft steps**
 1. Open the matching CONTENT_PLAN brief, this skill, and skim [clear-contemplative-voice.md](./clear-contemplative-voice.md) for cadence/perspective.
-2. Skim one exemplar (`five-hindrances` for practice-facing; `nibbana` for subtle/conceptual).
+2. Sample the **user-supplied exemplar** (workflow skills); if none was named for a light draft/audit, skim an on-site peer from the list above.
 3. Write the hook and H2 skeleton before filling sections (claim → confusion → mechanism → implication).
 4. Fill sections; prefer short paragraphs (3–6 sentences); insert `<hr>` between major movements.
 5. Add blockquote only if a real canonical line carries the point.
 6. Create hero asset then scale/copy to thumb (or explicit reuse); set front matter — **required before handoff**.
-7. Run **Audit mode** below; fix issues; then wire guide.js / related links per the plan checklist and **rebuild** so `/guide/` updates.
+7. Run **Audit mode** below; run **Imitation ≠ theft** if an exemplar was used; then wire guide.js / related links per the plan checklist and **rebuild** so `/guide/` updates.
 
 ---
 
@@ -233,6 +300,7 @@ Copy and track:
 Audit:
 - [ ] Read full article once without editing
 - [ ] Flag absolute / dogmatic claims
+- [ ] Flag metaphysics handled as settled cosmology *or* erased/sneered — prefer pillar 3 “as if”
 - [ ] Flag missing humility where interpretation is strong
 - [ ] Flag invented metaphor where a canonical simile exists
 - [ ] Flag wellness/therapy / influencer / mystical-fog register
@@ -243,6 +311,7 @@ Audit:
 - [ ] Check structure (hook → hr/H2s → optional H3s → optional cite → close)
 - [ ] Check related links / internal anchors still live
 - [ ] Check hero image against Hero imagery (symbolic/illustrated vs literal photoreal)
+- [ ] If an exemplar was used: Imitation ≠ theft pass (fingerprint seals / near-copies)
 - [ ] Produce line-level suggestions (not vague vibe notes)
 ```
 
@@ -258,8 +327,8 @@ For each issue:
 For image issues: name the file, say which house-style rule it breaks, and offer a short regeneration brief (subject + mode from the variety table + avoid list).
 
 Severity:
-- **Must fix** — wrong teaching claim, missing Pali span on a defined term, dogmatic absolute, wellness jargon, first-person Dhamma authority / memoir-as-proof, shipping with `TBD` image/thumb, guide still `planned: true` when page is meant live
-- **Should fix** — weak humility on contested interpretation, invented metaphor crowding a canonical one, structural drift, soft/influencer lead-in, flat cadence with no turns or seals, liberal bullet lists where prose would do, hero image outside house style (literal photoreal / staged parable)
+- **Must fix** — wrong teaching claim, missing Pali span on a defined term, dogmatic absolute (including forced cosmology belief), wellness jargon, first-person Dhamma authority / memoir-as-proof, shipping with `TBD` image/thumb, guide still `planned: true` when page is meant live, unattributed near-copy of an exemplar’s distinctive phrasing (Imitation ≠ theft)
+- **Should fix** — weak humility on contested interpretation, metaphysics erased or sneered when the subject requires it (missed pillar 3 “as if”), invented metaphor crowding a canonical one, structural drift, soft/influencer lead-in, flat cadence with no turns or seals, liberal bullet lists where prose would do, hero image outside house style (literal photoreal / staged parable)
 - **Optional** — punch-closer opportunity, slight rhythm polish, dry-wit trim, H3 scan anchors for named items buried in long H2s
 
 Do not rewrite the whole page unless asked. Prefer surgical edits.
@@ -271,6 +340,11 @@ Do not rewrite the whole page unless asked. Prefer surgical edits.
 **Absolute → provisional**
 - Before: "Anattā means there is no self whatsoever."
 - After: "Anattā is not the claim that 'you don't exist.' It is the refusal to treat any aggregate — or the collection of them — as a permanent owner of experience."
+
+**Dogmatic / erased metaphysics → pragmatic “as if”**
+- Before: "Rebirth is a fact; without believing it, there is no real Buddhist path."
+- Before: "Modern readers can ignore rebirth and keep only the psychology."
+- After: "Whether rebirth is ultimately true or not, living as if intentional action bears fruit — including beyond this life — still shapes how one speaks, takes, and harms. That shaping improves this life either way."
 
 **Wellness → site register**
 - Before: "Use mindfulness to hold space for your inner child."

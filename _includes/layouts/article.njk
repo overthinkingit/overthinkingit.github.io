@@ -2,11 +2,6 @@
 layout: layouts/base.njk
 ---
 
-{% set sectionItems = collections[section] %}
-{% set prevItem = sectionItems | collectionPrev(page.url) %}
-{% set computedNext = sectionItems | collectionNext(page.url) %}
-{% set nextItem = next if next else (computedNext and { title: computedNext.data.title, url: computedNext.url }) %}
-{% set relatedLinks = related | excludeUrls([prevItem.url if prevItem else null, nextItem.url if nextItem else null]) %}
 {%- set articleDescription = description or excerpt or subtitle or site.description -%}
 {%- set articleDate = page.date | dateToRfc3339 -%}
 {%- if image -%}
@@ -87,41 +82,18 @@ layout: layouts/base.njk
 
     {{ content | safe }}
 
+    {% if related and related.length %}
     <footer class="article-footer">
-      {% if relatedLinks and relatedLinks.length %}
       <aside class="related-reading" aria-label="Related reading">
         <p class="article-footer__label">Related reading</p>
         <ul class="related-reading__list">
-          {% for link in relatedLinks %}
+          {% for link in related %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
       </aside>
-      {% endif %}
-
-      <nav class="entry-nav" aria-label="Article navigation">
-        {% if prevItem %}
-        <a class="entry-nav__link entry-nav__link--prev" href="{{ prevItem.url }}">
-          <span class="article-footer__label">Previous</span>
-          <span class="entry-nav__title">{{ prevItem.data.title }}</span>
-        </a>
-        {% else %}
-        <span class="entry-nav__link entry-nav__link--empty" aria-hidden="true"></span>
-        {% endif %}
-
-        {% if nextItem %}
-        <a class="entry-nav__link entry-nav__link--next" href="{{ nextItem.url }}">
-          <span class="article-footer__label">Next</span>
-          <span class="entry-nav__title">{{ nextItem.title }}</span>
-        </a>
-        {% else %}
-        <a class="entry-nav__link entry-nav__link--next" href="/{{ section }}/">
-          <span class="article-footer__label">Browse</span>
-          <span class="entry-nav__title">All {{ section }}</span>
-        </a>
-        {% endif %}
-      </nav>
     </footer>
+    {% endif %}
 
   </main>
 

@@ -1577,15 +1577,12 @@ body.guide-active:has(.guide-widget--pill) {
 }
 
 /* ============================================================
-   Article footer (related + prev/next)
+   Article footer (related reading)
    ============================================================ */
 .article-footer {
   margin-top: 3.5rem;
   padding-top: 1.75rem;
   border-top: 1px solid var(--rule);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 }
 
 .article-footer__label {
@@ -1621,63 +1618,6 @@ body.guide-active:has(.guide-widget--pill) {
 .related-reading__list a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-.entry-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem 2rem;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.entry-nav__link {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  min-width: 0;
-  text-decoration: none;
-  color: inherit;
-}
-
-.entry-nav__link--empty {
-  pointer-events: none;
-}
-
-.entry-nav__link--next {
-  text-align: right;
-  justify-self: end;
-}
-
-.entry-nav__link .article-footer__label {
-  margin-bottom: 0;
-}
-
-.entry-nav__title {
-  font-family: var(--font-body);
-  font-size: 0.98rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--accent);
-  text-wrap: balance;
-}
-
-.entry-nav__link:hover .entry-nav__title {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.entry-nav__link--prev .entry-nav__title::before {
-  content: "← ";
-  font-weight: 400;
-  color: var(--text-faint);
-}
-
-.entry-nav__link--next .entry-nav__title::after {
-  content: " →";
-  font-weight: 400;
-  color: var(--text-faint);
 }
 
 /* ============================================================
@@ -1826,20 +1766,6 @@ body.guide-active:has(.guide-widget--pill) {
 @media (max-width: 600px) {
   html {
     font-size: 16px;
-  }
-
-  .entry-nav {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .entry-nav__link--next {
-    text-align: left;
-    justify-self: stretch;
-  }
-
-  .entry-nav__link--empty {
-    display: none;
   }
 
   .site-nav__inner {
