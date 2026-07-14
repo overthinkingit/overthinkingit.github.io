@@ -13,8 +13,11 @@ description: >-
 
 End-to-end workflow for turning a **CONTENT_PLAN brief** into a live concept page.
 
-Voice, tone, Pali spans, and audit criteria live in the companion skill — **always read it before drafting**:
+Voice, tone, Pali spans, clear contemplative cadence, and audit criteria live in the companion skill — **always read it before drafting**:
 [`.cursor/skills/content-voice/SKILL.md`](../content-voice/SKILL.md)
+
+Prose reference (cadence, diction, no-memoir perspective, exemplars):
+[`.cursor/skills/content-voice/clear-contemplative-voice.md`](../content-voice/clear-contemplative-voice.md)
 
 Briefs and publish conventions:
 [`CONTENT_PLAN.md`](../../../CONTENT_PLAN.md)
@@ -30,7 +33,7 @@ Guide source of truth for Planned badges:
 - User points at a guide item still marked Planned
 - User says write / draft / create a missing page from the content plan
 
-Do **not** use this skill to rewrite live pages (use content-voice Audit mode) or to invent pages outside CONTENT_PLAN unless the user explicitly expands the plan first.
+Do **not** use this skill to rewrite live pages (use [full-rewrite-article](../full-rewrite-article/SKILL.md) for a from-scratch rewrite, or content-voice Audit mode for surgical edits) or to invent pages outside CONTENT_PLAN unless the user explicitly expands the plan first.
 
 ---
 
@@ -42,10 +45,10 @@ Copy and track:
 Planned article progress:
 - [ ] 1. Discover gaps (guide.js planned:true vs concepts/*.njk)
 - [ ] 2. Confirm which brief to write (user pick or suggested early win)
-- [ ] 3. Read brief + content-voice + one exemplar
-- [ ] 4. Draft concepts/<slug>.njk (front matter + body)
+- [ ] 3. Read brief + content-voice + clear-contemplative-voice + one exemplar
+- [ ] 4. Draft concepts/<slug>.njk (front matter + body in clear contemplative voice)
 - [ ] 5. Run content-voice Audit mode; fix Must/Should issues
-- [ ] 6. Create hero image + matching thumb (required — not TBD)
+- [ ] 6. Create hero image; scale/copy for thumb (required — not TBD)
 - [ ] 7. Publish wiring (guide.js, related backlinks, pali.js)
 - [ ] 8. Rebuild site (`npm run build`) and verify /guide/ shows the item live (linked, no Planned badge)
 ```
@@ -75,7 +78,8 @@ If the user already named the article, skip the menu and proceed.
 Required reads (in order):
 1. Matching brief in `CONTENT_PLAN.md` (front matter draft, outline, related, backlinks)
 2. [content-voice skill](../content-voice/SKILL.md) — Voice pillars + Draft mode checklist + **Hero imagery**
-3. One exemplar:
+3. [clear-contemplative-voice.md](../content-voice/clear-contemplative-voice.md) — cadence, diction, perspective (no memoir), mini exemplars
+4. One exemplar:
    - Practice / how-to → `concepts/five-hindrances.njk` or `concepts/second-arrow.njk`
    - Subtle / metaphysical / Stage 5 → `concepts/nibbana.njk`
 
@@ -104,31 +108,33 @@ related:
 
 Include `next:` only if the brief specifies it. **Do not leave `image` / `thumb` as `TBD.jpg` when shipping** — generate or obtain assets first (or get an explicit reuse decision), then set the real filenames.
 
-**Body** — follow content-voice Article shape:
-1. Hook (negation-correction and/or lived opening as appropriate)
-2. `<hr>` + thematic `<h2>` sections matching the brief outline (note intentional deviations)
+**Body** — follow content-voice Article shape, written in clear contemplative voice:
+1. Hook — cold open claim + negation-correction and/or lived universal scene (not memoir); optional brief *you* / *we* opening
+2. `<hr>` + thematic `<h2>` sections matching the brief outline: confusion → mechanism → practice implication (note intentional deviations)
 3. Optional `<blockquote>` + `<cite>— … (adapted)</cite>` when a real canonical line carries the point
-4. Closing synthesis (not a bullet recap)
+4. Closing synthesis — implication for attention or understanding (not a bullet recap or hype CTA)
 
 **Hard rules**
 - Every Pali term uses `<span class="pali" data-pali="…" data-en="…">…</span>`
 - Stay inside est. word count (±15% ok if clarity needs it)
+- No first-person memoir or “in my experience” as Dhamma authority; rare humility framing only if it matches live exemplars
+- Cadence: varied sentence length, turn words (*But* / *However* / *Of course*), punch seals sparingly; canonical simile preferred over invented metaphor
 - Do not silently reuse an existing `images/thumbs/` file — create a new pair or get an explicit reuse decision
 - When briefing or choosing a hero, follow **Hero imagery** in the content-voice skill (symbolic/illustrated house style; not literal photoreal staging)
 - All planned pages go under `/concepts/` (no `/practice/`)
 
 ### 5. Voice audit
 
-Run **Workflow B — Audit mode** from the content-voice skill on the new file. Fix all **Must fix** and **Should fix** findings before publish wiring.
+Run **Workflow B — Audit mode** from the content-voice skill on the new file, including clear-contemplative prose checks (memoir, soft lead-in, cadence, diction). Fix all **Must fix** and **Should fix** findings before publish wiring.
 
 ### 6. Assets (required)
 
 Before publish wiring / handoff:
 
-1. Generate or obtain a **new** hero at `images/<slug>.jpg` (or `.png` if matching site peers like `flame`).
-2. Create a matching thumb at `images/thumbs/<slug>.jpg` (resize/compress as needed; do not leave a multi‑MB duplicate as the only thumb).
+1. Generate or obtain a **new** hero at `images/<slug>.jpg` (or `.png` if matching site peers like `flame`) — **one** generation only.
+2. Derive `images/thumbs/<slug>.jpg` by **scaling/copying that same file** (same composition and aspect ratio; compress so the thumb is not a multi‑MB clone). Do **not** generate a second image for the thumb.
 3. Set front matter `image` / `thumb` to those filenames; write `imageAlt` per content-voice.
-4. Follow house style (content-voice **Hero imagery**). Reject wellness stock, blank meditators, and literal staged parables.
+4. Follow house style (content-voice **Hero imagery** / **Hero → thumb**). Reject wellness stock, blank meditators, and literal staged parables.
 5. Add the new thumb name to the **Claimed thumbs** list in `CONTENT_PLAN.md` Assets when shipping.
 
 Leaving assets as `TBD.jpg` is only allowed mid-draft if the user explicitly asks to stop before assets — never as a completed handoff.
@@ -171,7 +177,8 @@ Otherwise prefer guide stages 1 → 5.
 
 ## Anti-patterns
 
-- Drafting without reading the content-voice skill
+- Drafting without reading the content-voice skill and clear-contemplative-voice reference
+- Soft influencer lead-ins or first-person memoir as teaching authority
 - Creating a page not in CONTENT_PLAN / guide.js without updating the plan first
 - Reusing a claimed thumb without an explicit decision
 - Handing off with `image: TBD.jpg` / `thumb: TBD.jpg`

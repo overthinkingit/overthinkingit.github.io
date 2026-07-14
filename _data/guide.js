@@ -73,11 +73,11 @@ module.exports = {
             "Ethics, unification, and wisdom as eight dimensions of a single training.",
         },
         {
-          title: "Khandhas — What We Are Made Of",
+          title: "Khandhas — The Five Aggregates",
           url: "/concepts/khandhas/",
           meta: "The five aggregates",
           annotation:
-            "The Buddha’s framework for investigating what we call a “person.”",
+            "A map of where ownership sticks — five heaps the mind keeps calling me and mine.",
         },
         {
           title: "The three trainings — sīla, samādhi, paññā",
@@ -91,7 +91,7 @@ module.exports = {
           url: "/concepts/five-precepts/",
           meta: "Ethical practice",
           annotation:
-            "Concrete commitments that create the conditions for stillness and clear seeing.",
+            "Five edges of restraint that thin the residue a mind carries onto the cushion.",
         },
       ],
     },
@@ -123,18 +123,18 @@ module.exports = {
             "The five qualities that obstruct both absorption and the clarity of insight.",
         },
         {
-          title: "Brahmavihārās — The Four Heart Qualities",
+          title: "Brahmavihārās — The Four Immeasurables",
           url: "/concepts/brahmaviharas/",
           meta: "The divine abidings",
           annotation:
-            "Loving-kindness, compassion, appreciative joy, and equanimity — as practice and as expression.",
+            "Goodwill, compassion, appreciative joy, and equanimity — unbound orientations of the heart, not moods to manufacture.",
         },
         {
           title: "Practicing off the cushion — sīla in daily life",
           url: "/concepts/practicing-off-the-cushion/",
           meta: "Daily practice",
           annotation:
-            "How ethical training shows up between sits, not only on them.",
+            "The day is where most of the training actually happens — not only the sit.",
         },
         {
           title: "The second arrow — pain vs. suffering",
@@ -195,13 +195,15 @@ module.exports = {
         },
         {
           title: "Anattā in practice — what it actually asks of you",
-          planned: true,
+          url: "/concepts/anatta-in-practice/",
+          meta: "Non-self in practice",
           annotation:
             "Beyond the concept: what non-self changes in how you relate to thought, self-image, and reaction.",
         },
         {
           title: "Insight cycles — the shape of the arc after the first shift",
-          planned: true,
+          url: "/concepts/insight-cycles/",
+          meta: "Stages of practice",
           annotation:
             "What often follows a genuine glimpse: oscillation, re-consolidation, and continuing practice.",
         },
@@ -236,7 +238,8 @@ module.exports = {
         },
         {
           title: "Dual and non-dual — a map that only makes sense later",
-          planned: true,
+          url: "/concepts/dual-and-non-dual/",
+          meta: "Duality and non-duality",
           annotation:
             "Why the distinction is counter-intuitive at first, and when it becomes useful rather than confusing.",
         },

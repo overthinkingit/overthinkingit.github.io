@@ -98,6 +98,12 @@ const PALI_DICT = {
       "Carelessness; the dimming of discernment and vigilance. Pamāda is the opposite of appamāda (heedfulness), which the canon praises as the ground of all wholesome qualities. Intoxicants are named in the fifth precept because they reliably produce pamāda — states in which restraint and clear seeing thin out."
   },
 
+  appamāda: {
+    en: "heedfulness",
+    explanation:
+      "Vigilance; non-heedlessness. The canon praises appamāda as the ground of all wholesome qualities — the opposite of pamāda. In practice it means not going to sleep between sits: keeping enough care in speech, action, and attention that the mind is not constantly repairing harm it has just done."
+  },
+
   samādhi: {
     en: "unification / stillness",
     explanation:
@@ -157,7 +163,19 @@ const PALI_DICT = {
   khandha: {
     en: "aggregate / heap",
     explanation:
-      "Khandha (Sanskrit: skandha) means a heap or mass. The Buddha used the term to describe the five categories into which all of what we call 'a person' can be sorted: form, feeling-tone, perception, formations, and consciousness. The framework is not a theory about what we are — it is an invitation to look and find that nowhere in these five categories is there anything that qualifies as a permanent, independent self."
+      "Khandha (Sanskrit: skandha) means a heap or mass. The Buddha used the term to describe the five categories into which all of what we call 'a person' can be sorted: form, feeling-tone, perception, formations, and consciousness. The framework is not a theory about what we are — it is a map of where ownership sticks, and an invitation to look and find that nowhere in these five categories is there anything that qualifies as a permanent, independent self."
+  },
+
+  upādānakkhandha: {
+    en: "aggregate of clinging",
+    explanation:
+      "The five upādānakkhandhas are the aggregates as they are clung to — form, feeling-tone, perception, formations, and consciousness taken as me, mine, and what I am. The first noble truth is stated with this precision: it is not the heaps themselves that constitute dukkha, but the heaps under the pressure of clinging. Liberation is the cessation of that clinging, not the destruction of experience."
+  },
+
+  kamma: {
+    en: "action; intentional action",
+    explanation:
+      "Kamma (Sanskrit: karma) means intentional action — the ethical and psychological force of will as it shapes results. In the aggregate analysis, formations (saṅkhārā) are where kamma is made: each move of intention toward or away from experience leaves a conditioning trail. The teaching is not fatalism; it is that actions rooted in greed, hatred, and delusion tend to ripen as suffering, while actions rooted in their opposites tend otherwise."
   },
 
   rūpa: {
@@ -262,6 +280,12 @@ const PALI_DICT = {
       "The four brahmavihārās — mettā, karuṇā, muditā, and upekkhā — are called divine abidings because, when fully developed, they characterise a mind that is expansive, purified, and uncontracted. Each is a quality of the heart directed outward without limit. They are not merely objects of meditation; they are, the tradition says, the natural qualities of a fully awakened mind — and so their cultivation is both a path and an end."
   },
 
+  appamaññā: {
+    en: "immeasurables",
+    explanation:
+      "Another name for the four brahmavihārās. They are called immeasurables because the cultivation is not rationed by preference, deservingness, or familiarity — goodwill, compassion, appreciative joy, and equanimity are extended toward all beings, in all directions, without remainder."
+  },
+
   mettā: {
     en: "loving-kindness / goodwill",
     explanation:
@@ -278,6 +302,12 @@ const PALI_DICT = {
     en: "appreciative joy / sympathetic joy",
     explanation:
       "The third brahmavihāra, and the one most difficult for many practitioners. Muditā is joy in the joy of others — genuine pleasure at their happiness, success, and good fortune. It directly counters the subtle (and not so subtle) envy and comparative diminishment that can arise when others flourish. Its near enemy is a kind of giddy excitement or exuberance that lacks real care; its far enemy is envy."
+  },
+
+  "majjhimā-paṭipadā": {
+    en: "middle way / middle path",
+    explanation:
+      "The middle way announced in the Buddha's first discourse: neither devotion to sensual pleasure nor devotion to self-mortification. It is not a thin counsel of lifestyle moderation. The point is a right relationship to experience — seeing clearly enough to abandon both the extreme that treats pleasure as solid and lasting, and the extreme that treats the body as an enemy. That way is identified with the Noble Eightfold Path, and leads to calm, direct knowledge, awakening, and nibbāna."
   },
 
   /* ---- Eightfold Path ---- */
@@ -336,6 +366,30 @@ const PALI_DICT = {
       "The eighth and final factor. Sammā-samādhi is explicitly defined in the Pali canon as the four jhānas. This is significant: the path does not merely require some degree of calm, but a specific quality of unified, concentrated mind that has been developed through the graduated training. Right samādhi is 'right' in the same sense as the other factors — not any concentration, but concentration that is in harmony with the path and in service of liberation."
   },
 
+  nekkhamma: {
+    en: "renunciation",
+    explanation:
+      "Letting go of sensual craving — not as grim austerity, but as the intention to stop treating sense pleasure as lasting satisfaction. Nekkhamma is the first of the three right intentions (sammā-saṅkappa): the mind's lean away from kāma and toward a quieter relationship with wanting."
+  },
+
+  abyāpāda: {
+    en: "non-ill-will / goodwill",
+    explanation:
+      "The second of the three right intentions. Abyāpāda is the absence of hostility — the intention of non-ill-will, often paired with mettā. It is the counterpart of byāpāda (ill-will): not the suppression of anger by force, but the orientation of a mind that does not need to push experience away."
+  },
+
+  avihiṃsā: {
+    en: "non-cruelty / harmlessness",
+    explanation:
+      "The third of the three right intentions. Avihiṃsā is non-harming — the intention of non-cruelty, often paired with compassion (karuṇā). It is directed against the impulse to injure, whether in speech, action, or the quiet wish that someone suffer."
+  },
+
+  sammappadhāna: {
+    en: "right striving",
+    explanation:
+      "The four right strivings that define sammā-vāyāma: prevent unwholesome states not yet arisen; abandon those that have arisen; cultivate wholesome states not yet present; maintain those already present. The point is consistent care of the mind — neither grinding willpower nor passive waiting."
+  },
+
   /* ---- Suttas ---- */
 
   sutta: {
@@ -351,9 +405,9 @@ const PALI_DICT = {
   },
 
   bhikkhu: {
-    en: "monk / mendicant",
+    en: "one on the path",
     explanation:
-      "A bhikkhu is a fully ordained male member of the Buddhist monastic community (saṅgha), who has undertaken the full training of the Vinaya. The word is related to a root meaning 'one who lives on alms' — a mendicant. In the suttas, the Buddha addresses bhikkhus most frequently, though the teachings are regularly described as applicable to laypeople as well. The feminine form is bhikkhunī."
+      "Bhikkhu is often taken to mean an ordained monk, and that is its institutional sense — a male member of the saṅgha under the Vinaya, from a root meaning 'one who lives on alms.' But the word also names anyone on the path: anyone who has taken up the training in earnest, whether living in robes or not. When the Buddha addresses bhikkhus in the suttas, the teaching is not sealed for monastics alone. The feminine form is bhikkhunī."
   },
 
   arahant: {
@@ -544,6 +598,18 @@ const PALI_DICT = {
       "Vipassanā literally means seeing clearly or seeing into — vi (in a special way, through) + passati (to see). In practice it refers to the quality of direct seeing that penetrates the three characteristics: impermanence, unsatisfactoriness, and non-self. It is distinguished from samatha (calm/tranquility), which stills the mind, though the two work together — samatha provides the stillness in which vipassanā can operate without distortion. In the Pali tradition, vipassanā is not a particular technique but a quality that can be cultivated through any of several approaches, including satipaṭṭhāna. The insight that arises is not intellectual; it is the direct seeing of what is actually present, which changes what the mind reaches for and what it recoils from."
   },
 
+  ñāṇa: {
+    en: "insight knowledge / knowing",
+    explanation:
+      "Ñāṇa means knowledge or knowing — in insight contexts, a particular mode of clear seeing rather than information about the path. Commentarial maps enumerate many ñāṇas as stages of insight; the early discourses use related language more sparingly. Either way, the word points to a quality of understanding that can arise in practice. Held lightly, stage-maps that use ñāṇa language can reduce panic when practice gets disorienting. Held tightly, they become another object of craving and comparison."
+  },
+
+  "ti-lakkhaṇa": {
+    en: "three characteristics",
+    explanation:
+      "The three marks of conditioned experience: anicca (impermanence), dukkha (unsatisfactoriness), and anattā (non-self). They are not three separate trophies to collect in sequence, but three angles on the same territory — what is actually true of the phenomena that make up a life. Seeing them directly is central to vipassanā."
+  },
+
   citta: {
     en: "mind / heart",
     explanation:
@@ -566,12 +632,31 @@ const PALI_DICT = {
     en: "cessation / ending",
     explanation:
       "Nirodha is the third noble truth: the cessation of craving is the cessation of suffering. The word means stopping, or the bringing to an end of a process. In the twelve-link chain of dependent origination, nirodha runs in the reverse direction — each link ceases when the preceding one ceases, all the way back to the cessation of avijjā. In the fourth tetrad of āṇāpānasati, the practitioner contemplates cessation directly — not as a concept but as an observable quality in the arising and passing of phenomena. Nirodha is not annihilation; it is the ending of a process that was being sustained by ignorance and craving."
+  },
+
+  kāyasaṅkhāra: {
+    en: "bodily formation",
+    explanation:
+      "In the Āṇāpānasati Sutta, kāyasaṅkhāra names the bodily formation associated with breathing — the conditioned process of the in-and-out breath as it moves through the body. The first tetrad trains the practitioner to calm this formation: not by forcing the lungs quiet, but by attending finely enough that the breath's own tendency toward ease can show. In dependent origination, saṅkhāra more broadly means formations or volitional constructions; here the focus is specifically bodily."
+  },
+
+  cittasaṅkhāra: {
+    en: "mental formation",
+    explanation:
+      "In the second tetrad of āṇāpānasati, cittasaṅkhāra refers to mental formations arising in connection with breathing — the felt and cognitive constructions that accompany feeling-tone as concentration deepens. After experiencing pīti and sukha, the practitioner trains to know these formations as formations, then to calm them. The move is from being carried by pleasant mental activity to seeing it clearly enough that it can settle."
+  },
+
+  paṭinissagga: {
+    en: "relinquishment / letting go",
+    explanation:
+      "The final step of the sixteen in the Āṇāpānasati Sutta. Paṭinissagga is relinquishment or letting go — not as a technique of pushing experience away, but as the natural result of seeing clearly. Contemplated alongside anicca, virāga, and nirodha in the fourth tetrad, it names what a mind does when phenomena are known well enough that clinging finds less to hold."
   }
 
 };
 
 // Aliases: alternate forms used in markup that map to canonical entries
 PALI_DICT["saṅkhārā"]    = PALI_DICT["saṅkhāra"];      // plural form in ti-lakkhana
+PALI_DICT["upādānakkhandhas"] = PALI_DICT["upādānakkhandha"]; // plural in khandhas
 PALI_DICT["bojjhaṅga"]   = PALI_DICT["bojjhaṅgā"];     // stem form in anapanasati
 PALI_DICT["sammādiṭṭhi"] = PALI_DICT["sammā-diṭṭhi"];  // unhyphenated form in sammaditthi
 
