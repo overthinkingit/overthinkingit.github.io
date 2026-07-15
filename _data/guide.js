@@ -207,7 +207,7 @@ module.exports = {
           url: "/concepts/insight-cycles/",
           meta: "Stages of practice",
           annotation:
-            "What often follows a genuine glimpse: oscillation, re-consolidation, and continuing practice.",
+            "Fleeting clarity is not the finish — ordinary mind returns, and training continues there.",
         },
       ],
     },
@@ -229,7 +229,7 @@ module.exports = {
           url: "/suttas/alagaddupama/",
           meta: "MN 22",
           annotation:
-            'The raft simile — using the <span class="pali" data-pali="dhamma" data-en="teaching">Dhamma</span> without clinging to it.',
+            'Wrong grasp of the <span class="pali" data-pali="dhamma" data-en="teaching">Dhamma</span>, the raft for crossing, and why even right view is not for clutching.',
         },
         {
           title: "Sammādiṭṭhi Sutta",

@@ -572,6 +572,30 @@ const PALI_DICT = {
       "Also written āsava (stem form) or āsavas/āsavās (plural). The word derives from a root meaning to flow or to seep — often rendered 'ferments,' 'taints,' or 'outflows,' evoking a liquid that has been working its way through the mind for a very long time. The texts typically list three or four: the ferment of sensuality (kāmāsava), the ferment of becoming (bhavāsava), the ferment of views (diṭṭhāsava), and the ferment of ignorance (avijjāsava). Unlike tanhā, which is the immediate surge of craving at the moment of contact, the āsavās are deeper — the background contamination that keeps the whole system running. The destruction of the āsavās (āsavakkhaya) is the Pali definition of arahantship: a mind fully liberated is one from which nothing seeps."
   },
 
+  kāmāsava: {
+    en: "taint of sensual desire",
+    explanation:
+      "One of the āsavas (ferments / taints). Kāmāsava is the deep, background outflow of sensual wanting — not only gross lust, but the chronic tendency of the mind to lean toward pleasant sense contact and to keep that lean running. In discourses such as the Sammādiṭṭhi Sutta, understanding the āsavas includes knowing this ferment, its origin, its cessation, and the path to its cessation."
+  },
+
+  bhavāsava: {
+    en: "taint of becoming",
+    explanation:
+      "One of the āsavas (ferments / taints). Bhavāsava is the ferment of becoming — the deep drive toward continued existence, identity, and further becoming (bhava). It is subtler than ordinary craving for a particular pleasure; it is the background insistence on remaining, arriving, or being someone. Its abandonment is part of what the canon means by the destruction of the taints."
+  },
+
+  avijjāsava: {
+    en: "taint of ignorance",
+    explanation:
+      "One of the āsavas (ferments / taints). Avijjāsava is ignorance as a deep ferment — not a simple lack of information, but the seeping not-knowing that keeps the whole system of craving and becoming in motion. In MN 9, the discourse ends by applying right view to the āsavas themselves, including this ferment of ignorance."
+  },
+
+  āhāra: {
+    en: "nutriment / food",
+    explanation:
+      "Literally 'food' or 'nutriment' — what sustains a process. The discourses often name four nutriments: edible food, contact, mental volition, and consciousness. In the Sammādiṭṭhi Sutta, āhāra is one of the topics to which Sāriputta applies the fourfold analysis of right view: understand nutriment, its origin, its cessation, and the path to its cessation. The image is causal rather than dietary: what is fed continues; what is not fed ceases."
+  },
+
   /* ---- Self and its absence ---- */
 
   attā: {
@@ -624,6 +648,12 @@ const PALI_DICT = {
     en: "views / opinions",
     explanation:
       "A diṭṭhi is a view — a fixed position, a taken-for-granted frame through which experience is interpreted. The word covers both wrong views (micchā-diṭṭhi) and right view (sammā-diṭṭhi), though in unqualified usage it more often points to problematic views: the view of self (sakkāya-diṭṭhi), eternalist views (sassata-diṭṭhi), annihilationist views (uccheda-diṭṭhi). Diṭṭhi is the third root of papañca: once craving and conceit have taken hold, views consolidate and defend the territory they have staked out. The danger of views is not that they are wrong opinions to be replaced with correct ones — it is that clinging to any view tends to contract and rigidify the mind. Even right view, the path teaches, is ultimately to be let go."
+  },
+
+  sakkāyadiṭṭhi: {
+    en: "identity view / view of personal existence",
+    explanation:
+      "Sakkāyadiṭṭhi is the view that takes the body-mind complex (sakkāya) as a self — 'this is me,' 'this is mine,' 'this is what I am.' The Alagaddūpama Sutta (MN 22) enumerates twenty forms of it by applying four patterns to each of the five aggregates: the aggregate as self, the self as possessing the aggregate, the aggregate as in the self, and the self as in the aggregate. It is the first of the ten fetters (saṃyojana); stream-entry is described as its abandonment. The point of the analysis is not to replace one self-theory with another, but to see that every candidate for a permanent owner is just another construction from changing aggregates."
   },
 
   /* ---- Key contemplative terms ---- */
@@ -713,6 +743,7 @@ PALI_DICT["saṅkhārā"]    = PALI_DICT["saṅkhāra"];      // plural form in 
 PALI_DICT["upādānakkhandhas"] = PALI_DICT["upādānakkhandha"]; // plural in khandhas
 PALI_DICT["bojjhaṅga"]   = PALI_DICT["bojjhaṅgā"];     // stem form in anapanasati
 PALI_DICT["sammādiṭṭhi"] = PALI_DICT["sammā-diṭṭhi"];  // unhyphenated form in sammaditthi
+PALI_DICT["sakkāya-diṭṭhi"] = PALI_DICT["sakkāyadiṭṭhi"]; // hyphenated form
 
 /* ============================================================
    Core Logic
