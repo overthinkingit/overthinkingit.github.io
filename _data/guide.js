@@ -15,7 +15,7 @@ module.exports = {
       number: 1,
       name: "Orientation",
       intro:
-        "What this place is, how to approach the teachings, and how the language notes work.",
+        "What this place is, how to approach the teachings, and how the site tools work.",
       items: [
         {
           title: "What is this place?",
@@ -29,6 +29,12 @@ module.exports = {
           meta: "AN 3.65",
           annotation:
             "Why free inquiry is the entry gate — and what the sutta is actually saying beyond its famous opening.",
+        },
+        {
+          title: "Saved passages",
+          url: "/saved/",
+          annotation:
+            "Mark a line while reading, add a private note, and export Markdown — stored in this browser only.",
         },
         {
           title: "Pali glossary",
@@ -247,37 +253,43 @@ module.exports = {
         },
         {
           title: "Emptiness (śūnyatā) — how Nāgārjuna extends anattā",
-          planned: true,
+          url: "/concepts/emptiness/",
+          meta: "Emptiness",
           annotation:
             "From non-self of persons to emptiness of phenomena — and where the Pali and Mahāyāna frames meet.",
         },
         {
           title: "The two truths — conventional and ultimate",
-          planned: true,
+          url: "/concepts/two-truths/",
+          meta: "Two truths",
           annotation:
             "How both registers can be true without collapsing into relativism or denial.",
         },
         {
           title: "Buddha-nature and its risks",
-          planned: true,
+          url: "/concepts/buddha-nature/",
+          meta: "Buddha-nature",
           annotation:
             "A powerful idea that can liberate or reify a subtle self — how to hold it carefully.",
         },
         {
           title: "Cessation experiences — what they are and aren’t",
-          planned: true,
+          url: "/concepts/cessation-experiences/",
+          meta: "Cessation",
           annotation:
             "Temporary interruptions of ordinary consciousness, and the mistakes that follow from over-interpreting them.",
         },
         {
           title: "Rebirth — how serious practitioners hold it",
-          planned: true,
+          url: "/concepts/rebirth/",
+          meta: "Rebirth",
           annotation:
             "Belief, agnosticism, and functional approaches — without requiring premature metaphysical commitment.",
         },
         {
           title: "Devotion, ritual, and the sceptical practitioner",
-          planned: true,
+          url: "/concepts/devotion-and-ritual/",
+          meta: "Devotion and ritual",
           annotation:
             "What ritual and devotion can do that analysis cannot — and how to meet them without abandoning discernment.",
         },

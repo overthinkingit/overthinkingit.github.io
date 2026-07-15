@@ -146,6 +146,24 @@ const PALI_DICT = {
       "Paññā is not intellectual knowledge about the teachings but the direct seeing of experience as it is — impermanent, incapable of providing lasting satisfaction, and empty of a self. This seeing is transformative: it does not merely inform, it uproots. The Pali tradition distinguishes paññā arising from study, from reflection, and from direct meditative experience."
   },
 
+  saddhā: {
+    en: "confidence / trust",
+    explanation:
+      "Often rendered as 'faith,' saddhā in the Pali sense is closer to reasoned confidence than blind belief. It is the willingness to take up a path as workable — trust that training can change the mind — without outsourcing conscience to a personality or treating every cosmological claim as already settled. The tradition treats saddhā as a factor that supports effort; it is meant to ripen into knowing, not to replace investigation."
+  },
+
+  saraṇa: {
+    en: "refuge",
+    explanation:
+      "Refuge (saraṇa) names where the practitioner leans when craving and fear recruit. Going for refuge in the Buddha, Dhamma, and Saṅgha is an orientation of commitment, not a demand to dissolve private judgment into group feeling. The image is shelter that does not require the next circumstance to hold — a decision about what to trust when the mind is unstable."
+  },
+
+  saṅgha: {
+    en: "community of practice",
+    explanation:
+      "In the narrow sense, the Saṅgha is the monastic community under the Vinaya. In the wider sense used in refuge, it points to those who practice the path in earnest — living companions and the remembered community of training. Refuge in the Saṅgha is companionship in the work, not a license to outsource discernment to consensus or charisma."
+  },
+
   sati: {
     en: "mindfulness / awareness",
     explanation:
@@ -256,6 +274,12 @@ const PALI_DICT = {
     en: "becoming / existence",
     explanation:
       "The tenth link in dependent origination, arising from clinging (upadāna). Bhava is the dynamic of becoming — the process by which the mind, through clinging, continually generates a sense of self and a world for that self to inhabit. The three realms of existence (sensual, form, and formless) are sometimes called the three bhavas. Seeing bhava as a process rather than a given is one of the more disorienting shifts that deep practice can bring."
+  },
+
+  saṃsāra: {
+    en: "cyclic existence; wandering on",
+    explanation:
+      "Saṃsāra names the ongoing process of becoming — birth, aging, death, and renewed becoming — driven by craving and ignorance. In the Pali discourses it is not only a cosmological map of many lives; it also describes the restless wandering of a mind that keeps reconstituting a self and a world for that self. The path aims at the end of that wandering, not at a better seat within it."
   },
 
   jāti: {
@@ -718,6 +742,12 @@ const PALI_DICT = {
       "Nirodha is the third noble truth: the cessation of craving is the cessation of suffering. The word means stopping, or the bringing to an end of a process. In the twelve-link chain of dependent origination, nirodha runs in the reverse direction — each link ceases when the preceding one ceases, all the way back to the cessation of avijjā. In the fourth tetrad of āṇāpānasati, the practitioner contemplates cessation directly — not as a concept but as an observable quality in the arising and passing of phenomena. Nirodha is not annihilation; it is the ending of a process that was being sustained by ignorance and craving."
   },
 
+  "saññā-vedayita-nirodha": {
+    en: "cessation of perception and feeling",
+    explanation:
+      "Also called nirodha-samāpatti in later literature — an advanced meditative attainment in which perception (saññā) and feeling (vedanā) cease for a time. The discourses present it as entered and left by practitioners far along the path, not as a casual blank in early practice. It is a conditioned event: it begins and ends. Mistaking any gap in ordinary consciousness for this attainment — or for nibbāna itself — is a common over-interpretation."
+  },
+
   kāyasaṅkhāra: {
     en: "bodily formation",
     explanation:
@@ -734,6 +764,24 @@ const PALI_DICT = {
     en: "relinquishment / letting go",
     explanation:
       "The final step of the sixteen in the Āṇāpānasati Sutta. Paṭinissagga is relinquishment or letting go — not as a technique of pushing experience away, but as the natural result of seeing clearly. Contemplated alongside anicca, virāga, and nirodha in the fourth tetrad, it names what a mind does when phenomena are known well enough that clinging finds less to hold."
+  },
+
+  suññatā: {
+    en: "emptiness",
+    explanation:
+      "Suññatā (Sanskrit śūnyatā) points to the absence of a permanent, independent core — in persons, and in later Madhyamaka analysis, in phenomena more generally. In the Pali discourses it often names the empty quality of the aggregates or of liberation itself: empty of self, empty of what belongs to a self. It is not a claim that nothing exists or that ethics do not matter; it refuses the habit of treating conditioned appearances as self-powered solids."
+  },
+
+  "sammuti-sacca": {
+    en: "conventional truth",
+    explanation:
+      "In Pali commentarial usage, sammuti-sacca is conventional or agreed-upon truth — the register in which persons, objects, and ordinary statements remain intelligible and ethically answerable. It is not 'falsehood'; it is speech that functions under shared designation. Paired with paramattha-sacca (ultimate truth), it helps keep liberating analysis from erasing responsibility, and everyday grammar from hardening into a permanent self."
+  },
+
+  "paramattha-sacca": {
+    en: "ultimate truth",
+    explanation:
+      "In Pali commentarial usage, paramattha-sacca is ultimate truth — analysis that withholds permanent-self status (and, in related frames, intrinsic essence) from what convention names so readily. It is medicine for reification, not a loftier story about the same solid persons, and not a license to dismiss ethics or pain. Closely related Sanskrit Madhyamaka language speaks of paramārtha-satya."
   }
 
 };

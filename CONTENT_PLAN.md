@@ -39,7 +39,7 @@ Append new concept pages at `order: 10+` in guide-stage sequence. Discovery is p
 ### Assets (applies to every planned page)
 Every existing thumb under `images/thumbs/` is already claimed by a live page. **Each new page needs a new hero image + matching thumb** (or a deliberate reuse decision) **before handoff** — do not ship with `image: TBD.jpg` / `thumb: TBD.jpg`.
 
-Claimed thumbs today: `angles`, `anatta-in-practice`, `breath`, `dual-and-non-dual`, `flame`, `foundation`, `heart`, `how-to-read-a-sutta`, `how-to-sit`, `impermanence`, `insight-cycles`, `jhanas`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `practicing-off-the-cushion`, `second-arrow`, `shore`, `solace`, `suffering`, `three-trainings`, `view`, `when-a-hindrance-dissolves`, `five-precepts`.
+Claimed thumbs today: `angles`, `anatta-in-practice`, `breath`, `buddha-nature`, `cessation-experiences`, `devotion-and-ritual`, `dual-and-non-dual`, `emptiness`, `flame`, `foundation`, `heart`, `how-to-read-a-sutta`, `how-to-sit`, `impermanence`, `insight-cycles`, `jhanas`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `practicing-off-the-cushion`, `rebirth`, `second-arrow`, `shore`, `solace`, `suffering`, `three-trainings`, `two-truths`, `view`, `when-a-hindrance-dissolves`, `five-precepts`.
 
 **Visual style** — match the house look documented in [`.cursor/skills/content-voice/SKILL.md`](.cursor/skills/content-voice/SKILL.md) (Hero imagery):
 
