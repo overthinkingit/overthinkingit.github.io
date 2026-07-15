@@ -20,6 +20,7 @@ module.exports = {
         {
           title: "What is this place?",
           url: "/",
+          thumb: "foundation.jpg",
           annotation: "The framing for these pages — notes, not conclusions.",
         },
         {
@@ -32,6 +33,7 @@ module.exports = {
         {
           title: "Pali glossary",
           url: "/glossary/",
+          thumb: "middle-way.jpg",
           annotation:
             "How the language notes work, and why English renderings are always approximations.",
         },
@@ -134,7 +136,7 @@ module.exports = {
           url: "/concepts/practicing-off-the-cushion/",
           meta: "Daily practice",
           annotation:
-            "The day is where most of the training actually happens — not only the sit.",
+            "Most waking hours have no timer — and those hours are still training the mind.",
         },
         {
           title: "The second arrow — pain vs. suffering",
@@ -148,7 +150,7 @@ module.exports = {
           url: "/concepts/when-a-hindrance-dissolves/",
           meta: "Working with hindrances",
           annotation:
-            "What shifts when desire, ill-will, dullness, restlessness, or doubt loosens — and what not to do next.",
+            "The quiet after an obstruction lifts is not a prize — and the mind often treats it as one.",
         },
       ],
     },
@@ -177,7 +179,7 @@ module.exports = {
           url: "/concepts/paticca-samuppada/",
           meta: "Dependent origination",
           annotation:
-            "The twelve-link chain — and how it unravels when ignorance ceases.",
+            "Not a cosmic timeline — how conditioned experience manufactures dukkha, and where the manufacture can stop.",
         },
         {
           title: "Papañca — The Mind That Proliferates",

@@ -246,6 +246,12 @@ const PALI_DICT = {
       "The twelve nidānas are the twelve links of dependent origination: ignorance, formations, consciousness, name-and-form, the six sense bases, contact, feeling, craving, clinging, becoming, birth, and aging-and-death. Each link arises in dependence on the preceding one. The chain is a teaching about a process, not a sequence of events in time; it can describe the arising of suffering within a single moment of reactivity as much as across lifetimes."
   },
 
+  saḷāyatana: {
+    en: "six sense bases",
+    explanation:
+      "The fifth link of dependent origination: the six sense bases — eye, ear, nose, tongue, body, and mind — through which contact with the world occurs. Without a functioning sense apparatus, there is no experience as the texts describe it. Saḷāyatana is not itself the problem; it is the door. What matters is what happens when organ, object, and consciousness meet at contact, and whether feeling-tone then feeds craving."
+  },
+
   bhava: {
     en: "becoming / existence",
     explanation:
@@ -600,6 +606,12 @@ const PALI_DICT = {
     en: "proliferation / elaboration",
     explanation:
       "Papañca is what the mind does after contact: it takes the bare data of experience and builds, elaborates, and proliferates — turning a moment of perception into a story, a history, a self who experienced it, a world in which that self lives. The Madhupiṇḍika Sutta (MN 18) traces the chain precisely: contact → feeling → perception → thought → and then the flood of papañca-saññā-saṅkhā, the perceptions and categories born from proliferation. Papañca is not thinking per se; it is the compulsive spinning that takes thinking beyond the object and populates the mind with what is not actually present. The three roots of papañca are tanhā (craving), māna (conceit), and diṭṭhi (views)."
+  },
+
+  "papañca-saññā-saṅkhā": {
+    en: "perceptions and categories of proliferation",
+    explanation:
+      "In MN 18, once proliferation has arisen it does not stay put: it becomes a further source of papañca-saññā-saṅkhā — perceptions and conceptual categories stamped by the spin — which then assail a person with respect to past, future, and present sense objects. The compound names the feedback loop: elaborated concepts return as the filters through which new contact is already interpreted."
   },
 
   māna: {

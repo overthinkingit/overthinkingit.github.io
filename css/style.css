@@ -644,15 +644,50 @@ hr {
 .page-figure {
   margin: 0 0 2.5rem;
   padding: 0;
+  aspect-ratio: 16 / 10;
+  background: color-mix(in srgb, var(--rule) 65%, transparent);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .page-figure__img {
   display: block;
   width: 100%;
-  max-height: 420px;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
-  border-radius: 6px;
+}
+
+/* Wave field — Three.js band (js/wave-field.js); reuse via data-wave-field */
+.wave-field {
+  margin: 1.35rem 0 1.85rem;
+  padding: 0;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.wave-field__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Paper tooth for topo / charcoal style */
+.wave-field--topo {
+  position: relative;
+  background: #faf7f2;
+}
+
+.wave-field--topo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.055;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ============================================================
@@ -937,6 +972,7 @@ a:hover .pali {
   border-radius: 4px;
   overflow: hidden;
   display: block;
+  background: color-mix(in srgb, var(--rule) 65%, transparent);
   transform: translateZ(0);
 }
 
@@ -1125,6 +1161,7 @@ a:hover .pali {
 /* ============================================================
    Start-here guide
    ============================================================ */
+
 .guide-stage {
   margin-top: 2.5rem;
 }
@@ -1135,30 +1172,35 @@ a:hover .pali {
   margin-bottom: 1.25rem;
 }
 
-.guide-items {
+/* Opt out of article ul/li indent so rules span the stage edge-to-edge */
+.page-content article ul.guide-items {
   list-style: none;
+  margin: 0;
+  padding: 0;
   border-top: 1px solid var(--rule);
 }
 
-.guide-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+.page-content article li.guide-item {
+  --guide-check-size: 1.25rem;
+  position: relative;
+  margin: 0;
+  padding: 0;
   border-bottom: 1px solid var(--rule);
-  padding: 1.15rem 0;
 }
 
 .guide-item__check {
-  flex-shrink: 0;
-  width: 1.35rem;
-  height: 1.35rem;
-  margin-top: 0.15rem;
+  position: absolute;
+  top: 1.4rem;
+  right: 0;
+  z-index: 1;
+  width: var(--guide-check-size);
+  height: var(--guide-check-size);
   padding: 0;
   border: 1.5px solid var(--card-border);
   border-radius: 50%;
   background: transparent;
   color: transparent;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   line-height: 1;
   cursor: pointer;
@@ -1189,10 +1231,12 @@ a:hover .pali {
 }
 
 .guide-item__link {
-  flex: 1;
-  min-width: 0;
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.4rem 0;
+  /* Keep title/meta clear of the top-right check */
+  padding-right: calc(var(--guide-check-size) + 0.75rem);
   text-decoration: none;
   color: inherit;
 }
@@ -1206,11 +1250,41 @@ a:hover .pali {
   text-underline-offset: 3px;
 }
 
+.guide-item__link:hover .guide-item__media img {
+  opacity: 0.85;
+}
+
+.guide-item__media {
+  flex-shrink: 0;
+  width: 200px;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--rule) 65%, transparent);
+  transform: translateZ(0);
+}
+
+.guide-item__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.guide-item__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .guide-item__meta {
   font-family: var(--font-ui);
   font-size: 0.75rem;
   color: var(--text-faint);
-  margin-bottom: 0.3em;
+  margin-bottom: 0.4em;
 }
 
 .guide-item__title {
@@ -1220,7 +1294,7 @@ a:hover .pali {
   font-weight: 700;
   color: var(--accent);
   line-height: 1.3;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.2em;
 }
 
 .guide-item__annotation {
@@ -1228,14 +1302,13 @@ a:hover .pali {
   font-size: 0.92rem;
   color: var(--text-muted);
   margin: 0;
+  line-height: 1.55;
 }
 
 .guide-item--planned {
-  flex-direction: column;
-  gap: 0;
+  padding: 1.4rem 0;
   border-left: 2px dashed var(--card-border);
-  padding-left: 1rem;
-  margin-left: 0.15rem;
+  padding-left: 0.85rem;
 }
 
 .guide-item--planned .guide-item__title {
@@ -1758,6 +1831,16 @@ body.guide-active:has(.guide-widget--pill) {
   }
 
   .entry-list__thumb {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .guide-item__link {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .guide-item__media {
     width: 100%;
     max-width: 100%;
   }

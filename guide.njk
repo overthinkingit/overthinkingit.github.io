@@ -1,5 +1,5 @@
 ---
-layout: layouts/page.njk
+layout: layouts/listing.njk
 title: Guide
 navSection: guide
 description: A suggested trajectory through these pages — where to begin, what to prioritize, and which ideas are worth waiting for.
@@ -24,26 +24,43 @@ permalink: /guide/
   <p class="guide-stage__intro">{{ stage.intro }}</p>
   <ul class="guide-items">
     {% for item in stage.items %}
+    {% set thumb = item.thumb or (item.url | thumbForUrl(collections)) %}
     {% if item.planned %}
     <li class="guide-item guide-item--planned">
-      <span class="guide-item__badge">Planned</span>
-      <span class="guide-item__title">{{ item.title }}</span>
-      <span class="guide-item__annotation">{{ item.annotation | safe }}</span>
+      <span class="guide-item__body">
+        <span class="guide-item__badge">Planned</span>
+        <span class="guide-item__title">{{ item.title }}</span>
+        <span class="guide-item__annotation">{{ item.annotation | safe }}</span>
+      </span>
     </li>
     {% else %}
-    <li class="guide-item{% if item.optional %} guide-item--optional{% endif %}" data-guide-url="{{ item.url }}">
+    <li class="guide-item{% if item.optional %} guide-item--optional{% endif %}{% if thumb %} guide-item--has-thumb{% endif %}" data-guide-url="{{ item.url }}">
+      <a class="guide-item__link" href="{{ item.url }}">
+        {% if thumb %}
+        <span class="guide-item__media" aria-hidden="true">
+          <img
+            src="/images/thumbs/{{ thumb }}"
+            alt=""
+            width="400"
+            height="300"
+            loading="lazy"
+            decoding="async"
+          >
+        </span>
+        {% endif %}
+        <span class="guide-item__body">
+          {% if item.optional %}<span class="guide-item__badge">Optional</span>{% endif %}
+          {% if item.meta %}<span class="guide-item__meta">{{ item.meta }}</span>{% endif %}
+          <span class="guide-item__title">{{ item.title }}</span>
+          <span class="guide-item__annotation">{{ item.annotation | safe }}</span>
+        </span>
+      </a>
       <button
         type="button"
         class="guide-item__check"
         aria-label="Mark as read"
         aria-pressed="false"
       ></button>
-      <a class="guide-item__link" href="{{ item.url }}">
-        {% if item.optional %}<span class="guide-item__badge">Optional</span>{% endif %}
-        {% if item.meta %}<span class="guide-item__meta">{{ item.meta }}</span>{% endif %}
-        <span class="guide-item__title">{{ item.title }}</span>
-        <span class="guide-item__annotation">{{ item.annotation | safe }}</span>
-      </a>
     </li>
     {% endif %}
     {% endfor %}

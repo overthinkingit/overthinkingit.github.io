@@ -76,7 +76,15 @@ layout: layouts/base.njk
 
     {% if image %}
     <figure class="page-figure">
-      <img src="/images/{{ image }}" alt="{{ imageAlt }}" class="page-figure__img">
+      <img
+        src="/images/{{ image }}"
+        alt="{{ imageAlt }}"
+        class="page-figure__img"
+        width="1600"
+        height="1000"
+        decoding="async"
+        fetchpriority="high"
+      >
     </figure>
     {% endif %}
 

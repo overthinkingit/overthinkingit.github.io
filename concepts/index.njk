@@ -23,7 +23,14 @@ description: Core concepts from the Pali Buddhist tradition, examined one at a t
     <a class="entry-list__link" href="{{ item.url }}">
       {% if item.data.thumb %}
       <span class="entry-list__thumb" aria-hidden="true">
-        <img src="/images/thumbs/{{ item.data.thumb }}" alt="">
+        <img
+          src="/images/thumbs/{{ item.data.thumb }}"
+          alt=""
+          width="400"
+          height="300"
+          loading="lazy"
+          decoding="async"
+        >
       </span>
       {% endif %}
       <span class="entry-list__body">

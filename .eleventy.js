@@ -102,6 +102,21 @@ module.exports = function(eleventyConfig) {
     return { steps: steps, total: steps.length };
   });
 
+  eleventyConfig.addFilter("thumbForUrl", function(url, collections) {
+    if (!url || !collections) return null;
+    var pools = []
+      .concat(collections.concepts || [])
+      .concat(collections.suttas || [])
+      .concat(collections.quotes || []);
+    for (var i = 0; i < pools.length; i++) {
+      var page = pools[i];
+      if (page.url === url && page.data && page.data.thumb) {
+        return page.data.thumb;
+      }
+    }
+    return null;
+  });
+
   return {
     dir: {
       input: ".",
