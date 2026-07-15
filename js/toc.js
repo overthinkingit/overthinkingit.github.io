@@ -20,7 +20,7 @@
   }
 
   function buildList() {
-    var list = document.createElement("ol");
+    var list = document.createElement("ul");
     list.className = "article-toc__list";
 
     headings.forEach(function (heading) {
@@ -82,7 +82,6 @@
   article.insertBefore(inlineNav, inlineAnchor);
 
   var wideQuery = window.matchMedia("(min-width: 1101px)");
-  var narrowQuery = window.matchMedia("(max-width: 720px)");
 
   function syncTocVisibility() {
     var wide = wideQuery.matches && !!sidebar;
@@ -92,16 +91,15 @@
     }
     inlineNav.hidden = wide;
     inlineNav.setAttribute("aria-hidden", wide ? "true" : "false");
-    if (!wide) {
-      inlineNav.open = !narrowQuery.matches;
-    }
   }
+
+  // Collapsed by default on narrow viewports — long always-open lists
+  // push article content down and feel clunky on tablet/phone.
+  inlineNav.open = false;
 
   syncTocVisibility();
   if (wideQuery.addEventListener) wideQuery.addEventListener("change", syncTocVisibility);
   else if (wideQuery.addListener) wideQuery.addListener(syncTocVisibility);
-  if (narrowQuery.addEventListener) narrowQuery.addEventListener("change", syncTocVisibility);
-  else if (narrowQuery.addListener) narrowQuery.addListener(syncTocVisibility);
 
   var allLinks = [];
   sidebarNav.querySelectorAll("a").forEach(function (a) { allLinks.push(a); });
@@ -115,6 +113,14 @@
       else a.removeAttribute("aria-current");
     });
   }
+
+  // Close the inline TOC after a jump so the destination heading isn't
+  // buried under an open list on short viewports.
+  inlineNav.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (!inlineNav.hidden) inlineNav.open = false;
+    });
+  });
 
   if (!("IntersectionObserver" in window)) {
     setActive(headings[0].id);

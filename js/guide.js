@@ -65,10 +65,12 @@
   function isMinimized() {
     try {
       var val = sessionStorage.getItem(MINIMIZE_KEY);
-      if (val === null) return true;
+      // First visit on a sequence page: show the full panel so Prev/Next
+      // are discoverable. Only collapse after the reader chooses Minimize.
+      if (val === null) return false;
       return val === "1";
     } catch (err) {
-      return true;
+      return false;
     }
   }
 
@@ -207,7 +209,21 @@
 
   function removeWidget(el) {
     document.body.classList.remove("guide-active");
+    document.body.style.removeProperty("--guide-widget-offset");
     if (el && el.parentNode) el.parentNode.removeChild(el);
+  }
+
+  function syncWidgetOffset(el) {
+    if (!el) {
+      document.body.style.removeProperty("--guide-widget-offset");
+      return;
+    }
+    var height = Math.ceil(el.getBoundingClientRect().height);
+    var inset = window.matchMedia("(max-width: 640px)").matches ? 12 : 20;
+    document.body.style.setProperty(
+      "--guide-widget-offset",
+      height + inset + "px"
+    );
   }
 
   function wireExit(el) {
@@ -297,10 +313,19 @@
       }
 
       wireExit(el);
+      requestAnimationFrame(function () {
+        syncWidgetOffset(el);
+      });
     }
 
     paint();
     document.body.appendChild(el);
+    requestAnimationFrame(function () {
+      syncWidgetOffset(el);
+    });
+    window.addEventListener("resize", function () {
+      syncWidgetOffset(el);
+    });
   }
 
   function renderPill() {
@@ -317,6 +342,12 @@
     document.body.classList.add("guide-active");
     wireExit(el);
     document.body.appendChild(el);
+    requestAnimationFrame(function () {
+      syncWidgetOffset(el);
+    });
+    window.addEventListener("resize", function () {
+      syncWidgetOffset(el);
+    });
   }
 
   function escapeHtml(str) {
