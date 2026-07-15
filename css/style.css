@@ -255,7 +255,7 @@ hr {
 
 .site-nav__links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   list-style: none;
   margin-left: auto;
   align-self: stretch;
@@ -597,6 +597,12 @@ hr {
 .page-content {
   padding: 3rem 0 6rem;
   min-width: 0;
+  /* Let saved-passage marker bleed past the column edge */
+  overflow: visible;
+}
+
+.page-content article {
+  overflow: visible;
 }
 
 .margin-notes {
@@ -873,6 +879,582 @@ a:hover .pali {
   font-size: 0.8rem;
   line-height: 1.6;
   margin: 0;
+}
+
+/* ============================================================
+   Saved passages
+   ============================================================ */
+.saved-passage {
+  display: inline;
+  color: inherit;
+  font-weight: inherit;
+  /* Desaturated pale yellow — soft marker tips, no burnt rim */
+  --saved-mark: 228, 218, 168;
+  background:
+    linear-gradient(
+      104deg,
+      rgba(var(--saved-mark), 0) 0.9%,
+      rgba(var(--saved-mark), 0.55) 2.8%,
+      rgba(var(--saved-mark), 0.4) 6%,
+      rgba(var(--saved-mark), 0.32) 94%,
+      rgba(var(--saved-mark), 0.5) 97%,
+      rgba(var(--saved-mark), 0) 99%
+    ),
+    linear-gradient(
+      183deg,
+      rgba(var(--saved-mark), 0) 0%,
+      rgba(var(--saved-mark), 0.22) 8%,
+      rgba(var(--saved-mark), 0) 16%
+    );
+  /* Bleed past the text column; matching negative margin keeps glyphs aligned. */
+  --saved-bleed-x: 0.65em;
+  --saved-bleed-y: 0.28em;
+  padding: var(--saved-bleed-y) var(--saved-bleed-x);
+  margin: 0 calc(-1 * var(--saved-bleed-x));
+  border-radius: 0.35em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  box-shadow: none;
+  text-shadow:
+    -0.25em 0.25em 0.4em rgba(var(--saved-mark), 0.28),
+    0.5em -0.4em 0.3em rgba(255, 255, 255, 0.85),
+    -0.4em -0.6em 0.85em rgba(255, 252, 245, 0.75);
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.saved-passage:hover,
+.saved-passage:focus-visible {
+  filter: saturate(1.05);
+  outline: none;
+}
+
+.saved-passage--active,
+.saved-passage[aria-expanded="true"] {
+  --saved-mark: 222, 210, 155;
+  background:
+    linear-gradient(
+      104deg,
+      rgba(var(--saved-mark), 0) 0.9%,
+      rgba(var(--saved-mark), 0.65) 2.8%,
+      rgba(var(--saved-mark), 0.48) 6%,
+      rgba(var(--saved-mark), 0.4) 94%,
+      rgba(var(--saved-mark), 0.58) 97%,
+      rgba(var(--saved-mark), 0) 99%
+    ),
+    linear-gradient(
+      183deg,
+      rgba(var(--saved-mark), 0) 0%,
+      rgba(var(--saved-mark), 0.28) 8%,
+      rgba(var(--saved-mark), 0) 16%
+    );
+}
+
+.saved-passage--just-saved {
+  animation: savedPassageFlash 1s ease-out;
+}
+
+@keyframes savedPassageFlash {
+  0% {
+    filter: saturate(1.2);
+  }
+  100% {
+    filter: none;
+  }
+}
+
+.passage-save-popover {
+  position: absolute;
+  z-index: 40;
+  font-family: var(--font-ui);
+}
+
+.passage-save-popover__btn {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  background-color: var(--bg);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--accent);
+  box-shadow: 0 1px 4px rgba(44, 36, 24, 0.08);
+  transition: color 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.passage-save-popover__btn:hover,
+.passage-save-popover__btn:focus-visible {
+  color: var(--pali-color);
+  border-color: var(--accent-light);
+  background-color: var(--bg-secondary);
+  outline: none;
+}
+
+.passage-save-popover__icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.passage-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 50;
+  background-color: var(--text);
+  color: var(--bg);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(44, 36, 24, 0.18);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.passage-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.passage-toast a {
+  color: #f0e6d4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.saved-passage-note,
+.saved-passage-inline {
+  /* Margin handwriting — sits in the page, not above it like the guide widget */
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(107, 79, 42, 0.28);
+  border-radius: 0;
+  padding: 0.1rem 0.15rem 0.25rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  animation: noteIn 0.18s ease-out;
+  box-shadow: none;
+}
+
+.saved-passage-note[data-mode="edit"],
+.saved-passage-inline[data-mode="edit"] {
+  background: rgba(243, 237, 227, 0.55);
+  border-left-color: rgba(107, 79, 42, 0.34);
+  border-radius: 2px;
+  padding: 0.55rem 0.7rem 0.65rem 0.85rem;
+}
+
+.saved-passage-note {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.saved-passage-inline {
+  display: block;
+  position: relative;
+  margin: 0.65em 0 1em;
+  background: rgba(243, 237, 227, 0.35);
+  padding: 0.55rem 0.65rem 0.55rem 0.85rem;
+}
+
+.saved-passage-note--chip,
+.saved-passage-inline--chip {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  max-width: 100%;
+  padding: 0;
+  border: none;
+  border-left: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.saved-passage-inline--chip {
+  margin: 0.35em 0 0.65em;
+  padding: 0;
+  background: transparent;
+}
+
+.saved-passage-note__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+  min-height: 1.5rem;
+}
+
+.saved-passage-note--preview .saved-passage-note__header,
+.saved-passage-inline--preview .saved-passage-note__header {
+  position: absolute;
+  top: -0.15rem;
+  right: 0;
+  z-index: 1;
+  justify-content: flex-end;
+  margin: 0;
+  min-height: 0;
+  width: auto;
+}
+
+.saved-passage-note--preview .saved-passage-note__body,
+.saved-passage-inline--preview .saved-passage-note__body {
+  margin-top: 0;
+  padding-right: 2.4rem; /* room for hover icons without shifting text */
+}
+
+.saved-passage-note__tools {
+  display: flex;
+  align-items: center;
+  gap: 0.05rem;
+  margin: -0.2rem -0.25rem 0 0;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+/* Preview: icons fully hidden until hover or keyboard focus */
+@media (hover: hover) and (pointer: fine) {
+  .saved-passage-note--preview .saved-passage-note__tools,
+  .saved-passage-inline--preview .saved-passage-note__tools {
+    opacity: 0;
+  }
+
+  .saved-passage-note--preview:hover .saved-passage-note__tools,
+  .saved-passage-note--preview:focus-within .saved-passage-note__tools,
+  .saved-passage-inline--preview:hover .saved-passage-note__tools,
+  .saved-passage-inline--preview:focus-within .saved-passage-note__tools {
+    opacity: 1;
+  }
+}
+
+.saved-passage-note__icon-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-faint);
+  font: inherit;
+}
+
+.saved-passage-note__icon-btn svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.saved-passage-note__icon-btn:hover,
+.saved-passage-note__icon-btn:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.saved-passage-note__label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0;
+  opacity: 0.85;
+}
+
+.saved-passage-note__body {
+  margin: 0;
+  padding-right: 0.15rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.saved-passage-note__textarea,
+.saved-passages-list__note {
+  display: block;
+  width: 100%;
+  resize: vertical;
+  min-height: 4.5em;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(107, 79, 42, 0.22);
+  border-radius: 0;
+  padding: 0.2rem 0 0.45rem;
+}
+
+.saved-passage-note__textarea:focus,
+.saved-passages-list__note:focus {
+  outline: none;
+  border-bottom-color: var(--accent-light);
+  background: transparent;
+}
+
+.saved-passages-list__note {
+  font-style: normal;
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+}
+
+.saved-passages-list__note:focus {
+  background: var(--bg);
+  border-color: var(--accent-light);
+}
+
+.saved-passage-note__status {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-style: normal;
+  color: var(--text-faint);
+}
+
+.saved-passage-note__actions,
+.saved-passages-list__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.65rem;
+  margin-top: 0.55rem;
+}
+
+.saved-passage-note__save {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--accent);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.2rem 0;
+  min-height: 0;
+  text-decoration: none;
+}
+
+.saved-passage-note__save:hover,
+.saved-passage-note__save:focus-visible {
+  color: var(--accent-light);
+  outline: none;
+}
+
+.saved-passage-note__cancel,
+.saved-passage-note__hide {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-faint);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.2rem 0;
+  min-height: 0;
+}
+
+.saved-passage-note__cancel:hover,
+.saved-passage-note__cancel:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.saved-passage-note__remove,
+.saved-passages-list__remove {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-faint);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.2rem 0;
+  min-height: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: auto;
+}
+
+.saved-passage-note__remove:hover,
+.saved-passages-list__remove:hover,
+.saved-passage-note__remove:focus-visible,
+.saved-passages-list__remove:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.saved-passages-list__remove {
+  margin-left: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 0.75rem;
+  padding: 0.45rem 0.7rem;
+}
+
+.saved-passages-list__remove:hover,
+.saved-passages-list__remove:focus-visible {
+  border-color: var(--accent-light);
+}
+
+.saved-passages__notice {
+  margin-bottom: 1.25rem;
+}
+
+.saved-passages__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.saved-passages__btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+}
+
+.saved-passages__btn:hover,
+.saved-passages__btn:focus-visible {
+  border-color: var(--accent-light);
+  outline: none;
+}
+
+.saved-passages__btn--file {
+  cursor: pointer;
+}
+
+.saved-passages__status {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  flex-basis: 100%;
+}
+
+.saved-passages__status--error {
+  color: #8a3b2e;
+}
+
+.saved-passages-list {
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.saved-passages-list__item {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.saved-passages-list__quote {
+  margin: 0 0 0.85rem;
+  padding: 0;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.saved-passages-list__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  margin-bottom: 0.85rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+}
+
+.saved-passages-list__link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.saved-passages-list__link:hover,
+.saved-passages-list__link:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.saved-passages-list__date {
+  color: var(--text-faint);
+}
+
+.saved-passages-list__note-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.35rem;
+}
+
+.saved-passages__empty {
+  margin-top: 0;
 }
 
 /* ============================================================

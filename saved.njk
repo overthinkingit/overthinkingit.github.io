@@ -1,0 +1,32 @@
+---
+layout: layouts/listing.njk
+title: Saved passages
+navSection: saved
+description: Passages you have highlighted on this site — stored in this browser, with optional Markdown export.
+permalink: /saved/
+noindex: true
+---
+
+<header class="page-header">
+  <p class="page-header__eyebrow">Personal</p>
+  <h1 class="page-header__title">Saved passages</h1>
+  <p class="page-header__subtitle">
+    Lines you marked while reading — with room for a private note.
+  </p>
+</header>
+
+<p class="section-intro saved-passages__notice">
+  Saved passages live in this browser only. Clearing site data removes them.
+  Export a Markdown file to back up or move to another device.
+</p>
+
+<div class="saved-passages__toolbar">
+  <button type="button" class="saved-passages__btn" id="saved-passages-export">Export Markdown</button>
+  <label class="saved-passages__btn saved-passages__btn--file">
+    Import Markdown
+    <input type="file" id="saved-passages-import" accept=".md,text/markdown,text/plain" hidden>
+  </label>
+  <p id="saved-passages-status" class="saved-passages__status" hidden></p>
+</div>
+
+<div id="saved-passages-root" class="saved-passages-page" aria-live="polite"></div>

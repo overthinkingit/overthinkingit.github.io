@@ -788,6 +788,9 @@ function handlePaliClick(e) {
     return;
   }
 
+  // Close any open saved-passage notes (shared margin rail)
+  window.dispatchEvent(new CustomEvent("pali:note-open"));
+
   if (isMobile()) {
     showInlineNote(span, word, def);
   } else {
