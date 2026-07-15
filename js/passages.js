@@ -1502,6 +1502,7 @@
     if (!root) return;
 
     renderSavedPage(root);
+    initSavedGuide();
 
     var exportBtn = document.getElementById("saved-passages-export");
     var importInput = document.getElementById("saved-passages-import");
@@ -1526,6 +1527,121 @@
         importInput.value = "";
       });
     }
+  }
+
+  /* ============================================================
+     Saved page — how-it-works guide
+     ============================================================ */
+
+  var GUIDE_HIDDEN_KEY = "saved-passages-guide:hidden";
+  var GUIDE_STEP_MS = 2800;
+  var GUIDE_STEP_COUNT = 4;
+  var GUIDE_CAPTIONS = [
+    "Drag to select a phrase",
+    "A bookmark appears beside the selection — tap to save",
+    "The highlight stays on the page — click it to open a note",
+    "Notes live on this page; export Markdown to keep a copy",
+  ];
+
+  function isSavedGuideHidden() {
+    try {
+      return localStorage.getItem(GUIDE_HIDDEN_KEY) === "1";
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function setSavedGuideHidden(hidden) {
+    try {
+      if (hidden) localStorage.setItem(GUIDE_HIDDEN_KEY, "1");
+      else localStorage.removeItem(GUIDE_HIDDEN_KEY);
+    } catch (err) {
+      /* ignore */
+    }
+  }
+
+  function initSavedGuide() {
+    var guide = document.getElementById("saved-guide");
+    var reveal = document.getElementById("saved-guide-reveal");
+    var hideBtn = document.getElementById("saved-guide-hide");
+    var showBtn = document.getElementById("saved-guide-show");
+    var demo = document.getElementById("saved-guide-demo");
+    var caption = document.getElementById("saved-guide-caption");
+    var stepBtns = document.querySelectorAll(".saved-guide__step[data-guide-step]");
+    if (!guide || !reveal || !hideBtn || !showBtn || !demo) return;
+
+    var step = 1;
+    var timer = null;
+    var paused = false;
+    var reduceMotion =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function applyVisibility(hidden) {
+      guide.hidden = hidden;
+      reveal.hidden = !hidden;
+      if (hidden) stopAutoplay();
+      else if (!reduceMotion) startAutoplay();
+    }
+
+    function setStep(n, fromUser) {
+      step = ((n - 1) % GUIDE_STEP_COUNT) + 1;
+      demo.setAttribute("data-step", String(step));
+      if (caption) caption.textContent = GUIDE_CAPTIONS[step - 1] || "";
+      stepBtns.forEach(function (btn) {
+        var s = parseInt(btn.getAttribute("data-guide-step"), 10);
+        btn.setAttribute("aria-pressed", s === step ? "true" : "false");
+      });
+      if (fromUser) {
+        paused = true;
+        stopAutoplay();
+      }
+    }
+
+    function stopAutoplay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (paused || reduceMotion || guide.hidden) return;
+      timer = setInterval(function () {
+        setStep(step + 1, false);
+      }, GUIDE_STEP_MS);
+    }
+
+    hideBtn.addEventListener("click", function () {
+      setSavedGuideHidden(true);
+      applyVisibility(true);
+    });
+
+    showBtn.addEventListener("click", function () {
+      setSavedGuideHidden(false);
+      paused = false;
+      applyVisibility(false);
+      setStep(1, false);
+    });
+
+    stepBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var n = parseInt(btn.getAttribute("data-guide-step"), 10);
+        if (!n) return;
+        setStep(n, true);
+      });
+    });
+
+    demo.addEventListener("mouseenter", function () {
+      stopAutoplay();
+    });
+    demo.addEventListener("mouseleave", function () {
+      if (!paused && !guide.hidden && !reduceMotion) startAutoplay();
+    });
+
+    applyVisibility(isSavedGuideHidden());
+    setStep(1, false);
   }
 
   /* ============================================================

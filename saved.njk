@@ -15,6 +15,106 @@ noindex: true
   </p>
 </header>
 
+<section
+  class="saved-guide"
+  id="saved-guide"
+  aria-labelledby="saved-guide-title"
+>
+  <div class="saved-guide__top">
+    <h2 class="saved-guide__title" id="saved-guide-title">How saved passages work</h2>
+    <button
+      type="button"
+      class="saved-guide__hide"
+      id="saved-guide-hide"
+      aria-controls="saved-guide-panel"
+    >
+      Hide guide
+    </button>
+  </div>
+
+  <div class="saved-guide__panel" id="saved-guide-panel">
+    <ol class="saved-guide__steps" id="saved-guide-steps">
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="1" aria-pressed="true">
+          <span class="saved-guide__step-num">1</span>
+          <span class="saved-guide__step-text">
+            <strong>Select</strong> a stretch of text on any article.
+          </span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="2" aria-pressed="false">
+          <span class="saved-guide__step-num">2</span>
+          <span class="saved-guide__step-text">
+            Tap the <strong>bookmark</strong> in the gutter to save it.
+          </span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="3" aria-pressed="false">
+          <span class="saved-guide__step-num">3</span>
+          <span class="saved-guide__step-text">
+            Click the <strong>highlight</strong> later to open a private note.
+          </span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="4" aria-pressed="false">
+          <span class="saved-guide__step-num">4</span>
+          <span class="saved-guide__step-text">
+            <strong>Export</strong> Markdown to back up — or import to restore.
+          </span>
+        </button>
+      </li>
+    </ol>
+
+    <div
+      class="saved-guide__demo"
+      id="saved-guide-demo"
+      data-step="1"
+      role="img"
+      aria-label="Animated example of selecting text, saving a passage, adding a note, and exporting"
+    >
+      <p class="saved-guide__demo-label">On an article</p>
+
+      <div class="saved-guide__demo-page">
+        <p class="saved-guide__demo-prose">
+          When craving ends,
+          <span class="saved-guide__selection">
+            <mark class="saved-guide__mark">suffering ceases</mark>
+            <span class="saved-guide__bookmark" aria-hidden="true" title="Save passage">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+              </svg>
+            </span>
+          </span>
+          — not as a theory, but as something you can watch in real time.
+        </p>
+
+        <div class="saved-guide__demo-note" aria-hidden="true">
+          <p class="saved-guide__demo-note-label">Note</p>
+          <p class="saved-guide__demo-note-body">Worth sitting with — the second arrow is optional.</p>
+        </div>
+
+        <div class="saved-guide__demo-export" aria-hidden="true">
+          <span class="saved-guide__demo-export-btn">Export Markdown</span>
+          <span class="saved-guide__demo-export-btn">Import Markdown</span>
+        </div>
+      </div>
+
+      <p class="saved-guide__caption" id="saved-guide-caption" aria-live="polite">
+        Drag to select a phrase
+      </p>
+    </div>
+  </div>
+</section>
+
+<p class="saved-guide-reveal" id="saved-guide-reveal" hidden>
+  <button type="button" class="saved-guide-reveal__btn" id="saved-guide-show">
+    Show how-it-works guide
+  </button>
+</p>
+
 <p class="section-intro saved-passages__notice">
   Saved passages live in this browser only. Clearing site data removes them.
   Export a Markdown file to back up or move to another device.
