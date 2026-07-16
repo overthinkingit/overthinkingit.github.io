@@ -230,7 +230,7 @@ Now Stage 5 opener — light bridge from insight cycles / lived anattā: don’t
 2. R6 three-trainings + R3 second-arrow (Foundations bridges)  
 3. R2 khandhas + R4 jhanas + R5 sammaditthi (stage relocation)  
 4. Light passes R7–R15  
-5. Revisit related lists when Kamma ships
+5. Lower-urgency neighbors (Batch 5) as time allows — Kamma / Middle Way / Right effort already live
 
 ---
 
@@ -346,30 +346,30 @@ Use with the R# notes under [Congruency revisions](#congruency-revisions-live-pa
 Suggested batches (from [Suggested revision order](#suggested-revision-order)). Check off when shipped.
 
 **Batch 1 — Framing pair**
-- [ ] R16 Homepage `/`
-- [ ] R1 How to sit
-- [ ] Pair check: home does not imply sit-first; how-to-sit points at Guide + three trainings / precepts
+- [x] R16 Homepage `/`
+- [x] R1 How to sit
+- [x] Pair check: home does not imply sit-first; how-to-sit points at Guide + three trainings / precepts
 
 **Batch 2 — Foundations bridges**
-- [ ] R6 Three trainings
-- [ ] R3 Second arrow
-- [ ] Pair check: sequence precepts → (kamma) → second arrow → sit is readable from both pages
+- [x] R6 Three trainings
+- [x] R3 Second arrow
+- [x] Pair check: sequence precepts → (kamma) → second arrow → sit is readable from both pages
 
 **Batch 3 — Stage relocation**
-- [ ] R2 Khandhas
-- [ ] R4 Jhānas
-- [ ] R5 Sammādiṭṭhi
+- [x] R2 Khandhas
+- [x] R4 Jhānas
+- [x] R5 Sammādiṭṭhi
 
 **Batch 4 — Light passes**
-- [ ] R7 Dhammacakkappavattana
-- [ ] R8 Eightfold path
-- [ ] R9 Five precepts
-- [ ] R10 Five hindrances
-- [ ] R11 When a hindrance dissolves
-- [ ] R12 Practicing off the cushion
-- [ ] R13 Anattā in practice
-- [ ] R14 Paṭicca-samuppāda
-- [ ] R15 Alagaddūpama
+- [x] R7 Dhammacakkappavattana
+- [x] R8 Eightfold path
+- [x] R9 Five precepts
+- [x] R10 Five hindrances
+- [x] R11 When a hindrance dissolves
+- [x] R12 Practicing off the cushion
+- [x] R13 Anattā in practice
+- [x] R14 Paṭicca-samuppāda
+- [x] R15 Alagaddūpama
 
 **Batch 5 — After planned pages ship** (re-open as each gap goes live)
 - [ ] Neighbors of Vedanā (second arrow, how-to-sit, satipaṭṭhāna)

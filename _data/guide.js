@@ -71,14 +71,14 @@ module.exports = {
           url: "/suttas/dhammacakkappavattana/",
           meta: "SN 56.11",
           annotation:
-            "The four noble truths as a framework to apply, not a creed to believe.",
+            "The frame: four truths as tasks, twelve aspects, and the wheel that turns — with only a brief cut toward the middle way.",
         },
         {
           title: "The Middle Way",
           url: "/concepts/middle-way/",
           meta: "Between extremes",
           annotation:
-            "What the first discourse cuts between — and why the path is neither indulgence nor self-mortification.",
+            "Owns the cut the first discourse names — the two extremes, why “balance” is too thin, and how the refusal shows up early.",
         },
         {
           title: "The Noble Eightfold Path",
