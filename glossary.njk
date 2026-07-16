@@ -14,6 +14,112 @@ permalink: /glossary/
   </p>
 </header>
 
+<section
+  class="saved-guide glossary-guide"
+  id="glossary-guide"
+  aria-labelledby="glossary-guide-title"
+>
+  <div class="saved-guide__top">
+    <h2 class="saved-guide__title" id="glossary-guide-title">How Pali notes work</h2>
+    <button
+      type="button"
+      class="saved-guide__hide"
+      id="glossary-guide-hide"
+      aria-controls="glossary-guide-panel"
+    >
+      Hide guide
+    </button>
+  </div>
+
+  <div class="saved-guide__panel" id="glossary-guide-panel">
+    <ol class="saved-guide__steps" id="glossary-guide-steps">
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="1" aria-pressed="true">
+          <span class="saved-guide__step-num">1</span>
+          <span class="saved-guide__step-text">
+            Spot a <strong>dotted</strong> Pali word in any article.
+          </span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="2" aria-pressed="false">
+          <span class="saved-guide__step-num">2</span>
+          <span class="saved-guide__step-text">
+            <strong>Click</strong> it — the word lights up.
+          </span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="3" aria-pressed="false">
+          <span class="saved-guide__step-num">3</span>
+          <span class="saved-guide__step-text">
+            A <strong>note</strong> opens in the margin with a short gloss.
+          </span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="saved-guide__step" data-guide-step="4" aria-pressed="false">
+          <span class="saved-guide__step-num">4</span>
+          <span class="saved-guide__step-text">
+            This page gathers <strong>every term</strong> in one place.
+          </span>
+        </button>
+      </li>
+    </ol>
+
+    <div
+      class="saved-guide__demo glossary-guide__demo"
+      id="glossary-guide-demo"
+      data-step="1"
+      role="img"
+      aria-label="Animated example of clicking a Pali word and reading its margin note"
+    >
+      <p class="saved-guide__demo-label">On an article</p>
+
+      <div class="glossary-guide__demo-page">
+        <div class="glossary-guide__demo-article">
+          <p class="saved-guide__demo-prose glossary-guide__demo-prose">
+            The first noble truth names
+            <span class="glossary-guide__term">dukkha</span>
+            — not a rare crisis, but the friction woven into conditioned life.
+          </p>
+
+          <div class="glossary-guide__demo-inline" aria-hidden="true">
+            <span class="glossary-guide__demo-note-pali">dukkha</span>
+            <span class="glossary-guide__demo-note-en">suffering / unsatisfactoriness</span>
+            <p class="glossary-guide__demo-note-text">
+              More than plain pain — the unsatisfactoriness woven into change itself.
+            </p>
+          </div>
+        </div>
+
+        <aside class="glossary-guide__demo-note" aria-hidden="true">
+          <span class="glossary-guide__demo-note-close" aria-hidden="true">×</span>
+          <span class="glossary-guide__demo-note-pali">dukkha</span>
+          <span class="glossary-guide__demo-note-en">suffering / unsatisfactoriness</span>
+          <p class="glossary-guide__demo-note-text">
+            More than plain pain — the unsatisfactoriness woven into change itself.
+          </p>
+        </aside>
+
+        <p class="glossary-guide__demo-list" aria-hidden="true">
+          Full list below ↓
+        </p>
+      </div>
+
+      <p class="saved-guide__caption" id="glossary-guide-caption" aria-live="polite">
+        Look for the warm, dotted underline
+      </p>
+    </div>
+  </div>
+</section>
+
+<p class="saved-guide-reveal" id="glossary-guide-reveal" hidden>
+  <button type="button" class="saved-guide-reveal__btn" id="glossary-guide-show">
+    Show how-it-works guide
+  </button>
+</p>
+
 <p class="section-intro">
   Clicking a highlighted Pali word in any article opens the same note in the margin.
   This page gathers those notes in one place. Nothing here is a substitute for meeting the words in context.

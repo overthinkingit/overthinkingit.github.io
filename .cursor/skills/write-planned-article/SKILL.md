@@ -3,12 +3,13 @@ name: write-planned-article
 description: >-
   Write overthinkingit guide articles that are planned in CONTENT_PLAN.md but
   not yet created. Requires a voice exemplar source (and a named brief/slug or
-  “next” gap). Discovers planned gaps, drafts concepts/*.njk from the matching
-  brief, creates hero/thumb assets, audits voice, runs an imitation≠theft
-  plagiarism pass against the exemplar, wires guide.js / related links /
-  pali.js, and rebuilds so /guide/ shows the page live. Use when the user asks
-  to write the next planned page, draft from the content plan, fill a guide
-  "Planned" item, or create a missing concept article from CONTENT_PLAN.md.
+  “next” gap). Discovers planned gaps, drafts concepts/*.njk or suttas/*.njk
+  from the matching brief, creates hero/thumb assets, audits voice, runs an
+  imitation≠theft plagiarism pass against the exemplar, wires guide.js /
+  related links / pali.js, marks the brief written in CONTENT_PLAN.md, and
+  rebuilds so /guide/ shows the page live. Use when the user asks to write the
+  next planned page, draft from the content plan, fill a guide "Planned" item,
+  or create a missing concept/sutta article from CONTENT_PLAN.md.
 ---
 
 # Write planned article — overthinking it
@@ -67,21 +68,22 @@ Planned article progress:
 - [ ] 1. Discover gaps (guide.js planned:true vs concepts/*.njk)
 - [ ] 2. Confirm which brief to write (user pick or suggested early win) + exemplar source
 - [ ] 3. Read brief + content-voice + clear-contemplative-voice; sample the exemplar
-- [ ] 4. Draft concepts/<slug>.njk (front matter + body in clear contemplative voice)
+- [ ] 4. Draft concepts/<slug>.njk or suttas/<slug>.njk per brief (front matter + body in clear contemplative voice)
 - [ ] 5. Run content-voice Audit mode; fix Must/Should issues
 - [ ] 6. Imitation ≠ theft pass against the exemplar; rewrite fingerprint lines
 - [ ] 7. Create hero image; scale/copy for thumb (required — not TBD)
 - [ ] 8. Publish wiring (guide.js, related backlinks, pali.js)
-- [ ] 9. Rebuild site (`npm run build`) and verify /guide/ shows the item live (linked, no Planned badge)
+- [ ] 9. Mark brief written in CONTENT_PLAN.md (required — keep plan in sync with guide.js)
+- [ ] 10. Rebuild site (`npm run build`) and verify /guide/ shows the item live (linked, no Planned badge)
 ```
 
 ### 1. Discover gaps
 
-A page is a **gap** when `_data/guide.js` has `planned: true` for that title **and** no matching `concepts/<slug>.njk` exists.
+A page is a **gap** when `_data/guide.js` has `planned: true` for that title **and** no matching page file exists at the brief’s section (`concepts/<slug>.njk` or `suttas/<slug>.njk`).
 
 Cross-check:
-- `CONTENT_PLAN.md` section headings / slug table
-- Existing files under `concepts/`
+- `CONTENT_PLAN.md` section headings / slug table (note **Section** — concepts vs suttas)
+- Existing files under `concepts/` and `suttas/`
 - Live guide items (have `url`, no `planned: true`) — skip these even if a brief remains in CONTENT_PLAN
 
 If the user did not name a page, list remaining gaps briefly and recommend from CONTENT_PLAN “Early momentum wins,” skipping any already live.
@@ -110,7 +112,7 @@ Defaults from `concepts/concepts.11tydata.json` (`layout`, `section`, `navSectio
 
 ### 4. Draft the page
 
-Create `concepts/<slug>.njk` where `<slug>` matches the brief (e.g. `how-to-sit` → `concepts/how-to-sit.njk`).
+Create `<section>/<slug>.njk` where **Section** and `<slug>` match the brief (e.g. `how-to-sit` → `concepts/how-to-sit.njk`; `sallatha` → `suttas/sallatha.njk`).
 
 **Front matter** — copy from the brief; fill required fields:
 
@@ -129,13 +131,16 @@ related:
     url: /…
 ```
 
+For **sutta** pages, also set `reference:` (e.g. `SN 36.6`) and match peers under `suttas/`. Concept pages use defaults from `concepts/concepts.11tydata.json` — do not duplicate those in front matter.
+
 **Do not leave `image` / `thumb` as `TBD.jpg` when shipping** — generate or obtain assets first (or get an explicit reuse decision), then set the real filenames.
 
 **Body** — follow content-voice Article shape, written in clear contemplative voice, **imitating** the exemplar’s register where useful:
 1. Hook — cold open claim + negation-correction and/or lived universal scene (not memoir); optional brief *you* / *we* opening
 2. `<hr>` + thematic `<h2>` sections matching the brief outline: confusion → mechanism → practice implication (note intentional deviations)
-3. Optional `<blockquote>` + `<cite>— … (adapted)</cite>` when a real canonical line carries the point
-4. Closing synthesis — implication for attention or understanding (not a bullet recap or hype CTA)
+3. If the brief’s stage/neighbors earn it: a subtle guide-placement bridge (optional `Why Here`) per content-voice **Guide placement** — link `/guide/`, do not assume the reader followed the path
+4. Optional `<blockquote>` + `<cite>— … (adapted)</cite>` when a real canonical line carries the point
+5. Closing synthesis — implication for attention or understanding (not a bullet recap or hype CTA)
 
 **Hard rules**
 - Every Pali term uses `<span class="pali" data-pali="…" data-en="…">…</span>`
@@ -145,7 +150,7 @@ related:
 - Cadence: varied sentence length, turn words (*But* / *However* / *Of course*), punch seals sparingly; canonical simile preferred over invented metaphor
 - Do not silently reuse an existing `images/thumbs/` file — create a new pair or get an explicit reuse decision
 - When briefing or choosing a hero, follow **Hero imagery** in the content-voice skill (symbolic/illustrated house style; not literal photoreal staging)
-- All planned pages go under `/concepts/` (no `/practice/`)
+- Planned pages live under `/concepts/` or `/suttas/` as the brief specifies (no `/practice/`)
 
 ### 5. Voice audit
 
@@ -176,14 +181,32 @@ After the draft passes audit **and** the plagiarism pass **and** assets are in p
 1. **`_data/guide.js`** — on the matching item: set `url` to the slug path (trailing slash), add `meta` if the brief/live peers use it, **remove** `planned: true`. Keep `title` and `annotation`.
 2. **Backlinks** — add this page to `related:` (or equivalent) on pages listed under the brief’s “Backlinks once live,” only where those files exist.
 3. **`js/pali.js`** — add any new Pali terms introduced in the article.
-4. **Rebuild / verify** — run `npm run build` and confirm `_site/guide/index.html` lists the item as a **link** (not `guide-item--planned`). If `eleventy --serve` is already running, either rely on the `_data` require-cache bust in `.eleventy.js`, or restart the serve process after editing `_data/guide.js` — a stale Node module cache previously left Planned badges in place even after source was correct.
-5. Do **not** delete the CONTENT_PLAN brief unless the user asks; stale briefs for live pages are fine. Do update Claimed thumbs / early-wins notes when the page ships.
+4. Proceed to **§9 Mark CONTENT_PLAN written** (required — do not leave the plan listing a live page as Planned).
+5. **Rebuild / verify** — run `npm run build` and confirm `_site/guide/index.html` lists the item as a **link** (not `guide-item--planned`). If `eleventy --serve` is already running, either rely on the `_data` require-cache bust in `.eleventy.js`, or restart the serve process after editing `_data/guide.js` — a stale Node module cache previously left Planned badges in place even after source was correct.
 
-### 9. Hand back
+### 9. Mark CONTENT_PLAN written (required)
+
+When the page ships, **sync `CONTENT_PLAN.md` automatically** so the plan matches `guide.js`. Do this every time — do not wait for the user to ask. Keep full brief text only if useful for provenance; prefer moving the item out of **Planned pages** into **Written briefs**.
+
+Required edits in [`CONTENT_PLAN.md`](../../../CONTENT_PLAN.md):
+
+1. **Status table** — set **Planned in guide.js** count to the number of remaining `planned: true` items in `_data/guide.js`; update the Notes link/list to the remaining brief(s) only (or “none” if the plan is clear).
+2. **Planned pages (writing briefs)** — remove the shipped brief from this section (do not leave a live page under Planned).
+3. **Written briefs (no longer gaps)** — add a row: Title | URL | Stage. Create the section if missing. One-line note is enough — do not paste the full outline back.
+4. **Current guide arc** — drop `*(planned)*` / italics-planned markup for the shipped title; leave remaining gaps marked `*(planned)*`.
+5. **Early momentum wins** (if the title appears there) — strike through or mark **written**; leave only still-planned items active.
+6. **Claimed thumbs** — add the new thumb slug if not already listed; clear any “hero still needed” note for this page.
+7. **Stale “(planned)” mentions** — fix congruency / checklist / neighbor notes that still call this page planned (e.g. R# related targets). Leave true remaining gaps (other planned titles) alone.
+8. **Suggested writing order / checklist A** — if they name a default queue, point at the next remaining planned gap (or say the planned queue is empty).
+
+Do **not** delete the Shipped archive or Written briefs tables. Do **not** invent new planned titles here.
+
+### 10. Hand back
 
 Report briefly:
 - Path created
 - Guide stage updated **and** rebuild verified (Planned badge gone)
+- CONTENT_PLAN marked written (Status count + Written briefs row)
 - Exemplar used + plagiarism-pass result
 - Image + thumb paths (never “still TBD” on a completed ship)
 - Backlinks / pali.js changes (or “none”)
@@ -195,14 +218,9 @@ Do not commit unless the user asks.
 
 ## Gap quick-reference
 
-Truth for “still planned” is `planned: true` in `_data/guide.js`, not the presence of a CONTENT_PLAN section. After wiring, truth for “user can see it live” is the **built** `/guide/` output — rebuild before claiming done.
+Truth for “still planned” is `planned: true` in `_data/guide.js`, not the presence of a CONTENT_PLAN brief. After wiring, truth for “user can see it live” is the **built** `/guide/` output — rebuild before claiming done. Truth for “plan is up to date” is: Status count matches `guide.js`, and the shipped title is under **Written briefs**, not **Planned pages**.
 
-Suggested default order when the user says “next” or “an early win” (skip if already live):
-1. When a hindrance dissolves
-2. How to read a sutta
-3. The three trainings — sīla, samādhi, paññā
-
-Otherwise prefer guide stages 1 → 5.
+When the user says “next” or “an early win”: use remaining `planned: true` items in guide order (stages 1 → 5), skipping anything already live. Prefer CONTENT_PLAN “Early momentum wins” / “Suggested writing order” only for titles that are still planned.
 
 ---
 
@@ -217,6 +235,7 @@ Otherwise prefer guide stages 1 → 5.
 - Handing off with `image: TBD.jpg` / `thumb: TBD.jpg`
 - Shipping a literal photoreal / staged-parable hero instead of the symbolic illustrated house style (content-voice Hero imagery)
 - Leaving `planned: true` after the page exists and is meant to be live
+- Shipping a live page but leaving its brief under **Planned pages** / Status count stale / guide-arc still marked `(planned)`
 - Updating `_data/guide.js` but skipping `npm run build` / not verifying `_site/guide/`
 - Assuming a long-lived `eleventy --serve` picked up `guide.js` when `_site/guide/` still shows Planned (verify the built HTML; restart serve if needed)
 - Wellness/therapy register, attainment-flex, or dogmatic metaphysics — or secular erasure of kamma/rebirth when the subject needs them (prefer content-voice pillar 3: pragmatic “as if”)

@@ -26,6 +26,12 @@ const PALI_DICT = {
       "All conditioned phenomena arise dependent on conditions and pass away when those conditions cease. Anicca is not merely the philosophical observation that things change — it is a direct quality to be seen in experience, moment to moment, in the body, feelings, perceptions, and the movements of mind. The contemplation of anicca loosens the habit of grasping."
   },
 
+  anusaya: {
+    en: "underlying tendency",
+    explanation:
+      "A latent inclination that underlies the mind and is reinforced by how feeling is met. In the Sallatha Sutta, resistance to painful feeling feeds an anusaya of aversion; chasing sensual pleasure as the only escape feeds an anusaya of lust for pleasant feeling; not knowing feeling according to arising and ending feeds an anusaya of ignorance regarding neutral feeling. Anusaya names the dug-in habit beneath the moment’s reaction — not a permanent essence, but a tendency that practice can interrupt."
+  },
+
   anattā: {
     en: "non-self",
     explanation:
@@ -226,6 +232,18 @@ const PALI_DICT = {
       "Kamma (Sanskrit: karma) means intentional action — the ethical and psychological force of will as it shapes results. In the aggregate analysis, formations (saṅkhārā) are where kamma is made: each move of intention toward or away from experience leaves a conditioning trail. The teaching is not fatalism; it is that actions rooted in greed, hatred, and delusion tend to ripen as suffering, while actions rooted in their opposites tend otherwise."
   },
 
+  cetanā: {
+    en: "intention; volition",
+    explanation:
+      "Cetanā is the leaning of the mind that makes action intentional — the will that expresses through body, speech, and thought. The discourses identify intention as the hinge of kamma: without it, mere motion is not ethical action in the full sense. Mental rehearsal counts because it still trains the mind that must meet the next moment."
+  },
+
+  vipāka: {
+    en: "result; ripening",
+    explanation:
+      "Vipāka is the ripening or result of intentional action. It can be known locally as the residue left in attention — remorse, ease, agitation, trust — and in the wider tradition it names fruits that may outlast a single afternoon or lifespan. The teaching does not guarantee comfort on a schedule; it maps conditioning, not a prosperity invoice."
+  },
+
   rūpa: {
     en: "form / materiality",
     explanation:
@@ -380,6 +398,18 @@ const PALI_DICT = {
     en: "middle way / middle path",
     explanation:
       "The middle way announced in the Buddha's first discourse: neither devotion to sensual pleasure nor devotion to self-mortification. It is not a thin counsel of lifestyle moderation. The point is a right relationship to experience — seeing clearly enough to abandon both the extreme that treats pleasure as solid and lasting, and the extreme that treats the body as an enemy. That way is identified with the Noble Eightfold Path, and leads to calm, direct knowledge, awakening, and nibbāna."
+  },
+
+  kāmasukhallikānuyoga: {
+    en: "devotion to sensual pleasure",
+    explanation:
+      "One of the two extremes rejected in the first discourse (SN 56.11): organising life around the pursuit of pleasant contact and the avoidance of the unpleasant as if that cycle could finish. Called low, vulgar, and unprofitable — not because pleasure is a sin, but because treating it as lasting fuel trains craving. Paired with attakilamathānuyoga; the middle way abandons both."
+  },
+
+  attakilamathānuyoga: {
+    en: "devotion to self-mortification",
+    explanation:
+      "The other extreme rejected in the first discourse (SN 56.11): treating the body or the will as an enemy to be defeated through pain and deprivation. Called painful, ignoble, and unprofitable. Modern forms include spiritual self-punishment and heroic strain mistaken for depth. Paired with kāmasukhallikānuyoga; the middle way abandons both."
   },
 
   /* ---- Eightfold Path ---- */
@@ -1021,11 +1051,133 @@ window.addEventListener("resize", () => {
 });
 
 /* ============================================================
+   Glossary page — how-it-works guide
+   ============================================================ */
+
+const GLOSSARY_GUIDE_HIDDEN_KEY = "pali-glossary-guide:hidden";
+const GLOSSARY_GUIDE_STEP_MS = 2800;
+const GLOSSARY_GUIDE_STEP_COUNT = 4;
+const GLOSSARY_GUIDE_CAPTIONS = [
+  "Look for the warm, dotted underline",
+  "Click the word — it lights up",
+  "A note opens in the margin (inline on small screens)",
+  "Every term also lives in the list below",
+];
+
+function isGlossaryGuideHidden() {
+  try {
+    return localStorage.getItem(GLOSSARY_GUIDE_HIDDEN_KEY) === "1";
+  } catch (err) {
+    return false;
+  }
+}
+
+function setGlossaryGuideHidden(hidden) {
+  try {
+    if (hidden) localStorage.setItem(GLOSSARY_GUIDE_HIDDEN_KEY, "1");
+    else localStorage.removeItem(GLOSSARY_GUIDE_HIDDEN_KEY);
+  } catch (err) {
+    /* ignore */
+  }
+}
+
+function initGlossaryGuide() {
+  const guide = document.getElementById("glossary-guide");
+  const reveal = document.getElementById("glossary-guide-reveal");
+  const hideBtn = document.getElementById("glossary-guide-hide");
+  const showBtn = document.getElementById("glossary-guide-show");
+  const demo = document.getElementById("glossary-guide-demo");
+  const caption = document.getElementById("glossary-guide-caption");
+  const stepBtns = document.querySelectorAll(
+    "#glossary-guide-steps .saved-guide__step[data-guide-step]"
+  );
+  if (!guide || !reveal || !hideBtn || !showBtn || !demo) return;
+
+  let step = 1;
+  let timer = null;
+  let paused = false;
+  const reduceMotion =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function applyVisibility(hidden) {
+    guide.hidden = hidden;
+    reveal.hidden = !hidden;
+    if (hidden) stopAutoplay();
+    else if (!reduceMotion) startAutoplay();
+  }
+
+  function setStep(n, fromUser) {
+    step = ((n - 1) % GLOSSARY_GUIDE_STEP_COUNT) + 1;
+    demo.setAttribute("data-step", String(step));
+    if (caption) caption.textContent = GLOSSARY_GUIDE_CAPTIONS[step - 1] || "";
+    stepBtns.forEach(btn => {
+      const s = parseInt(btn.getAttribute("data-guide-step"), 10);
+      btn.setAttribute("aria-pressed", s === step ? "true" : "false");
+    });
+    if (fromUser) {
+      paused = true;
+      stopAutoplay();
+    }
+  }
+
+  function stopAutoplay() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (paused || reduceMotion || guide.hidden) return;
+    timer = setInterval(() => {
+      setStep(step + 1, false);
+    }, GLOSSARY_GUIDE_STEP_MS);
+  }
+
+  hideBtn.addEventListener("click", () => {
+    setGlossaryGuideHidden(true);
+    applyVisibility(true);
+  });
+
+  showBtn.addEventListener("click", () => {
+    setGlossaryGuideHidden(false);
+    paused = false;
+    applyVisibility(false);
+    setStep(1, false);
+  });
+
+  stepBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const n = parseInt(btn.getAttribute("data-guide-step"), 10);
+      if (!n) return;
+      setStep(n, true);
+    });
+  });
+
+  demo.addEventListener("mouseenter", () => {
+    stopAutoplay();
+  });
+  demo.addEventListener("mouseleave", () => {
+    if (!paused && !guide.hidden && !reduceMotion) startAutoplay();
+  });
+
+  applyVisibility(isGlossaryGuideHidden());
+  setStep(1, false);
+}
+
+/* ============================================================
    Boot
    ============================================================ */
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initPali);
-} else {
+function bootPali() {
   initPali();
+  initGlossaryGuide();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootPali);
+} else {
+  bootPali();
 }

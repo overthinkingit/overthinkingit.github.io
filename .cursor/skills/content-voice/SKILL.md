@@ -29,7 +29,7 @@ Image exemplars (prefer these over photoreal outliers): `images/angles.jpg`, `im
 
 Writing briefs for planned pages: [CONTENT_PLAN.md](../../../CONTENT_PLAN.md).
 
-To create a page that is still marked Planned in the guide, use the companion workflow skill first: [write-planned-article](../write-planned-article/SKILL.md) (discover gap → draft → audit → plagiarism pass → wire guide.js).
+To create a page that is still marked Planned in the guide, use the companion workflow skill first: [write-planned-article](../write-planned-article/SKILL.md) (discover gap → draft → audit → plagiarism pass → wire guide.js → mark CONTENT_PLAN written).
 
 To **fully rewrite** a live page from a site URL (new argument/structure — not a paraphrase), use: [full-rewrite-article](../full-rewrite-article/SKILL.md) — requires **URL + exemplar**.
 
@@ -155,6 +155,15 @@ Aim for readable, varied rhythm (~18–22 word average): hard open claim → exp
 4. Closing synthesis (not a bullet recap; implication for attention or understanding, not a hype CTA)
 
 Sidebar TOC (`js/toc.js`) indexes **H2 only**. Keep H2s thematic and few enough to navigate; put finer scan anchors in H3s.
+
+### Guide placement (“Why Here” and neighbors)
+The [guide](../../../guide.njk) (`/guide/`) is a first-class way to use the site. Prefer **subtle** references to guide order when placement earns a teaching point — not a tour of the whole arc.
+
+- **Do** name neighbors and why the beat matters (e.g. after precepts, before second arrow / sitting) when that causal picture strengthens the page.
+- **Do** frame that order as relative to the guide — link `/guide/` when the section leans on sequence — so cold arrivals are not treated as if they already walked the path.
+- **Do not** assume every reader is following the guide, require prior pages, or make the essay unreadable without that sequence.
+- Optional H2 title: `Why Here`. Same idea can live in a short early or closing bridge without that heading.
+- Exemplar: [concepts/kamma.njk](../../../concepts/kamma.njk) — guide link + “order is relative” + retained rationale for those on the path.
 
 ### Subheadings (H3) — scan and SEO
 Use `<h3>` under a thematic H2 when the section covers named items a reader (or search engine) will look up by name — factors, precepts, foundations, antidotes, etc.
@@ -286,7 +295,7 @@ Draft progress:
 4. Fill sections; prefer short paragraphs (3–6 sentences); insert `<hr>` between major movements.
 5. Add blockquote only if a real canonical line carries the point.
 6. Create hero asset then scale/copy to thumb (or explicit reuse); set front matter — **required before handoff**.
-7. Run **Audit mode** below; run **Imitation ≠ theft** if an exemplar was used; then wire guide.js / related links per the plan checklist and **rebuild** so `/guide/` updates.
+7. Run **Audit mode** below; run **Imitation ≠ theft** if an exemplar was used; then wire guide.js / related links / mark CONTENT_PLAN written per write-planned-article and **rebuild** so `/guide/` updates.
 
 ---
 
@@ -309,6 +318,7 @@ Audit:
 - [ ] Flag bullet-list sprawl (lists where prose would scan fine); note missing H3s only if named items are hard to find
 - [ ] Check Pali span coverage and data-en quality
 - [ ] Check structure (hook → hr/H2s → optional H3s → optional cite → close)
+- [ ] If the page claims guide order / “Why Here”: subtle, linked to `/guide/` when sequence matters, not assumed for every reader
 - [ ] Check related links / internal anchors still live
 - [ ] Check hero image against Hero imagery (symbolic/illustrated vs literal photoreal)
 - [ ] If an exemplar was used: Imitation ≠ theft pass (fingerprint seals / near-copies)
@@ -327,8 +337,8 @@ For each issue:
 For image issues: name the file, say which house-style rule it breaks, and offer a short regeneration brief (subject + mode from the variety table + avoid list).
 
 Severity:
-- **Must fix** — wrong teaching claim, missing Pali span on a defined term, dogmatic absolute (including forced cosmology belief), wellness jargon, first-person Dhamma authority / memoir-as-proof, shipping with `TBD` image/thumb, guide still `planned: true` when page is meant live, unattributed near-copy of an exemplar’s distinctive phrasing (Imitation ≠ theft)
-- **Should fix** — weak humility on contested interpretation, metaphysics erased or sneered when the subject requires it (missed pillar 3 “as if”), invented metaphor crowding a canonical one, structural drift, soft/influencer lead-in, flat cadence with no turns or seals, liberal bullet lists where prose would do, hero image outside house style (literal photoreal / staged parable)
+- **Must fix** — wrong teaching claim, missing Pali span on a defined term, dogmatic absolute (including forced cosmology belief), wellness jargon, first-person Dhamma authority / memoir-as-proof, shipping with `TBD` image/thumb, guide still `planned: true` when page is meant live, CONTENT_PLAN still listing a live page under Planned / Status count stale, unattributed near-copy of an exemplar’s distinctive phrasing (Imitation ≠ theft)
+- **Should fix** — weak humility on contested interpretation, metaphysics erased or sneered when the subject requires it (missed pillar 3 “as if”), invented metaphor crowding a canonical one, structural drift, soft/influencer lead-in, flat cadence with no turns or seals, liberal bullet lists where prose would do, hero image outside house style (literal photoreal / staged parable), guide-order prose that assumes the reader followed the path (or omits `/guide/` when sequence is the point)
 - **Optional** — punch-closer opportunity, slight rhythm polish, dry-wit trim, H3 scan anchors for named items buried in long H2s
 
 Do not rewrite the whole page unless asked. Prefer surgical edits.
