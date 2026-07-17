@@ -158,7 +158,7 @@ Within that, aim for this movement:
 These are **site-voice sketches** for cadence — not lines to paste from an external author. When a user-supplied exemplar was used for a draft, still run the **Imitation ≠ theft** pass in SKILL.md.
 
 ### Cold open
-> Every experience is shaped by the mind that meets it. Careers unfinished, relationships pending, repairs still waiting — none of that cancels the quieter fact: if attention is elsewhere, or if confusion is the weather of the hour, no outward success will feel like success.
+> Every experience is shaped by the mind that meets it. Careers unfinished, relationships pending, repairs still waiting — none of that cancels the quieter fact: if attention is elsewhere, or if confusion is the climate of the hour, no outward success will feel like success.
 
 ### Everyday cascade
 > Pleasures fade as soon as they arise. A favorite meal becomes too much; dessert lasts seconds; sun on the skin becomes heat; shade becomes chill. Wanting and not-wanting trade places all afternoon. The path begins with the suspicion that this oscillation is not the whole of what a human mind can do.

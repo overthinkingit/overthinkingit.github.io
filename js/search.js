@@ -5,6 +5,7 @@
   var input = document.getElementById("site-search-input");
   var resultsEl = document.getElementById("site-search-results");
   var hintEl = document.getElementById("site-search-hint");
+  var statusEl = document.getElementById("site-search-status");
   if (!openBtn || !dialog || !input || !resultsEl) return;
 
   var index = null;
@@ -101,12 +102,25 @@
     hintEl.hidden = Boolean(query);
   }
 
+  function updateStatus(query, count) {
+    if (!statusEl) return;
+    if (!query) {
+      statusEl.hidden = true;
+      statusEl.textContent = "";
+      return;
+    }
+    statusEl.hidden = false;
+    statusEl.textContent =
+      count === 0 ? "No results" : count === 1 ? "1 result" : count + " results";
+  }
+
   function hideResults() {
     resultsEl.hidden = true;
     resultsEl.innerHTML = "";
     activeIndex = -1;
     currentResults = [];
     setExpanded(false);
+    updateStatus("", 0);
   }
 
   function renderResults(results, query) {
@@ -119,10 +133,12 @@
       return;
     }
 
+    updateStatus(query, results.length);
+
     if (results.length === 0) {
-      resultsEl.innerHTML = '<li class="site-search__empty" role="presentation">No results</li>';
-      resultsEl.hidden = false;
-      setExpanded(true);
+      resultsEl.innerHTML = "";
+      resultsEl.hidden = true;
+      setExpanded(false);
       return;
     }
 

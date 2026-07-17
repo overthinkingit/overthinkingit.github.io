@@ -453,6 +453,17 @@ hr {
   color: var(--text-faint);
 }
 
+.site-search__status {
+  margin: 0;
+  padding: 0.65rem 1.25rem 0.35rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
 .site-search__results {
   flex: 1 1 auto;
   min-height: 0;
