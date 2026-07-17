@@ -95,7 +95,7 @@ const PALI_DICT = {
   sikkhāpada: {
     en: "training rule",
     explanation:
-      "A step or rule of training — the traditional term for a precept. The language matters: a sikkhāpada is undertaken as aspiration and practice, not as a divine decree. When one is broken, the work is honesty and repair, not purity theater or self-punishment."
+      "A step or rule of training — the traditional term for a precept. The language matters: a sikkhāpada is undertaken as aspiration and practice, not as a divine decree. When one is broken, the work is honesty and repair, not a purity contest or self-punishment."
   },
 
   pāṇātipāta: {
