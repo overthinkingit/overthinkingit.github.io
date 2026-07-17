@@ -128,7 +128,7 @@ module.exports = {
           url: "/concepts/vedana/",
           meta: "Pleasant, unpleasant, neutral",
           annotation:
-            "The hedonic tone at contact — the hinge between bare feeling and the stories, craving, and aversion that follow.",
+            "The hedonic tone at contact — the seam between bare feeling and the stories, craving, and aversion that follow.",
         },
         {
           title: "How to sit — a starting sitting practice",

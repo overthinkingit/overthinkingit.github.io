@@ -197,7 +197,7 @@ const PALI_DICT = {
   vedanā: {
     en: "feeling-tone",
     explanation:
-      "Every moment of experience carries a vedanā: pleasant, unpleasant, or neutral. This is not emotion — it is the bare hedonic quality that precedes the elaborate stories the mind builds. Because pleasant feeling tends to trigger craving and unpleasant feeling tends to trigger aversion, vedanā is a critical hinge point. Seeing vedanā without immediately reacting to it is one of the key skills of satipaṭṭhāna practice."
+      "Every moment of experience carries a vedanā: pleasant, unpleasant, or neutral. This is not emotion — it is the bare hedonic quality that precedes the elaborate stories the mind builds. Because pleasant feeling tends to trigger craving and unpleasant feeling tends to trigger aversion, vedanā is a critical junction. Seeing vedanā without immediately reacting to it is one of the key skills of satipaṭṭhāna practice."
   },
 
   bojjhaṅgā: {
@@ -235,7 +235,7 @@ const PALI_DICT = {
   cetanā: {
     en: "intention; volition",
     explanation:
-      "Cetanā is the leaning of the mind that makes action intentional — the will that expresses through body, speech, and thought. The discourses identify intention as the hinge of kamma: without it, mere motion is not ethical action in the full sense. Mental rehearsal counts because it still trains the mind that must meet the next moment."
+      "Cetanā is the leaning of the mind that makes action intentional — the will that expresses through body, speech, and thought. The discourses identify intention as the decisive factor in kamma: without it, mere motion is not ethical action in the full sense. Mental rehearsal counts because it still trains the mind that must meet the next moment."
   },
 
   vipāka: {
