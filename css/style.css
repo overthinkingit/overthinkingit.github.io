@@ -283,6 +283,7 @@ hr {
 
 .site-nav__links a:hover {
   color: var(--accent);
+  border-bottom-color: color-mix(in srgb, var(--accent-light) 55%, var(--nav-border));
 }
 
 .site-nav__links a[aria-current="page"] {
@@ -301,6 +302,10 @@ hr {
   align-items: baseline;
   gap: 0.45em;
   color: var(--accent);
+}
+
+.site-nav__start:hover {
+  color: var(--accent-light);
 }
 
 .site-nav__start-hint {
@@ -3044,13 +3049,22 @@ body.guide-active:has(.guide-widget--pill) {
   }
 
   .site-nav__links li {
+    width: 100%;
     border-top: 1px solid var(--rule);
   }
 
   .site-nav__links a {
-    display: block;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.95rem 1.25rem;
     border-bottom: none;
+  }
+
+  .site-nav__links a:hover {
+    border-bottom: none;
+    background-color: var(--pali-active-bg);
   }
 
   .site-nav__links a[aria-current="page"] {

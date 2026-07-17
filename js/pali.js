@@ -176,10 +176,40 @@ const PALI_DICT = {
       "Sati is often translated 'mindfulness,' though it carries a sense of clear recollection — knowing what is present, not losing track of it. In the Satipaṭṭhāna Sutta, the Buddha outlines four foundations of sati: the body, feelings (vedanā), mind states, and phenomena. Sati is the quality that allows the other factors of the path to be present and effective."
   },
 
+  "yoniso-manasikāra": {
+    en: "wise / thorough attention",
+    explanation:
+      "Yoniso manasikāra is careful, thorough attention — attending to conditions, drawbacks, and what actually feeds wholesome or unwholesome states. Paired with sati, it is the tilt that makes knowing liberating rather than another form of elaboration. The discourses contrast it with ayoniso manasikāra, attention that feeds the bait without seeing the cost."
+  },
+
+  "ayoniso-manasikāra": {
+    en: "unwise attention",
+    explanation:
+      "Ayoniso manasikāra is unwise or careless attention — attending in a way that nourishes greed, hatred, and delusion. Same contact can be fed two ways: rehearse the insult, or see tone, lean, and proliferation as they arise. The opposite tilt is yoniso manasikāra."
+  },
+
   tanhā: {
     en: "craving / thirst",
     explanation:
       "Tanhā — literally 'thirst' — is identified in the Second Noble Truth as the origin of suffering. The Buddha described three kinds: craving for sensual pleasure, craving for existence, and craving for non-existence. It is the reactive reaching and pushing of the mind that perpetuates the cycle. Seeing tanhā as it arises, in real time, is central to insight practice."
+  },
+
+  "kāma-taṇhā": {
+    en: "sensual craving",
+    explanation:
+      "One of the three forms of taṇhā named in the first discourse. Kāma-taṇhā is thirst for pleasant sense contact — tastes, sights, sounds, touch, and the arrangements that deliver them. Not every preference belongs here; the mark is the compulsive lean that treats pleasant contact as lasting fuel."
+  },
+
+  "bhava-taṇhā": {
+    en: "craving for becoming",
+    explanation:
+      "One of the three forms of taṇhā. Bhava-taṇhā is thirst to be, to arrive, to continue as someone — the hunger for identity, reputation, or a future self who has finally settled. It can describe renewed existence across lives in the tradition’s longer frame, and also the this-life lean toward a self-story that keeps needing the next chapter."
+  },
+
+  "vibhava-taṇhā": {
+    en: "craving for non-existence",
+    explanation:
+      "One of the three forms of taṇhā. Vibhava-taṇhā is thirst for erasure — not-wanting so strong it wants the situation, feeling, or self gone. It can look like renunciation from the outside and still be the same reach: a demand that unpleasant tone vanish on cue."
   },
 
   saṅkhāra: {
@@ -204,6 +234,12 @@ const PALI_DICT = {
     en: "factors of awakening",
     explanation:
       "The seven factors that, when fully developed, lead to awakening: sati (mindfulness), dhamma-vicaya (investigation of phenomena), viriya (energy), pīti (rapture), passaddhi (tranquility), samādhi (unification), and upekkhā (equanimity). The tradition teaches that they are cultivated in sequence — investigation arises from clear mindfulness, energy arises from investigation, and so on."
+  },
+
+  "dhamma-vicaya": {
+    en: "investigation of phenomena",
+    explanation:
+      "One of the seven factors of awakening (bojjhaṅgā). Dhamma-vicaya is discerning interest in what is present — looking into phenomena as they appear rather than elaborating a story about them. From clear mindfulness, investigation arises; from investigation, energy. It is the factor that turns bare knowing into wise discrimination of wholesome and unwholesome states."
   },
 
   upekkhā: {

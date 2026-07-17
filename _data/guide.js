@@ -131,6 +131,21 @@ module.exports = {
             "The hedonic tone at contact — the seam between bare feeling and the stories, craving, and aversion that follow.",
         },
         {
+          title: "Taṇhā — craving as the origin",
+          url: "/concepts/tanha/",
+          meta: "Thirst",
+          annotation:
+            "The second truth owned on its own page — wanting and not-wanting as the trainable reach after feeling-tone, before sitting as laboratory.",
+        },
+        {
+          title: "Sati — mindfulness and wise attention",
+          url: "/concepts/sati/",
+          meta: "Attention",
+          thumb: "sati.jpg",
+          annotation:
+            "What sati is and isn’t — and yoniso manasikāra as the tilt that makes attention useful rather than another form of overthinking.",
+        },
+        {
           title: "How to sit — a starting sitting practice",
           url: "/concepts/how-to-sit/",
           meta: "Starting practice",
@@ -158,6 +173,14 @@ module.exports = {
           meta: "Sammā vāyāma",
           annotation:
             "Preventing, abandoning, cultivating, and maintaining — how effort bridges the path factors and the hindrances without grinding willpower.",
+        },
+        {
+          title: "Bojjhaṅgā — the seven factors of awakening",
+          url: "/concepts/bojjhangas/",
+          meta: "Awakening factors",
+          thumb: "bojjhangas.jpg",
+          annotation:
+            "The positive map after the hindrances — mindfulness through equanimity as qualities to recognize and strengthen, not a new technique stack.",
         },
         {
           title: "Āṇāpānasati Sutta",

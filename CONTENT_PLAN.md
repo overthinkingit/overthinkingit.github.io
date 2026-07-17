@@ -15,9 +15,9 @@ Writing briefs for items marked `planned: true` in [`_data/guide.js`](_data/guid
 
 | Bucket | Count | Notes |
 |--------|-------|--------|
-| **Planned in guide.js** | 0 | none |
+| **Planned in guide.js** | 0 | none — [Written briefs](#written-briefs-no-longer-gaps) |
 | **Live guide items** | rest of arc | See [Written briefs](#written-briefs-no-longer-gaps) + [Shipped archive](#shipped-archive-original-16) |
-| **Congruency revisions** | 16 live pages | Highest-priority + light passes — [below](#congruency-revisions-live-pages) |
+| **Congruency revisions** | Batch 5 neighbors | Highest + light passes done — [tracker](#c-congruency-progress-tracker) |
 
 ---
 
@@ -55,7 +55,9 @@ When a brief or congruency note cares about stage/neighbors, a short bridge is w
 ### Assets (applies to every planned page)
 Every existing thumb under `images/thumbs/` is already claimed by a live page **except** where a planned brief reuses a reserved filename. **Each new page needs a new hero image + matching thumb** (or a deliberate reuse decision) **before handoff** — do not ship with `image: TBD.jpg` / `thumb: TBD.jpg`.
 
-Claimed thumbs today: `angles`, `anatta-in-practice`, `breath`, `buddha-nature`, `cessation-experiences`, `devotion-and-ritual`, `dual-and-non-dual`, `emptiness`, `flame`, `foundation`, `heart`, `how-to-read-a-sutta`, `how-to-sit`, `impermanence`, `insight-cycles`, `jhanas`, `kamma`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `practicing-off-the-cushion`, `rebirth`, `right-effort`, `sallatha`, `second-arrow`, `shore`, `solace`, `suffering`, `three-trainings`, `two-truths`, `vedana`, `view`, `when-a-hindrance-dissolves`, `five-precepts`, `pali-glossary`, `saved-passages`, `what-is-this-place-a` (and variants).
+Claimed thumbs today: `angles`, `anatta-in-practice`, `bojjhangas`, `breath`, `buddha-nature`, `cessation-experiences`, `devotion-and-ritual`, `dual-and-non-dual`, `emptiness`, `flame`, `foundation`, `heart`, `how-to-read-a-sutta`, `how-to-sit`, `impermanence`, `insight-cycles`, `jhanas`, `kamma`, `khandhas`, `middle-way`, `noble-eightfold-path`, `proliferate`, `practicing-off-the-cushion`, `rebirth`, `right-effort`, `sallatha`, `sati`, `second-arrow`, `shore`, `solace`, `suffering`, `tanha`, `three-trainings`, `two-truths`, `vedana`, `view`, `when-a-hindrance-dissolves`, `five-precepts`, `pali-glossary`, `saved-passages`, `what-is-this-place-a` (and variants).
+
+**Reserved for planned pages (not yet on disk):** none.
 
 **Note:** `images/middle-way.jpg` and `images/thumbs/middle-way.jpg` are paired (hero shipped with Middle Way page).
 
@@ -78,14 +80,22 @@ Claimed thumbs today: `angles`, `anatta-in-practice`, `breath`, `buddha-nature`,
 8. Confirm the new page URL appears in `/sitemap.xml` (built from `collections.all` via [`sitemap.njk`](sitemap.njk) — no hand-edit unless the page sets `noindex` or is excluded from collections).
 
 ### Suggested writing order
-Default queue empty for planned pages — next work is congruency revisions.
+Default queue: empty — no remaining `planned: true` gaps in `guide.js`.
 
 **Early momentum wins** (tight scope, strong links to existing pages):
+1. ~~**Taṇhā**~~ — **written**
+2. ~~**Sati — mindfulness and wise attention**~~ — **written**
+3. ~~**Bojjhaṅgā**~~ — **written**
+
+Already written (prior queue):
 1. ~~Vedanā~~ — **written**
 2. ~~Sallatha Sutta~~ — **written**
 3. ~~Right effort~~ — **written**
 4. ~~The Middle Way~~ — **written**
 5. ~~Kamma~~ — **written**
+6. ~~Taṇhā~~ — **written**
+7. ~~Sati~~ — **written**
+8. ~~Bojjhaṅgā~~ — **written**
 
 ---
 
@@ -94,8 +104,8 @@ Default queue empty for planned pages — next work is congruency revisions.
 Source of truth: [`_data/guide.js`](_data/guide.js).
 
 1. **Orientation** — homepage (opt), Kālāma, glossary (opt), saved (opt), how to read a sutta (opt)
-2. **Foundations** — first discourse → Middle Way → eightfold → three trainings → precepts → Kamma → second arrow → Sallatha → Vedanā → how to sit
-3. **Deepening** — hindrances → Right effort → Āṇāpānasati → when a hindrance dissolves → Satipaṭṭhāna → brahmavihāras → off the cushion → jhānas
+2. **Foundations** — first discourse → Middle Way → eightfold → three trainings → precepts → Kamma → second arrow → Sallatha → Vedanā → Taṇhā → Sati → how to sit
+3. **Deepening** — hindrances → Right effort → Bojjhaṅgā → Āṇāpānasati → when a hindrance dissolves → Satipaṭṭhāna → brahmavihāras → off the cushion → jhānas
 4. **After some practice** — khandhas → ti-lakkhaṇa → Anattalakkhaṇa → anattā in practice → papañca → DO → Sammādiṭṭhi → insight cycles
 5. **Counter-intuitive** — Alagaddūpama → nibbāna → dual/non-dual → emptiness → two truths → buddha-nature → cessation → rebirth → devotion
 
@@ -103,7 +113,7 @@ Source of truth: [`_data/guide.js`](_data/guide.js).
 
 ## Planned pages (writing briefs)
 
-None — planned queue clear. New titles need a brief here and a `planned: true` row in [`_data/guide.js`](_data/guide.js) before drafting.
+No remaining bedrock gaps — `planned: true` count in [`_data/guide.js`](_data/guide.js) is **0**. New titles belong here only after they are added to the guide as Planned.
 
 ---
 
@@ -113,11 +123,14 @@ These were drafted as Planned; they are **live** in `guide.js`. Briefs retained 
 
 | Title | URL | Stage |
 |-------|-----|-------|
+| Bojjhaṅgā — the seven factors of awakening | `/concepts/bojjhangas/` | 3 |
+| Taṇhā — craving as the origin | `/concepts/tanha/` | 2 |
 | Kamma — action and its result | `/concepts/kamma/` | 2 |
 | The Middle Way | `/concepts/middle-way/` | 2 |
 | Sallatha Sutta — The Dart | `/suttas/sallatha/` | 2 |
 | Vedanā — feeling-tone | `/concepts/vedana/` | 2 |
 | Right effort — the four right efforts | `/concepts/right-effort/` | 3 |
+| Sati — mindfulness and wise attention | `/concepts/sati/` | 2 |
 
 ---
 
@@ -220,6 +233,10 @@ Now Stage 5 opener — light bridge from insight cycles / lived anattā: don’t
 | `/suttas/satipatthana/` | Related: vedanā + Sallatha once live. |
 | `/suttas/anapanasati/` | Related: how-to-sit, hindrances, right effort once live. |
 | `/concepts/papanca/` | Future Madhupiṇḍika (MN 18) if added to guide later. |
+| `/concepts/five-hindrances/` | Bojjhaṅgā list-mention linked to `/concepts/bojjhangas/` (shipped). |
+| `/concepts/how-to-sit/` | Related: Sati added (live). |
+| `/concepts/vedana/` | Related: Taṇhā live. |
+| Sense restraint / right speech how-to / mettā how-to / walking / early refuge | Next-tier curriculum gaps — not yet briefed; revisit after the remaining bedrock pages ship. |
 | `CONTENT_PLAN` / skill | `write-planned-article` already accepts `/suttas/` when the brief’s Section says so. |
 
 ---
@@ -267,7 +284,7 @@ Skills: planned pages → [write-planned-article](.cursor/skills/write-planned-a
 
 ### A. When a planned page ships
 
-Use with the matching brief above. Remaining planned gaps: **none**.
+Use with the matching brief above. Remaining planned gaps: **none** (queue empty).
 
 **Discover & draft**
 - [ ] Confirm gap: `planned: true` in `_data/guide.js` **and** no file at brief’s Section/slug
